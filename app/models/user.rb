@@ -6,4 +6,16 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
+
+  before_create :update_control_group
+
+  private
+
+  def update_control_group
+    if Kernel.rand < 0.5
+      self.control_group = false
+    else
+      self.control_group = true
+    end
+  end
 end
