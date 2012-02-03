@@ -7,11 +7,11 @@ defaults: &DEFAULTS
 
 development:
   <<: *DEFAULTS
-  database: kodu_development
+  database: pathfinder_development
 
 test: &TEST
   <<: *DEFAULTS
-  database: kodu_test
+  database: pathfinder_distributor_test
 
 cucumber:
   <<: *TEST
