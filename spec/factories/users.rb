@@ -2,7 +2,12 @@
 
 FactoryGirl.define do
   factory :user do
-    sequence(:email)      {|n| "user#{n}@example.com" }
+    sequence(:email)      {|n| "user#{n}#{rand}@example.com" }
     password "Passw0rd"
+    consented false
+
+    factory :consenting_user do
+      consented true
+    end
   end
 end

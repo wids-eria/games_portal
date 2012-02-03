@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
   private
 
   def update_control_group
-    if Kernel.rand < 0.5
+    if rand() < 0.5
       self.control_group = false
     else
       self.control_group = true
