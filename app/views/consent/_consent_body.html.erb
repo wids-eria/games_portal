@@ -43,11 +43,17 @@
      
     <div class="AcceptDecline_container">    
         <ul class="AcceptDecline">            
-            <li><a href=""><span>Accept</span></a></li>
-            <li><a href=""><span>Decline</span></a></li>
+          <li>
+            <%= link_to consent_consent_path, :method => :put do %>
+              <span>Accept</span>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to destroy_user_session_path, :method => :delete do %>
+              <span>Decline</span>
+            <% end %>
+          </li>
         </ul>
     </div>
     
 </div>
-
-<hr>
