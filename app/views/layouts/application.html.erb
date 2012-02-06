@@ -21,7 +21,9 @@
       <div class="wid_logo"></div>
       <div class="uwm_logo"></div>
   </div>
-  <%= link_to "logout", destroy_user_session_path, :method => :delete %>
+  <% if user_signed_in? %>
+    <%= link_to "logout", destroy_user_session_path, :method => :delete %>
+  <% end %>
 </div>
 
 </body>
