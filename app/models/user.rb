@@ -12,10 +12,12 @@ class User < ActiveRecord::Base
   private
 
   def update_control_group
-    if rand() < 0.5
-      self.control_group = false
-    else
-      self.control_group = true
+    if self.control_group.blank?
+      if rand() < 0.5
+        self.control_group = false
+      else
+        self.control_group = true
+      end
     end
 
     true

@@ -1,7 +1,7 @@
-class DistributorController < ApplicationController
+class GameController < ApplicationController
   before_filter :authenticate_user!
   before_filter :must_consent
 
-  def index
+  def player
   end
 end

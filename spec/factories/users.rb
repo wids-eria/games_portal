@@ -8,6 +8,14 @@ FactoryGirl.define do
 
     factory :consenting_user do
       consented true
+
+      factory :consenting_control_user do
+        control_group true
+      end
+
+      factory :consenting_game_user do
+        control_group false
+      end
     end
   end
 end
