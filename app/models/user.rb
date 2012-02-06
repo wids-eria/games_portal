@@ -17,5 +17,7 @@ class User < ActiveRecord::Base
     else
       self.control_group = true
     end
+
+    true
   end
 end

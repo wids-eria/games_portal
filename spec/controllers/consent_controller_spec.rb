@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe UsersController do
+describe ConsentController do
   render_views
 
   let(:user) { Factory :user }
@@ -11,7 +11,7 @@ describe UsersController do
 
   describe "GET 'consent_form'" do
     it "returns success" do
-      get 'consent_form'
+      get 'form'
       response.should be_success
     end
   end

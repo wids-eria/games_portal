@@ -2,13 +2,26 @@
 <html>
 <head>
   <title>PathfinderDistributor</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= stylesheet_link_tag    "style", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+
+  <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Homenaje' rel='stylesheet' type='text/css'>
 </head>
 <body>
 
-<%= yield %>
+<div class="page_wrap">
+  <%= yield %>
+  <hr>
+
+  <div class="footer">
+      <div class="eria_logo"></div>
+      <div class="mir_logo"></div>
+      <div class="wid_logo"></div>
+      <div class="uwm_logo"></div>
+  </div>
+</div>
 
 </body>
 </html>

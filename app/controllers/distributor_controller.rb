@@ -9,7 +9,7 @@ class DistributorController < ApplicationController
 
   def must_consent
     unless current_user.consented?
-      redirect_to users_consent_form_url
+      redirect_to consent_form_url
     end
   end
 end

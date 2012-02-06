@@ -1,7 +1,7 @@
-class UsersController < ApplicationController
+class ConsentController < ApplicationController
   before_filter :authenticate_user!
 
-  def consent_form
+  def form
   end
 
   def consent

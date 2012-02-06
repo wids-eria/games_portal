@@ -1,11 +1,9 @@
 PathfinderDistributor::Application.routes.draw do
-  get "users/consent"
-
   devise_for :users
 
   get "distributor/index"
-  get "users/consent_form"
-  put "users/consent"
+  get "consent/form"
+  put "consent/consent"
 
   root :to => "distributor#index"
 end
