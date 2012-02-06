@@ -15,6 +15,7 @@ end
 
 gem 'jquery-rails'
 gem 'capistrano'
+gem 'capistrano-ext'
 
 group :development, :test do
   gem 'rspec-rails'
