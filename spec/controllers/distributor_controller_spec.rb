@@ -19,7 +19,7 @@ describe DistributorController do
       user = Factory :consenting_game_user
       sign_in :user, user
       get 'index'
-      response.should redirect_to(game_player_path)
+      response.should redirect_to(game_url)
     end
 
     it "redirects to consent if not consented" do
