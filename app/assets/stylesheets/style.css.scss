@@ -361,7 +361,7 @@ p{ color:#4b433b; font-family:georgia; font-size:14px; }
 .orange{ color:#bb7b4b; }
 .bold{ font-weight:bold; }
 
-input.SignInButton{ background:#bc7b4b;
+input.SignInButton, input.SignUpButton, input.ResetPasswordButton{ background:#bc7b4b;
         border:4px solid #4b433b;
         padding:5px;
         display:block;
@@ -380,7 +380,7 @@ input.SignInButton{ background:#bc7b4b;
         border-radius: 10px; 
         -khtml-border-radius: 10px;
 }
-    input.SignInButton:hover{
+    input.SignInButton:hover, input.SignUpButton:hover, input.ResetPasswordButton{
         background:#e2aa81;
         border:4px solid #9b8c7d;
         color:white;
@@ -390,13 +390,13 @@ input.SignInButton{ background:#bc7b4b;
         -webkit-transition: all 0.2s ease;
     }
 
- .SignUp, .ForgotPassword{ color:#4b433b; margin-right:20px; }
-    .SignUp:hover, .ForgotPassword:hover{ color:#bb7b4b; border-bottom:2px dotted #bb7b4b; }
+ .SignUp, .SignIn, .ForgotPassword{ color:#4b433b; margin-right:20px; }
+    .SignUp:hover, .SignIn:hover, .ForgotPassword:hover{ color:#bb7b4b; border-bottom:2px dotted #bb7b4b; }
     .SignUp_ForgotPassword_container{ margin:10px 0 0 360px; }
 
 .new_user{ margin:0 0 0 360px; }
 label{ color:#4b433b; font-family:georgia; font-size:14px; }
-#user_email, #user_password{
+#user_email, #user_password, #user_password_confirmation{
     padding:10px;
     border:none;
     border:3px solid #ab9d90;
