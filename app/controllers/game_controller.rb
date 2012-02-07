@@ -5,4 +5,7 @@ class GameController < ApplicationController
   def player
     authorize! :read, :game
   end
+
+  def iat
+  end
 end

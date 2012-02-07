@@ -1,5 +1,3 @@
-<!-- Unity Player -->
-<script type="text/javascript" src="http://webplayer.unity3d.com/download_webplayer-3.x/3.0/uo/UnityObject.js"></script>
 <script type="text/javascript">
 <!--
 function GetUnity() {
@@ -9,21 +7,23 @@ function GetUnity() {
   return null;
 }
 if (typeof unityObject != "undefined") {
-  unityObject.embedUnity("unityPlayer", "PathfinderWebPlayer.unity3d", 800, 600);
+  unityObject.embedUnity("unityPlayer", "iat.unity3d", 800, 600);
+}
+
+function GetAuthToken(){
+  GetUnity().SendMessage("ADA", "ListenForToken", "PassedToken");
 }
 -->
 </script>
 
-<div class="help_us_button_game_page">
-    <p class="help_text">Want to help with our research?</p>
-    <%= link_to iat_path, class: "iat_link" do %>
-      <span>Click Here</span>
-    <% end %>
-</div>
+<br />
+<br />
 
-<hr>
+<div class="main_content">
+  <div class="mc_header">
+      <h1>Implicit Association Test (IAT)</h1>
+  </div>
 
-<div class="login_container">
   <div id="unityPlayer">
     <div class="missing">
       <a href="http://unity3d.com/webplayer/" title="Unity Web Player. Install now!">
