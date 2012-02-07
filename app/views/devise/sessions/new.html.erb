@@ -1,15 +1,14 @@
 <div class="large_pathfinder_logo"></div>
 
 <hr>
+
 <div class="login_container">    
   <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-    <div><%= f.label :email %><br />
-    <%= f.email_field :email %></div>
+    <div><%= f.email_field :email, placeholder: "Enter Email" %></div>
 
-    <div><%= f.label :password %><br />
-    <%= f.password_field :password %></div>
+    <div><%= f.password_field :password, placeholder: "Enter Password" %></div>
 
-    <div><%= f.submit "Sign in" %></div>
+    <div><%= f.submit "Sign in", class: "SignInButton" %></div>
   <% end %>
 
   <%= render "links" %>

@@ -15,6 +15,23 @@
   <%= yield %>
   <hr>
 
+  <% if user_signed_in? %>
+    <div class="LoggedInAs">
+      <p>Logged in as
+        <span class="orange bold"><%= current_user.email %></span>
+        <ul class="Logged">
+          <li>
+            <%= link_to destroy_user_session_path, :method => :delete do %>
+              <span>Log Out</span>
+            <% end %>
+          </li>
+        </ul>
+      </p>
+    </div>
+
+    <hr>
+  <% end %>
+
   <div class="footer">
       <div class="eria_logo"></div>
       <div class="mir_logo"></div>
