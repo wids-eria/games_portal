@@ -1,0 +1,32 @@
+<!-- Unity Player -->
+<script type="text/javascript" src="http://webplayer.unity3d.com/download_webplayer-3.x/3.0/uo/UnityObject.js"></script>
+<script type="text/javascript">
+<!--
+function GetUnity() {
+        if (typeof unityObject != "undefined") {
+                return unityObject.getObjectById("unityPlayer");
+        }
+        return null;
+}
+if (typeof unityObject != "undefined") {
+        unityObject.embedUnity("unityPlayer", "PathfinderWebPlayer.unity3d", 800, 600);
+}
+-->
+</script>
+
+<div class="help_us_button_game_page">
+    <p class="help_text">Want to help with our research?</p>
+    <a href="" class="iat_link"><span>Click Here</span></a>
+</div>
+
+<hr>
+
+<div class="login_container">
+  <div id="unityPlayer">
+    <div class="missing">
+      <a href="http://unity3d.com/webplayer/" title="Unity Web Player. Install now!">
+        <img alt="Unity Web Player. Install now!" src="http://webplayer.unity3d.com/installation/getunity.png" width="193" height="63" />
+      </a>
+    </div>
+  </div>
+</div>
