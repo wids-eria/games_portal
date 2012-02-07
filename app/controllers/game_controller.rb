@@ -3,5 +3,6 @@ class GameController < ApplicationController
   before_filter :must_consent
 
   def player
+    authorize! :read, :game
   end
 end

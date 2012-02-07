@@ -18,8 +18,9 @@ describe GameController do
     it "redirects for a consenting control user" do
       user = Factory :consenting_control_user
       sign_in :user, user
-      get :player
-      response.should be_redirect
+      expect {
+        get :player
+      }.to raise_error(CanCan::AccessDenied)
     end
   end
 end
