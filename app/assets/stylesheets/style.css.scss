@@ -219,7 +219,7 @@ p{ color:#4b433b; font-family:georgia; font-size:14px; }
             .example_text p{ color:#4b433b; }
 
 
-.AcceptDecline_container , .login_container{ width:100%; float:left; }
+.AcceptDecline_container , .login_container{ float:left; }
 .AcceptDecline{ float:left; margin-left:370px; }
         .AcceptDecline li{ float:left; display:inline; margin:0 0 20px 5px; -webkit-transition: all 0.2s ease;}
             .AcceptDecline li a{
@@ -324,8 +324,6 @@ p{ color:#4b433b; font-family:georgia; font-size:14px; }
     width: 800px;
 }
 
-
-.login_container{ float:left; }
 
 .LoggedInAs{ width:100%; float:left; text-align:center; }
 .LoggedInAs p{ float:left; margin:12px 0 0 250px; text-shadow:0px 1px 1px white; }
