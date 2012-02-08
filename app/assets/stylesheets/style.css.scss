@@ -325,6 +325,8 @@ p{ color:#4b433b; font-family:georgia; font-size:14px; }
 }
 
 
+.login_container{ float:left; }
+
 .LoggedInAs{ width:100%; float:left; text-align:center; }
 .LoggedInAs p{ float:left; margin:12px 0 0 250px; text-shadow:0px 1px 1px white; }
     .Logged{ float:left; width:100px; margin:0 0 0 20px; padding:0 0 0 20px; border-left:1px solid #d9d2c0; }
@@ -397,6 +399,7 @@ input.SignInButton, input.SignUpButton, input.ResetPasswordButton{ background:#b
 .new_user{ margin:0 0 0 360px; }
 label{ color:#4b433b; font-family:georgia; font-size:14px; }
 #user_email, #user_password, #user_password_confirmation{
+    float: left;
     padding:10px;
     border:none;
     border:3px solid #ab9d90;
@@ -410,6 +413,42 @@ label{ color:#4b433b; font-family:georgia; font-size:14px; }
     -webkit-border-radius: 10px;
     border-radius: 10px; 
     -khtml-border-radius: 10px;
+}
+
+.field_with_errors #user_email,
+.field_with_errors #user_password,
+.field_with_errors #user_password_confirmation
+{
+    border:3px solid #e16161;
+    float:left;
+}
+
+.error_list{ list-style:disc; }
+    .error_list li{
+        color:#e16161;
+        margin:10px 0 10px 35px;
+    }
+
+#error_explanation h4{ font-family: georgia; color:#e16161;}
+
+.error_box{
+    margin:5px 0 0 5px;
+    border:none;
+    float:left;
+    border:3px solid #e16161;
+    background: #fffef6;
+    font-family:georgia;
+    color:#bb7b4b;
+    font-size:14px;
+    
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px; 
+    -khtml-border-radius: 10px;
+    
+    background: image-url("pf_control_sprite.png") no-repeat -23px -131px;
+    width: 25px;
+    height: 25px;
 }
 
 
