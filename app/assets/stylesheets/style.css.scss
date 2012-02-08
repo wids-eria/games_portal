@@ -260,11 +260,10 @@ p{ color:#4b433b; font-family:georgia; font-size:14px; }
     background:image-url("big_pathfinder_logo.png");
 }
 
-
 .footer{ width:980px; float:left; margin:0 0 20px 0; }
     .eria_logo{
         float:left;
-        margin:20px 40px 0 100px;
+        margin:20px 40px 0 60px;
         
         background: image-url("pf_control_sprite.png") no-repeat -97px -113px;
 	width: 69px;
@@ -288,14 +287,18 @@ p{ color:#4b433b; font-family:georgia; font-size:14px; }
     }
     .uwm_logo{
         float:left;
-        margin:0 0 0 0;
+        margin:0 40px 0 0;
         background: image-url("pf_control_sprite.png") no-repeat -52px -296px;
 	width: 160px;
 	height: 67px;
     }
-
-
-
+    .NIH_logo{
+        float:left;
+        margin:0 0 0 0;
+        background: image-url("pf_control_sprite.png") no-repeat -106px -371px;
+	width: 66px;
+	height: 66px;
+    }
 
 
 /*--UNITY-----------------------------------------------------------------------------*/
