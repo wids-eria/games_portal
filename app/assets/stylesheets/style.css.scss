@@ -41,7 +41,7 @@ p{ color:#4b433b; font-family:georgia; font-size:14px; }
         padding:0 15px 0 0;
         border-right:1px solid #b9aea0;
         
-        background: image-url("pf_control_sprite.png") no-repeat -31px -31px;
+        background: image-url("pf_control_sprite.png") no-repeat -37px -22px;
 	width: 201px;
 	height: 49px;
     }
@@ -265,37 +265,40 @@ p{ color:#4b433b; font-family:georgia; font-size:14px; }
         float:left;
         margin:20px 40px 0 60px;
         
-        background: image-url("pf_control_sprite.png") no-repeat -97px -113px;
-	width: 69px;
-	height: 48px;    
+        background: image-url("pf_control_sprite.png") no-repeat -103px -104px;
+	width: 68px;
+	height: 47px;    
     }
     .mir_logo{
         float:left;
         margin:20px 40px 0 0;
         
-        background: image-url("pf_control_sprite.png") no-repeat -31px -252px;
-	width: 202px;
-	height: 25px;        
+        background: image-url("pf_control_sprite.png") no-repeat -37px -243px;
+	width: 201px;
+	height: 24px;        
     }
     .wid_logo{
         float:left;
         margin:20px 40px 0 0;
         
-        background: image-url("pf_control_sprite.png") no-repeat -31px -192px;
-	width: 202px;
-	height: 25px;        
+       background: image-url("pf_control_sprite.png") no-repeat -37px -183px;
+	width: 201px;
+	height: 24px;       
     }
     .uwm_logo{
         float:left;
         margin:0 40px 0 0;
-        background: image-url("pf_control_sprite.png") no-repeat -52px -296px;
+        
+        background: image-url("pf_control_sprite.png") no-repeat -58px -287px;
 	width: 160px;
 	height: 67px;
     }
+    
     .NIH_logo{
         float:left;
         margin:0 0 0 0;
-        background: image-url("pf_control_sprite.png") no-repeat -106px -371px;
+        
+        background: image-url("pf_control_sprite.png") no-repeat -112px -362px;
 	width: 66px;
 	height: 66px;
     }
@@ -447,7 +450,7 @@ label{ color:#4b433b; font-family:georgia; font-size:14px; }
     border-radius: 10px; 
     -khtml-border-radius: 10px;
     
-    background: image-url("pf_control_sprite.png") no-repeat -23px -131px;
+    background: image-url("pf_control_sprite.png") no-repeat -29px -122px;
     width: 25px;
     height: 25px;
 }
