@@ -30,6 +30,8 @@ p{ color:#4b433b; font-family:georgia; font-size:14px; }
 .clear{ clear: both; }
 .floatleft{ float:left; }
 
+
+
 /* end CLASSES ----------------------------------*/
 
 .page_wrap{ width:980px; margin:0 auto; }
@@ -219,7 +221,7 @@ p{ color:#4b433b; font-family:georgia; font-size:14px; }
             .example_text p{ color:#4b433b; }
 
 
-.AcceptDecline_container , .login_container{ float:left; }
+.AcceptDecline_container { width:100%; float:left; }
 .AcceptDecline{ float:left; margin-left:370px; }
         .AcceptDecline li{ float:left; display:inline; margin:0 0 20px 5px; -webkit-transition: all 0.2s ease;}
             .AcceptDecline li a{
@@ -255,10 +257,12 @@ p{ color:#4b433b; font-family:georgia; font-size:14px; }
 
 .large_pathfinder_logo{
     margin:20px 0 0 310px;
+
     height:400px;
     width:313px;
     background:image-url("big_pathfinder_logo.png");
 }
+
 
 .footer{ width:980px; float:left; margin:0 0 20px 0; }
     .eria_logo{
@@ -304,6 +308,9 @@ p{ color:#4b433b; font-family:georgia; font-size:14px; }
     }
 
 
+
+
+
 /*--UNITY-----------------------------------------------------------------------------*/
 
 .missing {
@@ -331,8 +338,12 @@ p{ color:#4b433b; font-family:georgia; font-size:14px; }
 }
 
 
+
+
+.login_container{ float:left; }
+
 .LoggedInAs{ width:100%; float:left; text-align:center; }
-.LoggedInAs p{ float:left; margin:12px 0 0 250px; text-shadow:0px 1px 1px white; }
+.LoggedInAs p{ float:left; margin:12px 0 0 290px; text-shadow:0px 1px 1px white; }
     .Logged{ float:left; width:100px; margin:0 0 0 20px; padding:0 0 0 20px; border-left:1px solid #d9d2c0; }
     .Logged li{ display:inline; margin:0 0 0 0; -webkit-transition: all 0.2s ease;}
             .Logged li a{
@@ -403,7 +414,7 @@ input.SignInButton, input.SignUpButton, input.ResetPasswordButton{ background:#b
 .new_user{ margin:0 0 0 360px; }
 label{ color:#4b433b; font-family:georgia; font-size:14px; }
 #user_email, #user_password, #user_password_confirmation{
-    float: left;
+    float:left;
     padding:10px;
     border:none;
     border:3px solid #ab9d90;
@@ -418,6 +429,7 @@ label{ color:#4b433b; font-family:georgia; font-size:14px; }
     border-radius: 10px; 
     -khtml-border-radius: 10px;
 }
+
 
 .field_with_errors #user_email,
 .field_with_errors #user_password,
@@ -456,7 +468,6 @@ label{ color:#4b433b; font-family:georgia; font-size:14px; }
 }
 
 
-        
 /* DROPDOWN --------------------------------------------------------------------*/
 /* Main menu settings */
 #centeredmenu {
@@ -594,7 +605,7 @@ label{ color:#4b433b; font-family:georgia; font-size:14px; }
    display:block; /* Show the sub menus */
 }
 
-.do_barrel_roll {
+.do_a_barrel_roll {
   -webkit-animation-name: rotateThis;
   -webkit-animation-duration:2s;
   -webkit-animation-iteration-count:infinite;
