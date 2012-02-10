@@ -57,6 +57,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.2.0)
+    connection_ninja (0.4.1)
     cucumber (1.1.4)
       builder (>= 2.1.2)
       diff-lcs (>= 1.1.2)
@@ -193,6 +194,7 @@ DEPENDENCIES
   capistrano-ext
   capybara
   coffee-rails (~> 3.2.1)
+  connection_ninja
   cucumber-rails
   database_cleaner
   devise
