@@ -11,6 +11,10 @@ function GetUnity() {
 if (typeof unityObject != "undefined") {
   unityObject.embedUnity("unityPlayer", "/assets/PathfinderWebPlayer.unity3d", 800, 600);
 }
+
+function GetAuthToken(){
+  return <%= current_user.authentication_token.to_json.html_safe %>;
+}
 -->
 </script>
 

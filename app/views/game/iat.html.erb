@@ -14,7 +14,7 @@ if (typeof unityObject != "undefined") {
 }
 
 function GetAuthToken(){
-  GetUnity().SendMessage("ADA", "ListenForToken", "PassedToken");
+  return <%= current_user.authentication_token.to_json.html_safe %>;
 }
 -->
 </script>
