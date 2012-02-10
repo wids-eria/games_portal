@@ -1,0 +1,20 @@
+<!-- Unity Player -->
+<script type="text/javascript" src="http://webplayer.unity3d.com/download_webplayer-3.x/3.0/uo/UnityObject.js"></script>
+
+<script type="text/javascript">
+<!--
+function GetUnity() {
+  if (typeof unityObject != "undefined") {
+    return unityObject.getObjectById("unityPlayer");
+  }
+  return null;
+}
+if (typeof unityObject != "undefined") {
+  unityObject.embedUnity("unityPlayer", "/assets/<%= game %>.unity3d", 800, 600);
+}
+
+function GetAuthToken(){
+  GetUnity().SendMessage("ADA", "ListenForToken", <%= current_user.authentication_token.to_json.html_safe %>);
+}
+-->
+</script>
