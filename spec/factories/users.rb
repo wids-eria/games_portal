@@ -18,4 +18,25 @@ FactoryGirl.define do
       end
     end
   end
+
+  factory :user_no_email, class: User do
+    sequence(:email)      {|n| "user#{n}#{rand}" }
+    password "Passw0rd"
+    consented false
+    
+    factory :consenting_user_no_email do
+      consented true
+
+      factory :consenting_control_user_no_email do
+        control_group true
+      end
+
+      factory :consenting_game_user_no_email do
+        control_group false
+      end
+    end
+    
+
+  end
+  
 end

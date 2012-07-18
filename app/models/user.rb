@@ -12,6 +12,14 @@ class User < ActiveRecord::Base
 
   before_create :update_control_group
   before_save :ensure_authentication_token
+  #before_validation_on_create :check_and_make_email_valid
+  before_validation :check_and_make_email_valid, :on => :create
+ 
+  def self.find_for_database_authentication(warden_conditions)
+    conditions = warden_conditions.dup
+    login = conditions.delete(:email)
+    where(conditions).where(["lower(email) = :username OR lower(email) = :email", { :email => login.strip.downcase, :username => login.strip.downcase+'@stu.de.nt' }]).first
+  end
 
   private
 
@@ -25,5 +33,12 @@ class User < ActiveRecord::Base
     end
 
     true
+  end
+
+  def check_and_make_email_valid
+    if not self.email.include?('@')
+      self.email = self.email + '@stu.de.nt'
+      puts self.email
+    end
   end
 end
