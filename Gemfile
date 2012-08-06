@@ -19,6 +19,10 @@ gem 'jquery-rails'
 gem 'capistrano'
 gem 'capistrano-ext'
 
+group :development do
+  gem 'rvm-capistrano'
+end
+
 group :development, :test do
   gem 'rspec-rails'
   gem 'capybara'
