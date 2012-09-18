@@ -4,7 +4,7 @@
 
 <div class="login_container">
   <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-    <div><%= f.text_field :email, placeholder: "Enter Username" %></div>
+    <div><%= f.text_field :login, placeholder: "Enter Username" %></div>
 
     <div><%= f.password_field :password, placeholder: "Enter Password" %></div>
 

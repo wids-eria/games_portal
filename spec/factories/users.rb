@@ -20,7 +20,7 @@ FactoryGirl.define do
   end
 
   factory :user_no_email, class: User do
-    sequence(:email)      {|n| "user#{n}#{rand}" }
+    sequence(:player_name)      {|n| "user#{n}#{rand}" }
     password "Passw0rd"
     consented false
     

@@ -5,20 +5,21 @@ class User < ActiveRecord::Base
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
-         :token_authenticatable
+         :token_authenticatable, :authentication_keys => [:login]
 
+  attr_accessor :login
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :authentication_token
+  attr_accessible :email, :player_name, :password, :password_confirmation, :remember_me, :authentication_token
 
   before_create :update_control_group
   before_save :ensure_authentication_token
-  #before_validation_on_create :check_and_make_email_valid
-  before_validation :check_and_make_email_valid, :on => :create
- 
+  before_validation :set_email_from_player_name, :on => :create
+
+
   def self.find_for_database_authentication(warden_conditions)
     conditions = warden_conditions.dup
-    login = conditions.delete(:email)
-    where(conditions).where(["lower(email) = :username OR lower(email) = :email", { :email => login.strip.downcase, :username => login.strip.downcase+'@stu.de.nt' }]).first
+    login = conditions.delete(:login)
+    where(conditions).where(["lower(player_name) = :login OR lower(email) = :login", login: login.strip.downcase]).first
   end
 
   private
@@ -35,10 +36,10 @@ class User < ActiveRecord::Base
     true
   end
 
-  def check_and_make_email_valid
-    if not self.email.include?('@')
-      self.email = self.email + '@stu.de.nt'
-      puts self.email
-    end
+  def set_email_from_player_name
+    return if self.email.present?
+    return if self.player_name.blank?
+
+    self.email = self.player_name + "@stu.de.nt"
   end
 end
