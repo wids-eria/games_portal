@@ -4,7 +4,7 @@ class DistributorController < ApplicationController
 
   def index
     if current_user.control_group?
-      redirect_to "http://pathfinder_control.dev.mirerca.com"
+      redirect_to "http://fairplay.control.dev.eriainteractive.com"
     else
       redirect_to game_url
     end
