@@ -414,7 +414,7 @@ input.SignInButton, input.SignUpButton, input.ResetPasswordButton{ background:#b
 
 .new_user{ margin:0 0 0 360px; }
 label{ color:#4b433b; font-family:georgia; font-size:14px; }
-#user_email, #user_password, #user_password_confirmation{
+#user_login, #user_password, #user_password_confirmation{
     float:left;
     padding:10px;
     border:none;
@@ -432,7 +432,7 @@ label{ color:#4b433b; font-family:georgia; font-size:14px; }
 }
 
 
-.field_with_errors #user_email,
+.field_with_errors #user_login,
 .field_with_errors #user_password,
 .field_with_errors #user_password_confirmation
 {
