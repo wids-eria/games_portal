@@ -15,7 +15,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'jquery-rails'
+gem 'jquery-rails' , '~> 2.0.1'
 gem 'capistrano'
 gem 'capistrano-ext'
 
