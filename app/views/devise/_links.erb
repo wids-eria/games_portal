@@ -4,12 +4,10 @@
   <%= link_to "Sign in", new_session_path(resource_name), class: "SignIn" %>
 <% end -%>
 
-<%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-  <%= link_to "Sign up", new_registration_path(resource_name), class: "SignUp" %>
-<% end -%>
-
-<%- if devise_mapping.recoverable? && controller_name != 'passwords' %>
-  <%= link_to "Forgot your password?", new_password_path(resource_name), class: "ForgotPassword" %>
+<% if logged_in %>
+  <%= link_to "Logout", main_app.logout_path, class: "SignUp" , method: :delete%>
+<% else %>
+  <%= link_to "Sign up", main_app.login_path, class: "SignUp" %>
 <% end -%>
 
 <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>

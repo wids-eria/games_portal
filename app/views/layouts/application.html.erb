@@ -21,7 +21,7 @@
         <span class="orange bold"><%= current_user.email %></span>
         <ul class="Logged">
           <li>
-            <%= link_to destroy_user_session_path, :method => :delete do %>
+            <%= link_to main_app.logout, :method => :delete do %>
               <span>Log Out</span>
             <% end %>
           </li>
