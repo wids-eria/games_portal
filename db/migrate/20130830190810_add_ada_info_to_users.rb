@@ -1,8 +1,7 @@
 class AddAdaInfoToUsers < ActiveRecord::Migration
   def up
     add_column :users, :ada_id, :integer
-   # remove_column :users, :ada_id
-   # remove_column :users, :ada_id
+    add_index :users, :ada_id, :unique => true
   end
 
   def remove

@@ -7,9 +7,11 @@ PathfinderDistributor::Application.routes.draw do
   get 'iat' => "game#iat"
   put "consent/consent"
 
-  get 'auth/ada/callback' => 'session#from_oauth'
+  get 'auth/:provider/callback' => 'session#from_oauth'
+  get 'auth/failure' => 'session#failure'
 
   get 'users/new_user' => 'session#create'
+
   get 'login' => 'session#login'
   delete 'logout' => 'session#destroy'
 
