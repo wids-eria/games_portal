@@ -1,16 +1,21 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
-  def current_account
-    return User.find_by_ada_id(session[:ada_id])
+  def current_user
+    if session[:current_user].nil?
+      session[:current_user] = User.find_by_ada_id(session[:ada_id])
+    end
+    return session[:current_user]
   end
 
   def present_login
-    redirect_to main_app.login_path
+    unless current_user
+      redirect_to new_user_session_path
+    end
   end
 
   def login_required
-    if !current_account
+    if !current_user
       respond_to do |format|
         session[:type] = request.query_parameters['type']
         format.html  {

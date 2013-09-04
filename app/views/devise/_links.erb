@@ -4,9 +4,7 @@
   <%= link_to "Sign in", new_session_path(resource_name), class: "SignIn" %>
 <% end -%>
 
-<% if logged_in %>
-  <%= link_to "Logout", main_app.logout_path, class: "SignUp" , method: :delete%>
-<% else %>
+<% if !logged_in %>
   <%= link_to "Sign up", main_app.login_path, class: "SignUp" %>
 <% end -%>
 

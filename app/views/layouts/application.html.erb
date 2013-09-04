@@ -18,10 +18,10 @@
   <% if user_signed_in? %>
     <div class="LoggedInAs">
       <p>Logged in as
-        <span class="orange bold"><%= current_user.email %></span>
+        <span class="orange bold"><%= current_user.player_name %></span>
         <ul class="Logged">
           <li>
-            <%= link_to main_app.logout, :method => :delete do %>
+            <%= link_to main_app.logout_path, :method => :delete do %>
               <span>Log Out</span>
             <% end %>
           </li>

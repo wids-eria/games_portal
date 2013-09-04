@@ -1,5 +1,6 @@
 class GameController < ApplicationController
-  before_filter :authenticate_user!
+  #before_filter :authenticate_user!
+  before_filter :present_login
   before_filter :must_consent
 
   def player
