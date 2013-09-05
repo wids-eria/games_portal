@@ -1,9 +1,7 @@
 
-
 <% if !logged_in %>
-  <%= link_to "Sign in", main_app.login_path, class: "button center" %>
+  <%= link_to "Sign in", main_app.login_path, class: "button hover center" %>
 <% end -%>
-
 
 <%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>
   <%= link_to "Didn't receive unlock instructions?", new_unlock_path(resource_name) %>
@@ -14,4 +12,3 @@
     <%= link_to "Sign in with #{provider.to_s.titleize}", omniauth_authorize_path(resource_name, provider) %>
   <% end -%>
 <% end -%>
-
