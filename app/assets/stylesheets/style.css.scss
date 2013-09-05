@@ -23,7 +23,16 @@ p{ color:#4b433b; font-family:georgia; font-size:14px; }
 /* font-family: 'Montserrat', sans-serif; */
 /* font-family: 'Homenaje', sans-serif; */
 
+/* MIXINS */
 
+@mixin rounded($radius: 0px) {
+
+    -moz-border-radius: $radius;
+    -webkit-border-radius: $radius;
+    -khtml-border-radius: $radius;
+}
+
+/* end MIXINS */
 
 /* CLASSES --------------------------------------*/
 
@@ -63,10 +72,7 @@ p{ color:#4b433b; font-family:georgia; font-size:14px; }
 
                 -webkit-transition: all 0.2s ease;
 
-                -moz-border-radius: 10px;
-                -webkit-border-radius: 10px;
-                border-radius: 10px;
-                -khtml-border-radius: 10px;
+                @include rounded(10px);
             }
             .nav li a:hover{
                 background:#e2aa81;
@@ -87,10 +93,8 @@ p{ color:#4b433b; font-family:georgia; font-size:14px; }
         padding:10px;
         margin:8px 0 0 5px;
 
-        -moz-border-radius: 10px;
-        -webkit-border-radius: 10px;
-        border-radius: 10px;
-        -khtml-border-radius: 10px;
+
+        @include rounded(10px);
     }
         .help_us_button_game_page{
         background:#507a7c;
@@ -99,10 +103,7 @@ p{ color:#4b433b; font-family:georgia; font-size:14px; }
         padding:10px;
         margin:20px 0 0 350px;
 
-        -moz-border-radius: 10px;
-        -webkit-border-radius: 10px;
-        border-radius: 10px;
-        -khtml-border-radius: 10px;
+        @include rounded(10px);
     }
         .help_text{
             color:#fddfca;
@@ -127,10 +128,8 @@ p{ color:#4b433b; font-family:georgia; font-size:14px; }
 
             -webkit-transition: all 0.2s ease;
 
-            -moz-border-radius: 10px;
-            -webkit-border-radius: 10px;
-            border-radius: 10px;
-            -khtml-border-radius: 10px;
+
+            @include rounded(10px);
         }
             .iat_link:hover{
                 background:#e2aa81;
@@ -156,10 +155,7 @@ p{ color:#4b433b; font-family:georgia; font-size:14px; }
     border: 3px solid #b9aea0;
     float:left;
 
-    -moz-border-radius: 10px;
-    -webkit-border-radius: 10px;
-    border-radius: 10px;
-    -khtml-border-radius: 10px;
+    @include rounded(10px);
 }
 
 
@@ -188,10 +184,8 @@ p{ color:#4b433b; font-family:georgia; font-size:14px; }
 
                 -webkit-transition: all 0.2s ease;
 
-                -moz-border-radius: 10px;
-                -webkit-border-radius: 10px;
-                border-radius: 10px;
-                -khtml-border-radius: 10px;
+
+                @include rounded(10px);
             }
             .bias_buttons li a:hover{
                 background:#fdfbeb;
@@ -237,10 +231,7 @@ p{ color:#4b433b; font-family:georgia; font-size:14px; }
 
                 -webkit-transition: all 0.2s ease;
 
-                -moz-border-radius: 10px;
-                -webkit-border-radius: 10px;
-                border-radius: 10px;
-                -khtml-border-radius: 10px;
+                @include rounded(10px);
             }
             .AcceptDecline li a:hover{
                 background:#e2aa81;
@@ -272,11 +263,7 @@ p{ color:#4b433b; font-family:georgia; font-size:14px; }
     text-transform:uppercase;
 
     -webkit-transition: all 0.2s ease;
-
-    -moz-border-radius: 10px;
-    -webkit-border-radius: 10px;
-    border-radius: 10px;
-    -khtml-border-radius: 10px;
+    @include rounded(10px);
 }
 
 
@@ -333,9 +320,6 @@ p{ color:#4b433b; font-family:georgia; font-size:14px; }
     }
 
 
-
-
-
 /*--UNITY-----------------------------------------------------------------------------*/
 
 .missing {
@@ -362,13 +346,9 @@ p{ color:#4b433b; font-family:georgia; font-size:14px; }
     width: 800px;
 }
 
-
-
-
 .login_container{
     float:left;
     width: 100%;
-
 }
 
 .LoggedInAs{ width:100%; float:left; text-align:center; }
@@ -388,10 +368,8 @@ p{ color:#4b433b; font-family:georgia; font-size:14px; }
 
                 -webkit-transition: all 0.2s ease;
 
-                -moz-border-radius: 10px;
-                -webkit-border-radius: 10px;
-                border-radius: 10px;
-                -khtml-border-radius: 10px;
+
+                @include rounded(10px);
             }
             .Logged li a:hover{
                 background:#e2aa81;
@@ -422,10 +400,8 @@ input.SignInButton, input.SignUpButton, input.ResetPasswordButton{ background:#b
 
         -webkit-transition: all 0.2s ease;
 
-        -moz-border-radius: 10px;
-        -webkit-border-radius: 10px;
-        border-radius: 10px;
-        -khtml-border-radius: 10px;
+
+        @include rounded(10px);
 }
     input.SignInButton:hover, input.SignUpButton:hover, input.ResetPasswordButton{
         background:#e2aa81;
@@ -454,10 +430,7 @@ label{ color:#4b433b; font-family:georgia; font-size:14px; }
     font-size:14px;
     margin:0 0 10px 0;
 
-    -moz-border-radius: 10px;
-    -webkit-border-radius: 10px;
-    border-radius: 10px;
-    -khtml-border-radius: 10px;
+    @include rounded(10px);
 }
 
 
@@ -487,10 +460,7 @@ label{ color:#4b433b; font-family:georgia; font-size:14px; }
     color:#bb7b4b;
     font-size:14px;
 
-    -moz-border-radius: 10px;
-    -webkit-border-radius: 10px;
-    border-radius: 10px;
-    -khtml-border-radius: 10px;
+    @include rounded(10px);
 
     background: image-url("pf_control_sprite.png") no-repeat -29px -122px;
     width: 25px;
