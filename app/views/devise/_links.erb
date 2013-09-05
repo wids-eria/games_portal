@@ -1,11 +1,7 @@
-<div class="SignUp_ForgotPassword_container">
 
-<%- if controller_name != 'sessions' %>
-  <%= link_to "Sign in", new_session_path(resource_name), class: "SignIn" %>
-<% end -%>
 
 <% if !logged_in %>
-  <%= link_to "Sign up", main_app.login_path, class: "SignUp" %>
+  <%= link_to "Sign in", main_app.login_path, class: "button center" %>
 <% end -%>
 
 
@@ -19,4 +15,3 @@
   <% end -%>
 <% end -%>
 
-</div>

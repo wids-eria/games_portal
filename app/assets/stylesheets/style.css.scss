@@ -42,12 +42,12 @@ p{ color:#4b433b; font-family:georgia; font-size:14px; }
         margin:25px 0 0 0;
         padding:0 15px 0 0;
         border-right:1px solid #b9aea0;
-        
+
         background: image-url("pf_control_sprite.png") no-repeat -37px -22px;
 	width: 201px;
 	height: 49px;
     }
-    
+
     .nav{ float:right; }
         .nav li{ float:left; display:inline; margin:25px 0 0 5px; -webkit-transition: all 0.2s ease;}
             .nav li a{
@@ -55,41 +55,41 @@ p{ color:#4b433b; font-family:georgia; font-size:14px; }
                 border:4px solid #4b433b;
                 padding:10px;
                 display:block;
-                
+
                 color:#fbf9e4;
                 font-size:20px;
                 font-family: 'Homenaje', sans-serif;
                 text-transform:uppercase;
-                
-                -webkit-transition: all 0.2s ease;                
-                
+
+                -webkit-transition: all 0.2s ease;
+
                 -moz-border-radius: 10px;
                 -webkit-border-radius: 10px;
-                border-radius: 10px; 
+                border-radius: 10px;
                 -khtml-border-radius: 10px;
             }
             .nav li a:hover{
                 background:#e2aa81;
                 border:4px solid #9b8c7d;
                 color:white;
-                
+
                 box-shadow:0px 3px 4px #cfc797;
-                
+
                 -webkit-transition: all 0.2s ease;
-                
+
             }
                 .nav li a span{ height:100%; width:100%; display:block; -webkit-transition: all 0.2s ease;}
-    
+
     .help_us_button{
         background:#507a7c;
         border:4px solid #4b433b;
         float:right;
         padding:10px;
-        margin:8px 0 0 5px; 
-        
+        margin:8px 0 0 5px;
+
         -moz-border-radius: 10px;
         -webkit-border-radius: 10px;
-        border-radius: 10px; 
+        border-radius: 10px;
         -khtml-border-radius: 10px;
     }
         .help_us_button_game_page{
@@ -97,11 +97,11 @@ p{ color:#4b433b; font-family:georgia; font-size:14px; }
         border:4px solid #4b433b;
         float:left;
         padding:10px;
-        margin:20px 0 0 350px; 
-        
+        margin:20px 0 0 350px;
+
         -moz-border-radius: 10px;
         -webkit-border-radius: 10px;
-        border-radius: 10px; 
+        border-radius: 10px;
         -khtml-border-radius: 10px;
     }
         .help_text{
@@ -110,7 +110,7 @@ p{ color:#4b433b; font-family:georgia; font-size:14px; }
             text-transform:uppercase;
             font-size:12px;
         }
-        
+
         .iat_link{
             background:#bc7b4b;
             border:4px solid #4b433b;
@@ -119,34 +119,34 @@ p{ color:#4b433b; font-family:georgia; font-size:14px; }
             display:block;
             width:93%;
             text-align:center;
-            
+
             color:#fbf9e4;
             font-size:12px;
             font-family: 'Montserrat', sans-serif;
             text-transform:uppercase;
-            
-            -webkit-transition: all 0.2s ease;                
-            
+
+            -webkit-transition: all 0.2s ease;
+
             -moz-border-radius: 10px;
             -webkit-border-radius: 10px;
-            border-radius: 10px; 
-            -khtml-border-radius: 10px;     
+            border-radius: 10px;
+            -khtml-border-radius: 10px;
         }
             .iat_link:hover{
                 background:#e2aa81;
                 color:white;
-                
+
                 -webkit-transition: all 0.2s ease;
             }
             .iat_link span{ height:100%; width:100%; display:block;}
-    
+
 .breadcrumbs{ width:980px; float:left; margin:0 0 20px 0; }
     .crumbs{
         color:#b9aea0;
         text-shadow:0px 1px 1px white;
         text-transform:uppercase;
         font-family: 'Montserrat', sans-serif;
-        
+
     }
 
 .main_content{
@@ -155,10 +155,10 @@ p{ color:#4b433b; font-family:georgia; font-size:14px; }
     background: #ece8d7;
     border: 3px solid #b9aea0;
     float:left;
-    
+
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
-    border-radius: 10px; 
+    border-radius: 10px;
     -khtml-border-radius: 10px;
 }
 
@@ -169,7 +169,7 @@ p{ color:#4b433b; font-family:georgia; font-size:14px; }
             font-family: 'Homenaje', sans-serif;
             text-transform:uppercase;
         }
-        
+
     .bias_buttons{ width:100%; float:left;}
         .bias_buttons li{ display:inline; margin:0 0 20px 0; float:left;}
             .bias_buttons li a{
@@ -179,18 +179,18 @@ p{ color:#4b433b; font-family:georgia; font-size:14px; }
                 padding:10px;
                 display:block;
                 font-size:19px;
-                
+
                 text-align:center;
                 color:#908074;
                 text-shadow:0px 1px 1px white;
                 text-transform:uppercase;
                 font-family: 'Montserrat', sans-serif;
-                
+
                 -webkit-transition: all 0.2s ease;
-                
+
                 -moz-border-radius: 10px;
                 -webkit-border-radius: 10px;
-                border-radius: 10px; 
+                border-radius: 10px;
                 -khtml-border-radius: 10px;
             }
             .bias_buttons li a:hover{
@@ -198,9 +198,9 @@ p{ color:#4b433b; font-family:georgia; font-size:14px; }
                 border:4px solid #beb4a6;
                 box-shadow:0px 3px 4px #cfc797;
                 color:#cfc3b3;
-                
+
                 -webkit-transition: all 0.2s ease;
-                
+
             }
                 .bias_buttons li a span{ height:100%; width:100%; display:block; }
 
@@ -209,14 +209,14 @@ p{ color:#4b433b; font-family:georgia; font-size:14px; }
     .example_container{ width:100%; float:left; }
         .ex_number{
             float:left;
-            width:160px;            
+            width:160px;
             margin:0 20px 0 0;
-            
+
             font-family: 'Homenaje', sans-serif;
             text-transform:uppercase;
         }
             .ex_number h1{ color:#908074; padding-top:15%; }
-            
+
         .example_text{ width:730px; float:right; border-left:1px solid #908074; padding-left:20px; }
             .example_text p{ color:#4b433b; }
 
@@ -229,35 +229,60 @@ p{ color:#4b433b; font-family:georgia; font-size:14px; }
                 border:4px solid #4b433b;
                 padding:10px;
                 display:block;
-                
+
                 color:#fbf9e4;
                 font-size:20px;
                 font-family: 'Homenaje', sans-serif;
                 text-transform:uppercase;
-                
-                -webkit-transition: all 0.2s ease;                
-                
+
+                -webkit-transition: all 0.2s ease;
+
                 -moz-border-radius: 10px;
                 -webkit-border-radius: 10px;
-                border-radius: 10px; 
+                border-radius: 10px;
                 -khtml-border-radius: 10px;
             }
             .AcceptDecline li a:hover{
                 background:#e2aa81;
                 border:4px solid #9b8c7d;
                 color:white;
-                
+
                 box-shadow:0px 3px 4px #cfc797;
-                
+
                 -webkit-transition: all 0.2s ease;
-                
+
             }
                 .AcceptDecline li a span{ height:100%; width:100%; display:block; -webkit-transition: all 0.2s ease;}
+
+.center{
+    margin: 0 auto;
+}
+
+.button{
+    background:#bc7b4b;
+    border:4px solid #4b433b;
+    padding:10px;
+    width: 70px;
+    display:block;
+
+    text-align:center;
+    color:#fbf9e4;
+    font-size:20px;
+    font-family: 'Homenaje', sans-serif;
+    text-transform:uppercase;
+
+    -webkit-transition: all 0.2s ease;
+
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    -khtml-border-radius: 10px;
+}
 
 
 .large_pathfinder_logo{
     margin:20px 0 0 310px;
-
+    margin: 0 auto;
     height:400px;
     width:313px;
     background:image-url("big_pathfinder_logo.png");
@@ -268,40 +293,40 @@ p{ color:#4b433b; font-family:georgia; font-size:14px; }
     .eria_logo{
         float:left;
         margin:20px 40px 0 60px;
-        
+
         background: image-url("pf_control_sprite.png") no-repeat -103px -104px;
 	width: 68px;
-	height: 47px;    
+	height: 47px;
     }
     .mir_logo{
         float:left;
         margin:20px 40px 0 0;
-        
+
         background: image-url("pf_control_sprite.png") no-repeat -37px -243px;
 	width: 201px;
-	height: 24px;        
+	height: 24px;
     }
     .wid_logo{
         float:left;
         margin:20px 40px 0 0;
-        
+
        background: image-url("pf_control_sprite.png") no-repeat -37px -183px;
 	width: 201px;
-	height: 24px;       
+	height: 24px;
     }
     .uwm_logo{
         float:left;
         margin:0 40px 0 0;
-        
+
         background: image-url("pf_control_sprite.png") no-repeat -58px -287px;
 	width: 160px;
 	height: 67px;
     }
-    
+
     .NIH_logo{
         float:left;
         margin:0 0 0 0;
-        
+
         background: image-url("pf_control_sprite.png") no-repeat -112px -362px;
 	width: 66px;
 	height: 66px;
@@ -340,7 +365,11 @@ p{ color:#4b433b; font-family:georgia; font-size:14px; }
 
 
 
-.login_container{ float:left; }
+.login_container{
+    float:left;
+    width: 100%;
+
+}
 
 .LoggedInAs{ width:100%; float:left; text-align:center; }
 .LoggedInAs p{ float:left; margin:12px 0 0 290px; text-shadow:0px 1px 1px white; }
@@ -351,28 +380,28 @@ p{ color:#4b433b; font-family:georgia; font-size:14px; }
                 border:4px solid #4b433b;
                 padding:5px;
                 display:block;
-                
+
                 color:#fbf9e4;
                 font-size:20px;
                 font-family: 'Homenaje', sans-serif;
                 text-transform:uppercase;
-                
-                -webkit-transition: all 0.2s ease;                
-                
+
+                -webkit-transition: all 0.2s ease;
+
                 -moz-border-radius: 10px;
                 -webkit-border-radius: 10px;
-                border-radius: 10px; 
+                border-radius: 10px;
                 -khtml-border-radius: 10px;
             }
             .Logged li a:hover{
                 background:#e2aa81;
                 border:4px solid #9b8c7d;
                 color:white;
-                
+
                 box-shadow:0px 3px 4px #cfc797;
-                
+
                 -webkit-transition: all 0.2s ease;
-                
+
             }
                 .Logged li a span{ height:100%; width:100%; display:block; -webkit-transition: all 0.2s ease;}
 .orange{ color:#bb7b4b; }
@@ -384,27 +413,27 @@ input.SignInButton, input.SignUpButton, input.ResetPasswordButton{ background:#b
         display:block;
         text-transform:uppercase;
         float: left;
-        
+
         width:220px;
-        
+
         color:#fbf9e4;
         font-size:20px;
         font-family: 'Homenaje', sans-serif;
-        
-        -webkit-transition: all 0.2s ease;                
-        
+
+        -webkit-transition: all 0.2s ease;
+
         -moz-border-radius: 10px;
         -webkit-border-radius: 10px;
-        border-radius: 10px; 
+        border-radius: 10px;
         -khtml-border-radius: 10px;
 }
     input.SignInButton:hover, input.SignUpButton:hover, input.ResetPasswordButton{
         background:#e2aa81;
         border:4px solid #9b8c7d;
         color:white;
-        
+
         box-shadow:0px 3px 4px #cfc797;
-        
+
         -webkit-transition: all 0.2s ease;
     }
 
@@ -424,10 +453,10 @@ label{ color:#4b433b; font-family:georgia; font-size:14px; }
     color:#bb7b4b;
     font-size:14px;
     margin:0 0 10px 0;
-    
+
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
-    border-radius: 10px; 
+    border-radius: 10px;
     -khtml-border-radius: 10px;
 }
 
@@ -457,12 +486,12 @@ label{ color:#4b433b; font-family:georgia; font-size:14px; }
     font-family:georgia;
     color:#bb7b4b;
     font-size:14px;
-    
+
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
-    border-radius: 10px; 
+    border-radius: 10px;
     -khtml-border-radius: 10px;
-    
+
     background: image-url("pf_control_sprite.png") no-repeat -29px -122px;
     width: 25px;
     height: 25px;
@@ -487,11 +516,11 @@ label{ color:#4b433b; font-family:georgia; font-size:14px; }
     border-bottom:1px solid white;
     border-top:0px;
     color:#908074;
-    
+
     text-shadow:0px 1px 1px white;
     text-transform:uppercase;
     font-family: 'Montserrat', sans-serif;
-    
+
     -webkit-border-top-left-radius: 0;
     -webkit-border-top-right-radius: 0;
     -webkit-border-bottom-right-radius: 0;
@@ -503,11 +532,11 @@ label{ color:#4b433b; font-family:georgia; font-size:14px; }
     border-top:1px solid #ece8d7;
     border-bottom:1px solid white;
     color:#908074;
-    
+
     text-shadow:0px 1px 1px white;
     text-transform:uppercase;
     font-family: 'Montserrat', sans-serif;
-    
+
     -webkit-border-top-left-radius: 0;
     -webkit-border-top-right-radius: 0;
     -webkit-border-bottom-right-radius: 0;
@@ -518,15 +547,15 @@ label{ color:#4b433b; font-family:georgia; font-size:14px; }
 #centeredmenu ul li ul li a.last_link{
     border-top:1px solid #ece8d7;
     color:#908074;
-    
+
     text-shadow:0px 1px 1px white;
     text-transform:uppercase;
     font-family: 'Montserrat', sans-serif;
-    
+
     -webkit-border-top-left-radius: 0;
     -webkit-border-top-right-radius: 0;
     -webkit-border-bottom-right-radius: 10px;
-    -webkit-border-bottom-left-radius: 10px;    
+    -webkit-border-bottom-left-radius: 10px;
 }
 
 
@@ -581,7 +610,7 @@ label{ color:#4b433b; font-family:georgia; font-size:14px; }
    font-weight:normal; /* resets the bold set for the top level menu items */
   /* overwrite line-height value from top menu */
    background:#fbf9e4;
-   
+
 }
 
 
