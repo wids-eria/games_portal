@@ -16,4 +16,5 @@ PathfinderDistributor::Application.routes.draw do
   delete 'logout' => 'session#destroy'
 
   root :to => "distributor#index"
+
 end

@@ -14,6 +14,15 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def iat_required
+    #@todo abstract out fields and url
+    user_id  = session[:ada_id]
+    count = AdaData.where({gameName: 'FairPlay',user_id: user_id, key: 'IATFinalBias'}).count()
+    if count == 0
+      redirect_to iat_url
+    end
+  end
+
   def login_required
     if !current_user
       respond_to do |format|
