@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
   end
 
   def iat_required
-    #@todo abstract out fields and url
+    #@todo find a way to abstract this so its not stupid
     user_id  = session[:ada_id]
     count = AdaData.where({gameName: 'FairPlay',user_id: user_id, key: 'IATFinalBias'}).count()
     if count == 0
