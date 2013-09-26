@@ -465,7 +465,7 @@ label{ color:#4b433b; font-family:georgia; font-size:14px; }
 }
 .error_box{
     margin:5px;
-    width: 610px;
+    width: 650px;
     padding: 8px;
     border:3px solid #e16161;
     background: #fffef6;
@@ -628,6 +628,23 @@ label{ color:#4b433b; font-family:georgia; font-size:14px; }
 #centeredmenu ul li:hover ul,
 #centeredmenu ul li.hover ul { /* This line is required for IE 6 and below */
    display:block; /* Show the sub menus */
+}
+
+.placeholder{
+    width: 300px;
+    height: 200px;
+    border: 1px solid grey;
+}
+
+.game{
+    float:left;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+.games{
+    width: 90%;
+    margin: 0 auto;
 }
 
 .do_a_barrel_roll {

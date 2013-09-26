@@ -5,9 +5,8 @@ class User < ActiveRecord::Base
 
   attr_accessor :login
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :player_name, :ada_id, :token
+  attr_accessible :email, :player_name, :ada_id, :token, :guest
 
-  before_create :update_control_group
   validates_presence_of :token, :ada_id
 
   def self.find_for_database_authentication(warden_conditions)
@@ -22,17 +21,7 @@ class User < ActiveRecord::Base
     end
   end
 
-  private
+  def self.create_guest
 
-  def update_control_group
-    if self.control_group.nil?
-      if rand() < 0.5
-        self.control_group = false
-      else
-        self.control_group = true
-      end
-    end
-
-    true
   end
 end
