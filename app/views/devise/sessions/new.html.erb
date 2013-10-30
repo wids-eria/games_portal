@@ -1,0 +1,21 @@
+<div class="large_pathfinder_logo"></div>
+
+<hr>
+<% if flash[:notice] %>
+  <div class="error_container center">
+    <div class= "error_box center ">
+      <div class="error_img"></div>
+      <span id="notice"><%= flash[:notice] %></span>
+    </div>
+  </div>
+<% end %>
+
+<div class="login_container">
+  <% form_tag("new_user", method: "get", class: "new_user") do %>
+    <div><% text_field_tag(:login, nil, placeholder: "Enter Username" , id: "user_login", size: 30) %></div>
+    <div><% password_field_tag(:password, nil, placeholder: "Enter Password" , id: "user_password", size: 30) %></div>
+    <div><% submit_tag("Sign In",class: "SignInButton") %></div>
+  <% end %>
+
+  <%= render "links" %>
+</div>

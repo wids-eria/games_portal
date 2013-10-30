@@ -1,0 +1,19 @@
+<div class="large_pathfinder_logo"></div>
+
+<hr>
+
+<div class="login_container">
+  <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+    <%= devise_error_messagez! %>
+
+    <div><%= f.text_field :player_name, placeholder: "Enter Username" %></div>
+
+    <div><%= f.password_field :password, placeholder: "Enter Password" %></div>
+
+    <div><%= f.password_field :password_confirmation, placeholder: "Password Confirmation" %></div>
+
+    <div><%= f.submit "Sign up", class: "SignUpButton" %></div>
+  <% end %>
+
+  <%= render "links" %>
+</div>

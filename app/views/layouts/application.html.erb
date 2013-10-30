@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>GlsPortal</title>
+  <%= stylesheet_link_tag    "style", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+
+  <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Homenaje' rel='stylesheet' type='text/css'>
+</head>
+<body>
+
+<div class="page_wrap">
+  <%= yield %>
+  <hr>
+
+  <% if user_signed_in? %>
+    <div class="LoggedInAs">
+      <p>Logged in as
+        <span class="orange bold"><%= current_user.player_name %></span>
+        <ul class="Logged">
+          <li>
+            <%= link_to main_app.logout_path, :method => :delete do %>
+              <span>Log Out</span>
+            <% end %>
+          </li>
+        </ul>
+      </p>
+    </div>
+
+    <hr>
+  <% end %>
+
+  <div class="footer">
+
+  </div>
+</div>
+
+</body>
+</html>

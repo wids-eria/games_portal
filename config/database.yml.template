@@ -1,0 +1,17 @@
+defaults: &DEFAULTS
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  username:
+  password:
+
+development:
+  <<: *DEFAULTS
+  database: pathfinder_development
+
+test: &TEST
+  <<: *DEFAULTS
+  database: pathfinder_distributor_test
+
+cucumber:
+  <<: *TEST
