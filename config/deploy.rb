@@ -9,8 +9,8 @@ require 'capistrano/ext/multistage'
 set :stages, %w(production staging)
 set :default_stage, "staging"
 
-set :application, "pathfinder_distributor"
-set :repository,  "git@github.com:wids-eria/pathfinder_distributor.git"
+set :application, "gls_portal"
+set :repository,  "git@github.com:wids-eria/gls_portal.git"
 set :branch, "master"
 
 set :scm, :git

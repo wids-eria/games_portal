@@ -1,20 +1,13 @@
 class User < ActiveRecord::Base
-  use_connection_ninja(:ada_database)
 
-  # Include default devise modules. Others available are:
-  # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable,
-         :token_authenticatable, :authentication_keys => [:login]
+  #inlcude these devise modules to preserve the devise routes
+  devise :registerable, :token_authenticatable, :authentication_keys => [:login]
 
   attr_accessor :login
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :player_name, :password, :password_confirmation, :remember_me, :authentication_token
+  attr_accessible :email, :player_name, :ada_id, :token, :guest
 
-  before_create :update_control_group
-  before_save :ensure_authentication_token
-  before_validation :set_email_from_player_name, :on => :create
-
+  validates_presence_of :token, :ada_id
 
   def self.find_for_database_authentication(warden_conditions)
     conditions = warden_conditions.dup
@@ -22,24 +15,13 @@ class User < ActiveRecord::Base
     where(conditions).where(["lower(player_name) = :login OR lower(email) = :login", login: login.strip.downcase]).first
   end
 
-  private
-
-  def update_control_group
-    if self.control_group.nil?
-      if rand() < 0.5
-        self.control_group = false
-      else
-        self.control_group = true
-      end
+  def self.create_from_session(session)
+    unless User.find_by_ada_id(session[:ada_id])
+      return User.create(ada_id: session[:ada_id], player_name: session[:player_name], token: session[:token])
     end
-
-    true
   end
 
-  def set_email_from_player_name
-    return if self.email.present?
-    return if self.player_name.blank?
+  def self.create_guest
 
-    self.email = self.player_name + "@stu.de.nt"
   end
 end

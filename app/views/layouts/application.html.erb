@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>PathfinderDistributor</title>
+  <title>GlsPortal</title>
   <%= stylesheet_link_tag    "style", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
@@ -18,10 +18,10 @@
   <% if user_signed_in? %>
     <div class="LoggedInAs">
       <p>Logged in as
-        <span class="orange bold"><%= current_user.email %></span>
+        <span class="orange bold"><%= current_user.player_name %></span>
         <ul class="Logged">
           <li>
-            <%= link_to destroy_user_session_path, :method => :delete do %>
+            <%= link_to main_app.logout_path, :method => :delete do %>
               <span>Log Out</span>
             <% end %>
           </li>
@@ -33,11 +33,7 @@
   <% end %>
 
   <div class="footer">
-      <div class="eria_logo"></div>
-      <div class="mir_logo"></div>
-      <div class="wid_logo"></div>
-      <div class="uwm_logo"></div>
-      <div class="NIH_logo"></div>
+
   </div>
 </div>
 

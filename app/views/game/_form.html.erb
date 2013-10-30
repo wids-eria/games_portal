@@ -1,0 +1,6 @@
+<%= simple_form_for @game do |f| %>
+  <%= f.input :name %>
+  <%= f.input :path %>
+  <%= f.input :description, as: :text %>
+  <%= f.button :submit%>
+<% end %>
