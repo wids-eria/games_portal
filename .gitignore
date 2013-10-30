@@ -19,6 +19,8 @@
 
 #ignore secret key
 /config/initializers/secret_token.rb
+<<<<<<< HEAD
+=======
 
 /config/database.yml
 /config/mongoid.yml
@@ -33,5 +35,6 @@ db_dump.sql
 .DS_Store
 /script/dumped_strings/*.txt
 
+>>>>>>> gls_portal_isaac
 # Ignore application configuration
 /config/application.yml
