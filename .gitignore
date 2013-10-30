@@ -19,3 +19,19 @@
 
 #ignore secret key
 /config/initializers/secret_token.rb
+
+/config/database.yml
+/config/mongoid.yml
+/config/initializers/external_hosts.rb
+/config/initializers/omniauth.rb
+/config/initializers/secret_token.rb
+
+/dump/
+db_dump.sql
+
+# Ignore all os stuff
+.DS_Store
+/script/dumped_strings/*.txt
+
+# Ignore application configuration
+/config/application.yml

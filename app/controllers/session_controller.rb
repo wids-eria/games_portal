@@ -21,9 +21,11 @@ class SessionController < ApplicationController
   end
 
   def destroy
-    reset_session
+    unless guest
+      flash[:notice] = %Q[You have been logged out of the GLS Portal but are still logged into your <a href="http://ada.production.eriainteractive.com">GLS account.</a>].html_safe
+    end
 
-    flash[:notice] = %Q[You have been logged out of the GLS Portal but are still logged into your <a href="http://ada.production.eriainteractive.com">GLS account.</a>].html_safe
+    reset_session
     redirect_to new_user_session_path
   end
 
@@ -33,8 +35,8 @@ class SessionController < ApplicationController
 
   def create_guest
     body = {
-      client_id: "foo",
-      client_secret: "bar",
+      client_id: ENV['ADAName'],
+      client_secret: ENV['ADASecret']
     }
 
     auth_response = HTTParty.post("http://localhost:3000/auth/ada/guest.json", body: body)
@@ -43,25 +45,10 @@ class SessionController < ApplicationController
       session[:token] = auth_response['info']['token']
       session[:guest] = auth_response['info']['guest']
       session[:ada_id] = auth_response['uid']
-      session[:player_name] = "Guest"
+      session[:player_name] = auth_response['info']['player_name']
 
       User.create_from_session(session)
     end
     redirect_to root_url
-  end
-
-  def create
-    json_body = {user: {login: params[:login], password: params[:password]}}
-    #auth_response = HTTParty.post("http://ada.production.eriainteractive.com/users/sign_in.json", body: json_body)
-    #auth_response = HTTParty.post("http://ada.production.eriainteractive.com/auth/ada/user.json", body: json_body)
-
-    if auth_response.code == 201
-      session[:token] = auth_response['authentication_token']
-      session[:player_name] = auth_response['player_name']
-    else
-      #@todo redirect to failure page
-    end
- #   redirect_to root_url
-
   end
 end

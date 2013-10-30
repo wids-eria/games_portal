@@ -8,6 +8,10 @@ class ApplicationController < ActionController::Base
     return session[:current_user]
   end
 
+  def guest
+    return current_user.guest
+  end
+
   def present_login
     unless current_user
       redirect_to new_user_session_path
