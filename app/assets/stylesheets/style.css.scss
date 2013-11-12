@@ -1,3 +1,7 @@
+/* IMPORTS */
+@import 'google_forms';
+@import 'base';
+
 *{ margin: 0;padding: 0; }
 
 /* GENERALS ------------------------------------------------------------------*/
@@ -23,15 +27,7 @@ p{ color:#4b433b; font-family:georgia; font-size:14px; }
 /* font-family: 'Montserrat', sans-serif; */
 /* font-family: 'Homenaje', sans-serif; */
 
-/* MIXINS */
 
-@mixin rounded($radius: 0px) {
-    -moz-border-radius: $radius;
-    -webkit-border-radius: $radius;
-    -khtml-border-radius: $radius;
-}
-
-/* end MIXINS */
 
 /* CLASSES --------------------------------------*/
 
@@ -481,6 +477,9 @@ label{ color:#4b433b; font-family:georgia; font-size:14px; }
     }
 }
 
+
+/* Games */
+
 .games{
     width: 100%;
     margin: 0 auto;
@@ -491,7 +490,6 @@ label{ color:#4b433b; font-family:georgia; font-size:14px; }
     margin-top: 10px;
     margin-right: 10px;
     width: 960px;
-    height: 200px;
     padding-top: 20px;
 }
 
@@ -524,4 +522,17 @@ label{ color:#4b433b; font-family:georgia; font-size:14px; }
     }
 
     float:left;
+}
+
+#game_links{
+    clear:both;
+    display: block;
+    background: #eee;
+    padding: 5px;
+
+    a{
+        margin: 10px;
+        padding: 10px;
+        font-size: 20px;
+    }
 }

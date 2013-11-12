@@ -39,11 +39,15 @@ class SessionController < ApplicationController
       client_secret: ENV['ADASecret']
     }
 
-    auth_response = HTTParty.post("http://localhost:3000/auth/ada/guest.json", body: body)
+    auth_response = HTTParty.post("http://localhost:3000/auth/guest.json", body: body)
+    token = auth_response["access_token"]
+    body = {oauth_token: token}
+
+    auth_response = HTTParty.get("http://localhost:3000/auth/ada/user.json", body: body)
 
     if auth_response.code == 200
-      session[:token] = auth_response['info']['token']
-      session[:guest] = auth_response['info']['guest']
+      session[:token] = token
+      session[:guest] = true
       session[:ada_id] = auth_response['uid']
       session[:player_name] = auth_response['info']['player_name']
 

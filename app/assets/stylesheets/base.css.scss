@@ -1,0 +1,7 @@
+/* Base Mixins */
+
+@mixin rounded($radius: 0px) {
+    -moz-border-radius: $radius;
+    -webkit-border-radius: $radius;
+    -khtml-border-radius: $radius;
+}

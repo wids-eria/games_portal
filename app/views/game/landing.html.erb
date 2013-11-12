@@ -2,27 +2,30 @@
   <h1><%= @game.name %></h1>
 
   <%= div_for(@game, :class => "game") do |g| %>
-      <%= link_to play_url(game: g.path) do %>
+      <%= link_to play_url(id: g.path) do %>
        <div class="placeholder">
 
        </div>
       <% end %>
 
     <div class="description">
-      <h4><%= g.name %></h4>
+      <h1><%= g.name %></h1>
       <p><%= g.description %></p>
     </div>
 
   <% end %>
 
   <div>
+    <h1>About</h1>
     <p>
     Intelligentsia meh aesthetic, swag slow-carb gluten-free fingerstache actually try-hard. Whatever PBR Echo Park, selfies sriracha asymmetrical wolf polaroid High Life vinyl Pitchfork. Cardigan street art art party Vice brunch, 3 wolf moon mlkshk messenger bag distillery. Sriracha put a bird on it twee pop-up ennui, chillwave lo-fi raw denim sustainable biodiesel PBR iPhone locavore pug VHS. Before they sold out craft beer skateboard meh paleo, Austin messenger bag Marfa Portland American Apparel VHS. Leggings Godard Portland street art banjo lomo Etsy, stumptown salvia fixie. Small batch mustache pop-up yr post-ironic fashion axe, Blue Bottle iPhone YOLO hella street art drinking vinegar.
     </p>
   </div>
 
   <div id="play">
-    <%= link_to "Play", play_url(game: @game.path), class: "link_button" %>
-    <%= link_to "Survey", play_url(game: @game.path), class: "link_button" %>
+    <%= link_to "Play", play_url(id: @game.path), class: "link_button" %>
+    <% unless @game.survey.nil? %>
+      <%= link_to "Survey", survey_game_url(id: @game.path), class: "link_button" %>
+    <% end %>
   </div>
 </div>
