@@ -1,0 +1,8 @@
+<% if user_signed_in? %>
+<div id="account">
+  <span class="orange bold"><%= current_user.player_name %></span>
+  <%= link_to main_app.logout_path, :method => :delete do %>
+    <span class="small">Log Out</span>
+  <% end %>
+</div>
+<% end %>

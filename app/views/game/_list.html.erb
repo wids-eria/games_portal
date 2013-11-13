@@ -1,9 +1,8 @@
-<h3>Games</h3>
 <div id="games">
   <%= div_for(games, :class => "game") do |g| %>
     <%= link_to game_landing_url(id: g.path) do %>
      <div class="placeholder">
-
+        <%= image_tag("fairplay.png")%>
      </div>
     <% end %>
 
@@ -11,6 +10,7 @@
       <h1><%= g.name %></h1>
       <p><%= g.description %></p>
     </div>
+
     <div id="game_links">
       <%= link_to "Play",game_landing_url(id: g.path) %>
       <%= link_to "Resources",game_landing_url(id: g.path) %>
