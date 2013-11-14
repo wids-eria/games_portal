@@ -1,15 +1,16 @@
 GlsPortal::Application.routes.draw do
   devise_for :users
-  resource :game do
+  resources :games do
 
-    get ":id/survey" => "survey#show"
-
+    member do
+      get "survey" => "survey#show"
+      get "play" => "games#show"
+    end
   end
 
   get "portal/index"
   get "consent/form"
-  get "/game/:id" =>"game#landing", as: "game_landing"
-  get "/play/:id" =>"game#show"
+  get "/game/:id" =>"games#landing", as: "game_landing"
   get "games" => "portal#index"
 
   put "consent/consent"
