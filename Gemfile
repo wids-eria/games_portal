@@ -6,7 +6,7 @@ gem 'cancan'
 gem 'connection_ninja'
 
 gem 'haml'
-gem 'paperclip'
+gem 'paperclip', "~> 3.0"
 gem 'pg'
 
 gem 'httparty'
@@ -17,7 +17,6 @@ gem 'omniauth-ada', git: 'git://github.com/wids-eria/omniauth-ada.git'
 gem 'figaro'
 gem 'simple_form'
 #gem 'mongoid', '2.6'
-
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'

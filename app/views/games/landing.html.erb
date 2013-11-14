@@ -3,7 +3,7 @@
   <%= div_for(@game, :class => "") do |g| %>
     <%= link_to play_game_url(id: g.path) do %>
       <div class="placeholder">
-        <%= image_tag("fairplay.png")%>
+        <%= image_tag @game.image.url %>
       </div>
     <% end %>
 
