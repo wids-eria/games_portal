@@ -34,7 +34,10 @@ p{ color:#4b433b; font-family:georgia; font-size:14px; }
 .bold{ font-weight:bold; }
 
 .clear{ clear: both; }
-.center{ margin: 0 auto;}
+.center{
+    margin: 0 auto !important;
+    float: none !important;
+}
 .floatleft{ float:left; }
 .floatright{ float:right; }
 
@@ -294,7 +297,7 @@ p{ color:#4b433b; font-family:georgia; font-size:14px; }
 }
 
 
-/* Games */
+/*      Games       */
 #about{
     font-size: 0.97em;
     display: inline-block;
@@ -307,7 +310,7 @@ p{ color:#4b433b; font-family:georgia; font-size:14px; }
 
 #resources{
     font-size: 0.97em;
-    //display: block;
+    display: block;
     margin-top: 10px;
     width: 70%;
     float: left;
@@ -319,6 +322,9 @@ p{ color:#4b433b; font-family:georgia; font-size:14px; }
     float: right;
 }
 
+#landing{
+    height: auto;
+}
 #game_links{
     clear:both;
     display: block;

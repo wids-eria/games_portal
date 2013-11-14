@@ -1,9 +1,4 @@
 <div id="landing">
-  <h1>
-    <%= link_to root_url do %>
-      <span class="medium"><%= @game.name %></span>
-    <% end %>
-  </h1>
 
   <%= div_for(@game, :class => "") do |g| %>
     <%= link_to play_url(id: g.path) do %>
