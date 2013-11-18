@@ -1,4 +1,14 @@
 GIT
+  remote: git://github.com/thoughtbot/paperclip.git
+  revision: 6459f2c00f16051ec397fe911bc21078291ce3b8
+  specs:
+    paperclip (3.5.2)
+      activemodel (>= 3.0.0)
+      activesupport (>= 3.0.0)
+      cocaine (~> 0.5.3)
+      mime-types
+
+GIT
   remote: git://github.com/wids-eria/omniauth-ada.git
   revision: 1d09b77f43545cbf033d813253d6de2c8c3bbd31
   specs:
@@ -149,11 +159,6 @@ GEM
       oauth2 (~> 0.8.0)
       omniauth (~> 1.0)
     orm_adapter (0.0.6)
-    paperclip (3.5.2)
-      activemodel (>= 3.0.0)
-      activesupport (>= 3.0.0)
-      cocaine (~> 0.5.3)
-      mime-types
     pg (0.12.2)
     polyglot (0.3.3)
     rack (1.4.1)
@@ -250,7 +255,7 @@ DEPENDENCIES
   jquery-rails (~> 2.0.1)
   omniauth-ada!
   omniauth-oauth2 (= 1.1.1)
-  paperclip (~> 3.0)
+  paperclip!
   pg
   rails (= 3.2.1)
   rspec-rails

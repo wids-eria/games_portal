@@ -6,7 +6,7 @@ gem 'cancan'
 gem 'connection_ninja'
 
 gem 'haml'
-gem 'paperclip', "~> 3.0"
+gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
 gem 'pg'
 
 gem 'httparty'
