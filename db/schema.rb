@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131115222208) do
+ActiveRecord::Schema.define(:version => 20131119212822) do
 
   create_table "games", :force => true do |t|
     t.string   "name"
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(:version => 20131115222208) do
     t.string   "player_name"
     t.string   "token"
     t.boolean  "guest",       :default => false
+    t.boolean  "admin"
   end
 
   add_index "users", ["ada_id"], :name => "index_users_on_ada_id", :unique => true
