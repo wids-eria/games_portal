@@ -6,10 +6,7 @@ class Ability
 
     can :read, :game
 
-    puts user.to_yaml
-    puts "_-_-_--_-_-_-__"*10
     if user.admin?
-        puts "ASD"*30
         can :manage, :all
     end
   end
