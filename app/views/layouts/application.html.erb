@@ -15,8 +15,6 @@
   <div id="header">
     <div id="links">
       <%= link_to "Home" , root_url%>
-      <%= link_to "About" , root_url%>
-      <%= link_to "Contact" , root_url%>
       <%= render "user/account" %>
     </div>
   </div>
@@ -24,8 +22,10 @@
   <%= yield %>
   <hr>
 
-  <div class="footer">
-
+  <div id="footer">
+    <div class="floatleft">
+      <p class="center">Copyright © 2013 Games Learning Society</p>
+    </di>
   </div>
 </div>
 
