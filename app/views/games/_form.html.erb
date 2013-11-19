@@ -1,6 +1,11 @@
 <%= simple_form_for @game do |f| %>
   <%= f.input :name %>
   <%= f.input :path %>
+
+  <%= f.simple_fields_for :survey do |s| %>
+    <%= s.input :url %>
+  <% end %>
+
   <%= f.input :description, as: :text %>
   <%= f.input :image %>
   <%= f.input :file %>

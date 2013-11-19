@@ -9,7 +9,7 @@
   </div>
 
   <%= div_for(@game, :class => "game") do |g| %>
-      <%= link_to play_game_url(game: g.path) do %>
+      <%= link_to game_landing_url(id: g.path) do %>
        <div class="placeholder">
         <%= image_tag @game.image.url %>
        </div>

@@ -28,7 +28,7 @@
 
   <div id="play">
     <%= link_to "Play", play_game_url(id: @game.path), class: "link_button" %>
-    <% unless @game.survey.nil? %>
+    <% unless @game.survey.url.blank? %>
       <%= link_to "Survey", survey_game_url(id: @game.path), class: "link_button" %>
     <% end %>
   </div>

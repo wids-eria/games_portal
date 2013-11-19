@@ -13,12 +13,13 @@ class GamesController < ApplicationController
   def show
     @game =  Game.find_by_path(params[:id])
     if @game.nil?
-      #flash[:error] = "Game not found for "+params[:game]+"!"
+      flash[:error] = "Game not found for "+params[:id]+"!"
       redirect_to root_url
     end
   end
 
   def create
+    puts params
     @game = Game.new(params[:game])
     if @game.save
       redirect_to root_url
@@ -42,9 +43,11 @@ class GamesController < ApplicationController
 
   def new
     @game = Game.new
+    @game.build_survey
   end
 
   def index
     @game = Game.all
   end
+
 end
