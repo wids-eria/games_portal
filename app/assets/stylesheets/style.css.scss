@@ -84,6 +84,11 @@ p{ color:#4b433b; font-family:georgia; font-size:14px; }
     width: 100%;
 }
 
+.link{
+    &:visited{ color:black; }
+}
+
+
 .page_wrap{ width:980px; margin:0 auto; }
 
 .main_content{
@@ -181,6 +186,14 @@ p{ color:#4b433b; font-family:georgia; font-size:14px; }
     width:313px;
     background:image-url("big_pathfinder_logo.png");
 }
+
+.large_gls_logo{
+    margin:20px 0 0 310px;
+    margin: 0 auto;
+    height:400px;
+    width:313px;
+}
+
 
 .AcceptDecline_container { width:100%; float:left; }
 .AcceptDecline{ float:left; margin-left:370px; }

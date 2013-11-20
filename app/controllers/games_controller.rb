@@ -20,7 +20,6 @@ class GamesController < ApplicationController
   end
 
   def create
-    puts params
     @game = Game.new(params[:game])
     if @game.save
       redirect_to root_url
