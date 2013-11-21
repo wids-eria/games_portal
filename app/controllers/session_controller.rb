@@ -13,7 +13,7 @@ class SessionController < ApplicationController
       User.create_from_session(session)
     end
 
-    redirect_to root_url
+    redirect_to return_path
   end
 
   def login
@@ -21,10 +21,8 @@ class SessionController < ApplicationController
   end
 
   def destroy
-
     reset_session
     flash[:notice] = %Q[You have been logged out of the GLS Portal but are still logged into your <a href="http://ada.production.eriainteractive.com">GLS account.</a>].html_safe
-
 
     redirect_to root_url
   end
@@ -53,6 +51,7 @@ class SessionController < ApplicationController
 
       User.create_from_session(session)
     end
-    redirect_to root_url
+
+    redirect_to return_path
   end
 end

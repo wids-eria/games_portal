@@ -14,6 +14,7 @@ class ApplicationController < ActionController::Base
 
   def present_login
     unless current_user
+      set_return(request.url)
       redirect_to new_user_session_path
     end
   end
