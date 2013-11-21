@@ -21,12 +21,12 @@ class SessionController < ApplicationController
   end
 
   def destroy
-    unless guest
-      flash[:notice] = %Q[You have been logged out of the GLS Portal but are still logged into your <a href="http://ada.production.eriainteractive.com">GLS account.</a>].html_safe
-    end
 
     reset_session
-    redirect_to new_user_session_path
+    flash[:notice] = %Q[You have been logged out of the GLS Portal but are still logged into your <a href="http://ada.production.eriainteractive.com">GLS account.</a>].html_safe
+
+
+    redirect_to root_url
   end
 
   def failure

@@ -11,6 +11,7 @@
 </head>
 <body>
 
+
 <div class="page_wrap">
   <div id="header">
     <div id="links">
@@ -18,6 +19,8 @@
       <%= render "user/account" %>
     </div>
   </div>
+
+  <div id="notifications" class="medium center"><%= flash[:notice] %></div>
 
   <%= yield %>
   <hr>
