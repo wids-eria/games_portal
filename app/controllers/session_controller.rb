@@ -8,6 +8,7 @@ class SessionController < ApplicationController
     unless omniauth.nil?
       session[:token] = omniauth['credentials']['token']
       session[:player_name] = omniauth['extra']['raw_info']['info']['player_name']
+      session[:auth] = omniauth['extra']['raw_info']['info']['auth']
       session[:ada_id] = omniauth['uid']
 
       User.create_from_session(session)
@@ -38,6 +39,7 @@ class SessionController < ApplicationController
     }
 
     auth_response = HTTParty.post("http://localhost:3000/auth/guest.json", body: body)
+
     token = auth_response["access_token"]
     body = {oauth_token: token}
 
@@ -48,6 +50,7 @@ class SessionController < ApplicationController
       session[:guest] = true
       session[:ada_id] = auth_response['uid']
       session[:player_name] = auth_response['info']['player_name']
+      session[:auth] = auth_response['info']['auth']
 
       User.create_from_session(session)
     end
