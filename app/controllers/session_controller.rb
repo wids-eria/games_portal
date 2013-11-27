@@ -38,12 +38,12 @@ class SessionController < ApplicationController
       client_secret: ENV['ADASecret']
     }
 
-    auth_response = HTTParty.post("http://localhost:3000/auth/guest.json", body: body)
+    auth_response = HTTParty.post(ENV['ADAURL']+"/auth/guest.json", body: body)
 
     token = auth_response["access_token"]
     body = {oauth_token: token}
 
-    auth_response = HTTParty.get("http://localhost:3000/auth/ada/user.json", body: body)
+    auth_response = HTTParty.get(ENV['ADAURL']+"/auth/ada/user.json", body: body)
 
     if auth_response.code == 200
       session[:token] = token
