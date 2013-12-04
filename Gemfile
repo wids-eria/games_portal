@@ -9,7 +9,7 @@ gem 'haml'
 gem 'pg'
 
 gem "execjs"
-gem "therubyracer"
+gem "therubyracer", :require => 'v8'
 
 gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
 
