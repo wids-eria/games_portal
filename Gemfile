@@ -7,6 +7,8 @@ gem 'connection_ninja'
 
 gem 'haml'
 gem 'pg'
+
+gem "execjs"
 gem "therubyracer"
 
 gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
