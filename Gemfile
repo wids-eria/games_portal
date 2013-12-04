@@ -6,8 +6,10 @@ gem 'cancan'
 gem 'connection_ninja'
 
 gem 'haml'
-gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
 gem 'pg'
+
+
+#gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
 
 gem 'httparty'
 gem "devise-guests", "~> 0.3.2"
