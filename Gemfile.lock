@@ -1,14 +1,4 @@
 GIT
-  remote: git://github.com/thoughtbot/paperclip.git
-  revision: 6459f2c00f16051ec397fe911bc21078291ce3b8
-  specs:
-    paperclip (3.5.2)
-      activemodel (>= 3.0.0)
-      activesupport (>= 3.0.0)
-      cocaine (~> 0.5.3)
-      mime-types
-
-GIT
   remote: git://github.com/wids-eria/omniauth-ada.git
   revision: 1d09b77f43545cbf033d813253d6de2c8c3bbd31
   specs:
@@ -68,10 +58,6 @@ GEM
       xpath (~> 0.1.4)
     childprocess (0.3.0)
       ffi (~> 1.0.6)
-    climate_control (0.0.3)
-      activesupport (>= 3.0)
-    cocaine (0.5.3)
-      climate_control (>= 0.0.3, < 1.0)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -265,7 +251,6 @@ DEPENDENCIES
   mongoid (= 2.6)
   omniauth-ada!
   omniauth-oauth2 (= 1.1.1)
-  paperclip!
   pg
   rails (= 3.2.1)
   rspec-rails
