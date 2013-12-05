@@ -10,7 +10,6 @@ load 'deploy/assets'
 require 'capistrano/ext/multistage'
 set :stages, %w(production development)
 set :default_stage, "development"
-set :bundle_flags,    ""
 
 set :application, "games_portal"
 set :repository,  "git@github.com:wids-eria/games_portal.git"
