@@ -8,6 +8,7 @@ gem 'connection_ninja'
 gem 'haml'
 gem 'pg'
 
+gem "therubyracer", :require => "v8"
 gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
 
 gem 'httparty'
