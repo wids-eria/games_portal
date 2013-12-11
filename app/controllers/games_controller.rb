@@ -1,5 +1,5 @@
 class GamesController < ApplicationController
-  load_and_authorize_resource :object, :find_by => :path, only: [:create,:new,:update,:new,:edit]
+  load_and_authorize_resource :game, :find_by => :path, only: [:create,:new,:update,:new,:edit]
   before_filter :present_login, only: [:show]
   before_filter :must_consent, only: [:show]
 

@@ -12,6 +12,4 @@ class Game < ActiveRecord::Base
   validates_attachment_presence :image,:file
   validates_attachment :image, content_type: {:content_type => ['image/png','image/jpg','image/jpeg']}
   validates_attachment_content_type :file, content_type: ['application/octet-stream','application/vnd.unity']
-
-
 end
