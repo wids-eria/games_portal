@@ -1,0 +1,10 @@
+<div id="survey">
+
+
+  <h1>
+    <%= link_to @survey.game.name,game_landing_url(id: @survey.game.path), class: "link"  %>
+  </h1>
+  <iframe class="google-survey" src=<%= @survey.url + "?embedded=true" %> frameborder="0" onsubmit="submitted=true;" marginheight="0" marginwidth="0">Loading...</iframe>
+
+  <%= link_to "Back",game_landing_url(id: @survey.game.path), class: "center link_button"  %>
+</div>

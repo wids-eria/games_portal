@@ -11,29 +11,24 @@
 </head>
 <body>
 
+
 <div class="page_wrap">
+  <div id="header">
+    <div id="links">
+      <%= link_to "Home" , root_url%>
+      <%= render "user/account" %>
+    </div>
+  </div>
+
+  <div id="notifications" class="medium center"><%= flash[:notice] %></div>
+
   <%= yield %>
   <hr>
 
-  <% if user_signed_in? %>
-    <div class="LoggedInAs">
-      <p>Logged in as
-        <span class="orange bold"><%= current_user.player_name %></span>
-        <ul class="Logged">
-          <li>
-            <%= link_to main_app.logout_path, :method => :delete do %>
-              <span>Log Out</span>
-            <% end %>
-          </li>
-        </ul>
-      </p>
-    </div>
-
-    <hr>
-  <% end %>
-
-  <div class="footer">
-
+  <div id="footer">
+    <div class="floatleft">
+      <p class="center">Copyright © 2013 Games Learning Society</p>
+    </di>
   </div>
 </div>
 

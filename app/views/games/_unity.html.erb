@@ -10,11 +10,11 @@ function GetUnity() {
   return null;
 }
 if (typeof unityObject != "undefined") {
-  unityObject.embedUnity("unityPlayer", "/assets/<%= game %>.unity3d", 800, 600);
+  unityObject.embedUnity("unityPlayer", "<%= @game.file %>", 800, 600);
 }
 
 function GetAuthToken() {
-  GetUnity().SendMessage("ADA", "ListenForToken", <%= current_user.token.to_json.html_safe %>);
+  GetUnity().SendMessage("ADA", "ListenForToken", <%= current_user.auth_token.to_json.html_safe %>);
 }
 
 function GetAccessToken() {

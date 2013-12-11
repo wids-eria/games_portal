@@ -14,6 +14,7 @@ class ApplicationController < ActionController::Base
 
   def present_login
     unless current_user
+      set_return(request.url)
       redirect_to new_user_session_path
     end
   end
@@ -31,10 +32,19 @@ class ApplicationController < ActionController::Base
       end
     end
   end
+
+  def return_path
+    session[:return_path] ? session[:return_path] : root_path
+  end
+
+  def set_return(path)
+    session[:return_path] = path
+  end
   private
 
   def must_consent
     unless current_user.consented?
+      set_return(request.url)
       redirect_to consent_form_url
     end
   end

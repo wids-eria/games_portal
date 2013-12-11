@@ -1,6 +1,6 @@
 class PortalController < ApplicationController
-  before_filter :present_login
-  before_filter :must_consent
+  #before_filter :present_login
+  #before_filter :must_consent
 
   def index
     if current_user

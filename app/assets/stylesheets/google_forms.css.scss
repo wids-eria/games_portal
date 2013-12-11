@@ -1,0 +1,19 @@
+/* Styling for google forms */
+@import 'base';
+
+.google-survey{
+  @include rounded(4px);
+  background-color: white;
+  border: 1px solid black;
+  padding: 3px;
+  margin-top: 40px;
+}
+
+#survey{
+  width: 800px;
+  margin: 0 auto;
+  iframe{
+    width: 800px;
+    height: 800px;
+  }
+}

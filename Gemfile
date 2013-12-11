@@ -6,8 +6,10 @@ gem 'cancan'
 gem 'connection_ninja'
 
 gem 'haml'
-gem 'paperclip'
 gem 'pg'
+
+gem "therubyracer", :require => "v8"
+gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
 
 gem 'httparty'
 gem "devise-guests", "~> 0.3.2"
@@ -16,6 +18,7 @@ gem 'omniauth-oauth2', '1.1.1'
 gem 'omniauth-ada', git: 'git://github.com/wids-eria/omniauth-ada.git'
 gem 'figaro'
 gem 'simple_form'
+gem 'mongoid', '2.6'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
@@ -32,6 +35,7 @@ group :development do
 end
 
 group :development, :test do
+  gem 'fabrication'
   gem 'rspec-rails'
   gem 'capybara'
   gem 'factory_girl_rails'

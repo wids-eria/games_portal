@@ -1,19 +1,20 @@
-class GameController < ApplicationController
-  before_filter :present_login
-  before_filter :must_consent
+class GamesController < ApplicationController
+  load_and_authorize_resource :object, :find_by => :path, only: [:create,:new,:update,:new,:edit]
+  before_filter :present_login, only: [:show]
+  before_filter :must_consent, only: [:show]
 
   def player
     authorize! :read, :game
   end
 
   def landing
-    @game =  Game.find_by_path(params[:game])
+    @game =  Game.find_by_path(params[:id])
   end
 
   def show
-    @game =  Game.find_by_path(params[:game])
+    @game =  Game.find_by_path(params[:id])
     if @game.nil?
-      #flash[:error] = "Game not found for "+params[:game]+"!"
+      flash[:error] = "Game not found for "+params[:id]+"!"
       redirect_to root_url
     end
   end
@@ -37,14 +38,16 @@ class GameController < ApplicationController
   end
 
   def edit
-    @game =  Game.find(params[:id])
+    @game =  Game.find_by_path(params[:id])
   end
 
   def new
     @game = Game.new
+    @game.build_survey
   end
 
   def index
     @game = Game.all
   end
+
 end

@@ -3,10 +3,9 @@ require 'spec_helper'
 describe ConsentController do
   render_views
 
-  let(:user) { Factory :user }
+  let(:user) { Fabricate :user }
   before do
-    @request.env["devise.mapping"] = Devise.mappings[:user]
-    sign_in :user, user
+    login(user)
   end
 
   describe "GET 'consent_form'" do

@@ -8,12 +8,13 @@ class SessionController < ApplicationController
     unless omniauth.nil?
       session[:token] = omniauth['credentials']['token']
       session[:player_name] = omniauth['extra']['raw_info']['info']['player_name']
+      session[:auth] = omniauth['extra']['raw_info']['info']['auth']
       session[:ada_id] = omniauth['uid']
 
       User.create_from_session(session)
     end
 
-    redirect_to root_url
+    redirect_to return_path
   end
 
   def login
@@ -21,12 +22,10 @@ class SessionController < ApplicationController
   end
 
   def destroy
-    unless guest
-      flash[:notice] = %Q[You have been logged out of the GLS Portal but are still logged into your <a href="http://ada.production.eriainteractive.com">GLS account.</a>].html_safe
-    end
-
     reset_session
-    redirect_to new_user_session_path
+    flash[:notice] = %Q[You have been logged out of the GLS Portal but are still logged into your <a href="http://ada.production.eriainteractive.com">GLS account.</a>].html_safe
+
+    redirect_to root_url
   end
 
   def failure
@@ -39,16 +38,23 @@ class SessionController < ApplicationController
       client_secret: ENV['ADASecret']
     }
 
-    auth_response = HTTParty.post("http://localhost:3000/auth/ada/guest.json", body: body)
+    auth_response = HTTParty.post(ENV['ADAURL']+"/auth/guest.json", body: body)
+
+    token = auth_response["access_token"]
+    body = {oauth_token: token}
+
+    auth_response = HTTParty.get(ENV['ADAURL']+"/auth/ada/user.json", body: body)
 
     if auth_response.code == 200
-      session[:token] = auth_response['info']['token']
-      session[:guest] = auth_response['info']['guest']
+      session[:token] = token
+      session[:guest] = true
       session[:ada_id] = auth_response['uid']
       session[:player_name] = auth_response['info']['player_name']
+      session[:auth] = auth_response['info']['auth']
 
       User.create_from_session(session)
     end
-    redirect_to root_url
+
+    redirect_to return_path
   end
 end

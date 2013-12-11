@@ -9,16 +9,15 @@
   </div>
 
   <%= div_for(@game, :class => "game") do |g| %>
-      <%= link_to game_play_url(game: g.path) do %>
+      <%= link_to game_landing_url(id: g.path) do %>
        <div class="placeholder">
-
+        <%= image_tag @game.image.url %>
        </div>
       <% end %>
 
     <div class="description">
-      <h4><%= g.name %></h4>
+      <h1><%= g.name %></h1>
       <p><%= g.description %></p>
     </div>
-
   <% end %>
 </div>
