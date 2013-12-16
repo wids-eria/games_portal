@@ -13,18 +13,21 @@
     </div>
   <% end %>
 
-  <div id="about" >
-    <h1>About</h1>
-    <p class="readable">
-    Intelligentsia meh aesthetic, swag slow-carb gluten-free fingerstache actually try-hard. Whatever PBR Echo Park, selfies sriracha asymmetrical wolf polaroid High Life vinyl Pitchfork. Cardigan street art art party Vice brunch, 3 wolf moon mlkshk messenger bag distillery. Sriracha put a bird on it twee pop-up ennui, chillwave lo-fi raw denim sustainable biodiesel PBR iPhone locavore pug VHS. Before they sold out craft beer skateboard meh paleo, Austin messenger bag Marfa Portland American Apparel VHS. Leggings Godard Portland street art banjo lomo Etsy, stumptown salvia fixie. Small batch mustache pop-up yr post-ironic fashion axe, Blue Bottle iPhone YOLO hella street art drinking vinegar.
-    </p>
-  </div>
+  <% if @game.about? %>
+    <div id="about" >
+      <p class="readable">
+        <%= raw @game.about %>
+      </p>
+    </div>
+  <% end %>
 
-  <div id="resources">
-    <h2>Resources</h2>
-    <ul><a href="#">Curriculum.pdf</a></ul>
-    <ul>Step 2</ul>
-  </div>
+
+  <% if @game.resources? %>
+    <div id="resources">
+      <h2>Resources</h2>
+      <%= raw @game.resources %>
+    </div>
+  <% end %>
 
   <div id="play">
     <%= link_to "Play", play_game_url(id: @game.path), class: "link_button" %>
