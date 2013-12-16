@@ -1,5 +1,6 @@
 class GamesController < ApplicationController
-  load_and_authorize_resource :game, :find_by => :path, only: [:create,:new,:update,:new,:edit]
+  load_and_authorize_resource :game, :find_by => :path, only: [:create,:new,:new,:edit]
+  load_and_authorize_resource :game, :find_by => :id, only: [:update]
   before_filter :present_login, only: [:show]
   before_filter :must_consent, only: [:show]
 
@@ -20,6 +21,7 @@ class GamesController < ApplicationController
   end
 
   def create
+    puts "Create"
     @game = Game.new(params[:game])
     if @game.save
       redirect_to root_url
@@ -29,7 +31,12 @@ class GamesController < ApplicationController
   end
 
   def update
+    puts "Update"
+
     @game =  Game.find(params[:id])
+
+    puts @game
+    puts params[:game]
     if @game.update_attributes params[:game]
       redirect_to root_url
     else
@@ -38,6 +45,8 @@ class GamesController < ApplicationController
   end
 
   def edit
+    puts "EDIT"
+
     @game =  Game.find_by_path(params[:id])
   end
 

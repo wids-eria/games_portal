@@ -23,7 +23,7 @@ class SessionController < ApplicationController
 
   def destroy
     reset_session
-    flash[:notice] = %Q[You have been logged out of the GLS Portal but are still logged into your <a href="http://ada.production.eriainteractive.com">GLS account.</a>].html_safe
+    flash[:notice] = %Q[You have been logged out of the Fairplay but are still logged into your <a href="http://ada.production.eriainteractive.com">GLS account.</a>].html_safe
 
     redirect_to root_url
   end

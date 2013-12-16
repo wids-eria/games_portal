@@ -1,5 +1,5 @@
 class Game < ActiveRecord::Base
-  attr_accessible :name,:path,:description,:image,:file,:survey ,:survey_attributes
+  attr_accessible :name,:path,:description,:image,:file,:survey,:survey_attributes,:about,:resources
 
   has_attached_file :image, :default_url => "/images/:style/missing.png"
   has_attached_file :file
