@@ -12,10 +12,11 @@
   <% else %>
     <div id="Player">
 
-      <%= raw(render file: "#{Rails.root}/public/422.html") %>
+      <%= raw(render file: "#{Rails.root}/public/games/"+@game.localpath) %>
+      <%= raw(render file: "#{Rails.root}/public/games/"+@game.localpath, :layout => nil) %>
+      <%= raw(render inline: "#{Rails.root}/public/games/"+@game.localpath) %>
 
       Path<%= "#{Rails.root}/public/games/"+@game.localpath %>
-      <%= raw(render file: "#{Rails.root}/public/games/"+@game.localpath) %>
     </div>
   <% end %>
 
