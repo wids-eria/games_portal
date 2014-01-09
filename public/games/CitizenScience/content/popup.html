@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Citizen Science</title>
+<script language="JavasScript" type="text/javascript" src="AC_RunActiveContent.js"></script>
+<script language="JavaScript" type="text/javascript">
+<!--
+// -----------------------------------------------------------------------------
+// Globals
+// Major version of Flash required
+var requiredMajorVersion = 10;
+// Minor version of Flash required
+var requiredMinorVersion = 0;
+// Revision of Flash required
+var requiredRevision = 0;
+// Maximum width of stage
+var maxWidth = 940;
+// Maximum height of stage
+var maxHeight = 640;
+// -----------------------------------------------------------------------------
+// -->
+</script>
+</head>
+<body bgcolor="#FFFFFF" style="margin:0; padding:0; color: #FFFFFF">
+
+<!--url's used in the movie-->
+<!--text used in the movie-->
+
+<div id="container">
+<script language="JavaScript" type="text/javascript">
+<!--
+
+
+function getViewportSize() { 
+	var size = [0, 0]; 
+	if (typeof window.innerWidth != "undefined") { 
+		size = [window.innerWidth, window.innerHeight];
+	} 
+	else if (typeof document.documentElement != "undefined" && typeof document.documentElement.clientWidth != "undefined" && document.documentElement.clientWidth != 0) {
+		size = [document.documentElement.clientWidth, document.documentElement.clientHeight]; 
+	}
+	else {
+		size = [document.getElementsByTagName("body")[0].clientWidth, document.getElementsByTagName("body")[0].clientHeight]; 
+	}
+	return size; 
+}	
+
+var hasRightVersion = DetectFlashVer(requiredMajorVersion, requiredMinorVersion, requiredRevision);
+if(hasRightVersion) {  // if we've detected an acceptable version
+	// embed the flash movie
+	AC_FL_RunContent(
+		'codebase', 'http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,2,0',
+		'width', maxWidth,
+		'height', maxHeight,
+		'src', 'Main',
+		'quality', 'high',
+		'pluginspage', 'http://www.adobe.com/go/getflashplayer',
+		'align', 'middle',
+		'play', 'true',
+		'loop', 'true',
+		'scale', 'showall',
+		'wmode', 'window',
+		'devicefont', 'false',
+		'id', 'Main',
+		'bgcolor', '#FFFFFF',
+		'name', 'Main',
+		'menu', 'false',
+		'allowFullScreen', 'false',
+		'allowScriptAccess','sameDomain',
+		'salign', ''
+		); //end AC code
+} else {  // flash is too old or we can't detect the plugin
+	var alternateContent = 'This content requires Adobe Flash Player 9.'
+		+ '<a href="http://www.adobe.com/go/getflashplayer/">Get Flash</a>';
+	document.write(alternateContent);  // insert non-flash content
+}
+// -->
+</script>
+<noscript>
+This content requires JavaScript.
+</noscript>
+</div>
+<script language="JavaScript" type="text/javascript">
+<!--
+window.onresize = function() {
+	var el = document.getElementById("container");
+	var embed = document.Main;
+	var size = getViewportSize(); 
+	el.style.position = "absolute";
+	
+	if(size[0] <= maxWidth) {
+		el.style.left = "0px";
+		embed.attributes.getNamedItem("width").value = size[0];
+	} else {
+		embed.attributes.getNamedItem("width").value = maxWidth;
+		el.style.left = (size[0] - maxWidth) / 2 + "px";
+	}
+
+	if(size[1] <= maxHeight) {
+		el.style.top = "0px";
+		embed.attributes.getNamedItem("height").value = size[1];
+	} else {
+		embed.attributes.getNamedItem("height").value = maxHeight;
+		el.style.top = (size[1] - maxHeight) / 2 + "px";
+	}
+};
+window.onresize();
+// -->
+</script>
+</body>
+</html>
+
+

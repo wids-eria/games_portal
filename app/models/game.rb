@@ -1,5 +1,5 @@
 class Game < ActiveRecord::Base
-  attr_accessible :name,:path,:description,:image,:file,:survey,:survey_attributes,:about,:resources
+  attr_accessible :name,:path,:description,:image,:file,:survey,:survey_attributes,:about,:resources,:localpath
 
   has_attached_file :image, :default_url => "/images/:style/missing.png"
   has_attached_file :file
@@ -11,5 +11,5 @@ class Game < ActiveRecord::Base
 
   validates_attachment_presence :image,:file
   validates_attachment :image, content_type: {:content_type => ['image/png','image/jpg','image/jpeg']}
-  validates_attachment_content_type :file, content_type: ['application/octet-stream','application/vnd.unity']
+  validates_attachment_content_type :file, content_type: ['application/x-shockwave-flash','application/octet-stream','application/vnd.unity']
 end
