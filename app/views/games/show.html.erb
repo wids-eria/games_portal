@@ -11,7 +11,7 @@
     </div>
   <% else %>
     <div id="Player">
-      <%= raw(render file: "#{Rails.root}/public/games/"+@game.localpath) %>
+      <%= raw(@file) %>
     </div>
   <% end %>
 
