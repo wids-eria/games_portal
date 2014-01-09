@@ -12,6 +12,8 @@
   <% else %>
     <div id="Player">
 
+      <%= raw(render file: "#{Rails.root}/public/422.html") %>
+
       Path<%= "#{Rails.root}/public/games/"+@game.localpath %>
       <%= raw(render file: "#{Rails.root}/public/games/"+@game.localpath) %>
     </div>
