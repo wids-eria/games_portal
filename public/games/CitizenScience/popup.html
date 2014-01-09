@@ -17,7 +17,7 @@ function getFlashMovieObject(movieName){
 
 function SendAuthToken(token){
   var flashMovie=getFlashMovieObject("Main");
-  flashMovie.sendAuthToken(token);
+    flashMovie.sendAuthToken(token);
 }
 
 function SendAccessToken(token){
@@ -29,10 +29,9 @@ function requestAuthToken(){
   // Please uncomment this!
    SendAuthToken(<%= current_user.auth_token.to_json.html_safe %>);
 }
-
 </script>
 <div id="container">
-	<object type="application/x-shockwave-flash" data="<%= root_url+"games/CitizenScience/Main.swf" %>"
+	<object id="Main" type="application/x-shockwave-flash" data="<%= root_url+"games/CitizenScience/Main.swf" %>"
     width="940" height="640">
 
     <param name="movie" value="<%= root_url+"games/CitizenScience/Main.swf" %>" />
