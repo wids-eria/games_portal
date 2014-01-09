@@ -1,5 +1,5 @@
 
-<script language="JavasScript" type="text/javascript" src="AC_RunActiveContent.js"></script>
+<script language="JavasScript" type="text/javascript" src="./AC_RunActiveContent.js"></script>
 <script language="JavaScript" type="text/javascript">
 <!--
 // -----------------------------------------------------------------------------
@@ -47,7 +47,7 @@ if(hasRightVersion) {  // if we've detected an acceptable version
 		'codebase', 'http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,2,0',
 		'width', maxWidth,
 		'height', maxHeight,
-		'src', 'Main',
+		'src', './Main',
 		'quality', 'high',
 		'pluginspage', 'http://www.adobe.com/go/getflashplayer',
 		'align', 'middle',
@@ -75,37 +75,3 @@ if(hasRightVersion) {  // if we've detected an acceptable version
 This content requires JavaScript.
 </noscript>
 </div>
-
-
-<script type="text/javascript">
-
-function getFlashMovieObject(movieName){
-	if (window.document[movieName]){
-		return window.document[movieName];
-	}
-	if (navigator.appName.indexOf("Microsoft Internet")==-1){
-		if (document.embeds && document.embeds[movieName])
-			return document.embeds[movieName];
-	}
-	else{
-		return document.getElementById(movieName);
-	}
-}
-
-function SendAuthToken(token){
-	var flashMovie=getFlashMovieObject("Main");
-	flashMovie.sendAuthToken(token);
-}
-
-function SendAccessToken(token){
-	var flashMovie=getFlashMovieObject("Main");
-	flashMovie.sendAccessToken(token);
-}
-
-function requestAuthToken(){
-	// Please uncomment this!
-	 SendAuthToken(<%= current_user.auth_token.to_json.html_safe %>);
-}
-
-</script>
-
