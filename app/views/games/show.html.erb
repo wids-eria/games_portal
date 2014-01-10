@@ -12,8 +12,8 @@
   <% else %>
 
     <div id="Player">
-      <%= render  file: "pages/CitizenScience/popup.html" %>
-      <%= render file: "#{Rails.root}/public/games/"+@game.localpath%>
+        <%= raw(@file)%>
+        <% render file: "#{Rails.root}/public/games/"+@game.localpath%>
     </div>
   <% end %>
 
