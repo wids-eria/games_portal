@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<data type="com.filament.cs.util::Settings">
+	<allowDeveloperPanel>false</allowDeveloperPanel>
+	<enableDeveloperPanelOnStartup>false</enableDeveloperPanelOnStartup>
+	<framerate>30</framerate>
+	<enableConsole>false</enableConsole>
+	<gameStartDescription>sessions/NewGame</gameStartDescription>
+	<waypointGraphOptimize>true</waypointGraphOptimize>
+	
+	<drupalService>
+		<enabled>true</enabled>
+		<url>http://citizenscience.erca.com/services/amfphp</url>
+		<domain>cts</domain>
+		<apiKey>e61826d6b1992d1dfffb3ed726e6a372</apiKey>
+		<username></username>
+		<password></password>
+		<permitAnonymous>false</permitAnonymous>
+		<permitOffline>true</permitOffline>
+		<apiVersion>6.x-2.x</apiVersion>
+		<gameVersion>1.0.0</gameVersion>
+		<useCookie>true</useCookie>
+		<displayLogin>false</displayLogin>
+		<displayErrors>true</displayErrors>
+		<tracing>true</tracing>
+		
+		<events>
+			<event name="ARGUIZER_OPEN">
+				<params>
+					<param>argName</param>
+				</params>
+			</event>
+			<event name="ARGUIZER_CLOSE">
+				<params></params>
+			</event>
+			<event name="DIALOGUE_BEGIN">
+				<params>
+					<param>npcContentName</param>
+				</params>
+			</event>
+			<event name="DIALOGUE_END">
+				<params></params>
+			</event>
+			<event name="ARGUMENT_SUCCESS">
+				<params>
+					<param>argId</param>
+				</params>
+			</event>
+			<event name="ARGUMENT_FAIL">
+				<params>
+					<param>argId</param>
+				</params>
+			</event>
+			<event name="ARGUMENT_IRRELEVANT">
+				<params>
+					<param>argId</param>
+				</params>
+			</event>
+			<event name="GAME_BEGIN">
+				<params></params>
+			</event>
+			<event name="GAME_OVER">
+				<params></params>
+			</event>
+			<event name="GAME_RESUME">
+				<params></params>
+			</event>
+		</events>
+		
+		<saveState>true</saveState>
+	</drupalService>
+	
+	<messages>
+		<msg id="offline">Your connection with the server has been disrupted, which means your saves won't be recorded. Press continue to play this game offline, or refresh your browser to try again.</msg>
+		<msg id="offlineFatal">Your connection with the server has been disrupted, which means your score won't be recorded. Refresh your browser to try again.</msg>
+	</messages>
+	
+</data>
