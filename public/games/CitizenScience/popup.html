@@ -1,4 +1,20 @@
-
+<script language="JavaScript" type="text/javascript">
+<!--
+// -----------------------------------------------------------------------------
+// Globals
+// Major version of Flash required
+var requiredMajorVersion = 10;
+// Minor version of Flash required
+var requiredMinorVersion = 0;
+// Revision of Flash required
+var requiredRevision = 0;
+// Maximum width of stage
+var maxWidth = 940;
+// Maximum height of stage
+var maxHeight = 640;
+// -----------------------------------------------------------------------------
+// -->
+</script>
 <script language="JavasScript" type="text/javascript" src="AC_RunActiveContent.js"></script>
 <script type="text/javascript">
 
@@ -31,11 +47,55 @@ function requestAuthToken(){
 }
 </script>
 <div id="container">
-	<object id="Main" type="application/x-shockwave-flash" data="Main.swf"  width="940" height="640">
+<script language="JavaScript" type="text/javascript">
+<!--
 
-    <param name="movie" value="<Main.swf" />
-    <param name="quality" value="high" />
-	</object>
+
+function getViewportSize() {
+	var size = [0, 0];
+	if (typeof window.innerWidth != "undefined") {
+		size = [window.innerWidth, window.innerHeight];
+	}
+	else if (typeof document.documentElement != "undefined" && typeof document.documentElement.clientWidth != "undefined" && document.documentElement.clientWidth != 0) {
+		size = [document.documentElement.clientWidth, document.documentElement.clientHeight];
+	}
+	else {
+		size = [document.getElementsByTagName("body")[0].clientWidth, document.getElementsByTagName("body")[0].clientHeight];
+	}
+	return size;
+}
+
+var hasRightVersion = DetectFlashVer(requiredMajorVersion, requiredMinorVersion, requiredRevision);
+if(hasRightVersion) {  // if we've detected an acceptable version
+	// embed the flash movie
+	AC_FL_RunContent(
+		'codebase', 'http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,2,0',
+		'width', maxWidth,
+		'height', maxHeight,
+		'src', 'Main',
+		'quality', 'high',
+		'pluginspage', 'http://www.adobe.com/go/getflashplayer',
+		'align', 'middle',
+		'play', 'true',
+		'loop', 'true',
+		'scale', 'showall',
+		'wmode', 'window',
+		'devicefont', 'false',
+		'id', 'Main',
+		'bgcolor', '#FFFFFF',
+		'name', 'Main',
+		'menu', 'false',
+		'allowFullScreen', 'false',
+		'allowScriptAccess','sameDomain',
+		'salign', ''
+		); //end AC code
+} else {  // flash is too old or we can't detect the plugin
+	var alternateContent = 'This content requires Adobe Flash Player 9.'
+		+ '<a href="http://www.adobe.com/go/getflashplayer/">Get Flash</a>';
+	document.write(alternateContent);  // insert non-flash content
+}
+// -->
+</script>
 	<noscript>
 		This content requires JavaScript.
 	</noscript>
