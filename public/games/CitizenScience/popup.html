@@ -33,6 +33,7 @@ function getFlashMovieObject(movieName){
 
 function SendAuthToken(token){
   var flashMovie=getFlashMovieObject("Main");
+  alert(token);
   flashMovie.sendAuthToken(token);
 }
 

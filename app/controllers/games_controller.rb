@@ -15,9 +15,10 @@ class GamesController < ApplicationController
   def show
     @game =  Game.find_by_path(params[:id])
 
-    #Rails Fix to render a static file correctly
-    @file = render_to_string file: "#{Rails.root}/public/games/"+@game.localpath, layout: nil
-
+    if !@game.localpath.nil?
+      #Rails Fix to render a static file correctly
+      @file = render_to_string file: "#{Rails.root}/public/games/"+@game.localpath, layout: nil
+    end
     if @game.nil?
       flash[:error] = "Game not found for "+params[:id]+"!"
       redirect_to root_url

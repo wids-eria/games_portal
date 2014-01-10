@@ -10,10 +10,8 @@
       </div>
     </div>
   <% else %>
-
     <div id="Player">
         <%= raw(@file)%>
-        <% render file: "#{Rails.root}/public/games/"+@game.localpath%>
     </div>
   <% end %>
 
