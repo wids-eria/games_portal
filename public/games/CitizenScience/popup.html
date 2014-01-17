@@ -18,17 +18,13 @@ var maxHeight = 640;
 <script language="JavasScript" type="text/javascript" src="AC_RunActiveContent.js"></script>
 <script type="text/javascript">
 
-function getFlashMovieObject(movieName){
-  if (window.document[movieName]){
-    return window.document[movieName];
-  }
-  if (navigator.appName.indexOf("Microsoft Internet")==-1){
-    if (document.embeds && document.embeds[movieName])
-      return document.embeds[movieName];
-  }
-  else{
-    return document.getElementById(movieName);
-  }
+
+function getFlashMovieObject(movieName) {
+    if (navigator.appName.indexOf("Microsoft") != -1) {
+        return window[movieName];
+    } else {
+        return document[movieName];
+    }
 }
 
 function SendAuthToken(token){
@@ -50,7 +46,6 @@ function requestAuthToken(){
 <div id="container">
 <script language="JavaScript" type="text/javascript">
 <!--
-
 
 function getViewportSize() {
 	var size = [0, 0];
