@@ -15,7 +15,7 @@ class GamesController < ApplicationController
   def show
     @game =  Game.find_by_path(params[:id])
 
-    if !@game.localpath.nil?
+    if @game.localpath
       #Rails Fix to render a static file correctly
       @file = render_to_string file: "#{Rails.root}/public/games/"+@game.localpath, layout: nil
     end
@@ -26,7 +26,6 @@ class GamesController < ApplicationController
   end
 
   def create
-    puts "Create"
     @game = Game.new(params[:game])
     if @game.save
       redirect_to root_url
@@ -36,12 +35,8 @@ class GamesController < ApplicationController
   end
 
   def update
-    puts "Update"
-
     @game =  Game.find(params[:id])
 
-    puts @game
-    puts params[:game]
     if @game.update_attributes params[:game]
       redirect_to root_url
     else
@@ -50,18 +45,20 @@ class GamesController < ApplicationController
   end
 
   def edit
-    puts "EDIT"
-
     @game =  Game.find_by_path(params[:id])
   end
 
   def new
     @game = Game.new
-    @game.build_survey
+    #@game.build_survey
   end
 
   def index
     @game = Game.all
   end
 
+  def destroy
+    Game.find_by_path(params[:id]).destroy
+    redirect_to root_url
+  end
 end

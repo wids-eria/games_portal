@@ -1,16 +1,33 @@
 <%= simple_form_for @game do |f| %>
-  <%= f.input :name %>
-  <%= f.input :path %>
+  <%= f.input :name  , placeholder: 'Name of Game'%>
+  <%= f.input :path  , placeholder: 'The game Url path, ie how its accessed games/{path}'%>
 
   <%= f.simple_fields_for :survey do |s| %>
-    <%= s.input :url %>
+    <%= s.input :url , required: false, label: "Survey Url" ,placeholder: 'Link to the google form survey' %>
   <% end %>
 
-  <%= f.input :about, as: :text%>
-  <%= f.input :description, as: :text %>
-  <%= f.input :resources, as: :text %>
+
+  <%= f.input :about , placeholder: 'About the game', as: :text%>
+  <%= f.input :description, placeholder: 'Additional Description of the game', as: :text %>
+  <%= f.input :resources, placeholder: 'Curriculum resources for the game', as: :text %>
+
   <%= f.input :image %>
-  <%= f.input :localpath%>
-  <%= f.input :file %>
+  <% if @game.image? %>
+    <div id="image">
+      <%= image_tag(@game.image) %>
+    </div>
+  <% end %>
+
+  <div id="file">
+    <%= f.input :file , placeholder: 'Actual Game File'%>
+    <% if @game.file? %>
+      <span id="fileinput">
+        <%= link_to @game.file.to_s.split(/[\/|\?]/)[-2],raw(@game.file)%>
+      </span>
+    <% end %>
+  </div>
+
+  <%= f.input :localpath, placeholder: 'Path to a local game folder (for games hosted as a directory)'%>
+
   <%= f.button :submit%>
 <% end %>
