@@ -50,7 +50,7 @@ class GamesController < ApplicationController
 
   def new
     @game = Game.new
-    #@game.build_survey
+    @game.build_survey
   end
 
   def index
