@@ -1,7 +1,7 @@
 <%= render "unity", game: @game.path %>
 <div class="login_container">
 
-  <% if @game.localpath.nil? %>
+  <% if @game.localpath.empty? %>
     <div id="unityPlayer">
       <div class="missing">
         <a href="http://unity3d.com/webplayer/" title="Unity Web Player. Install now!">

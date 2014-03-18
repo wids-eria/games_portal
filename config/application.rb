@@ -54,5 +54,6 @@ module GlsPortal
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+    Paperclip.options[:content_type_mappings] = { unity3d: 'application/octet-stream' }
   end
 end

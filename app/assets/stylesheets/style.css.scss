@@ -348,8 +348,8 @@ textarea{
     }
 }
 
-
 /*      Games       */
+
 #about{
     font-size: 0.97em;
     display: inline-block;
@@ -391,6 +391,7 @@ textarea{
     }
 }
 
+
 .games{
     width: 100%;
     margin: 0 auto;
@@ -429,5 +430,13 @@ textarea{
         font-family: proxima-nova;
         color: #74838d;
         font-size: 15px;
+    }
+}
+
+/*      Admin       */
+
+#admin{
+    a{
+        margin-right: 10px;
     }
 }

@@ -15,7 +15,7 @@ class GamesController < ApplicationController
   def show
     @game =  Game.find_by_path(params[:id])
 
-    if @game.localpath
+    unless @game.localpath.empty?
       #Rails Fix to render a static file correctly
       @file = render_to_string file: "#{Rails.root}/public/games/"+@game.localpath, layout: nil
     end
@@ -27,6 +27,9 @@ class GamesController < ApplicationController
 
   def create
     @game = Game.new(params[:game])
+
+    puts @game.file.inspect
+
     if @game.save
       redirect_to root_url
     else
