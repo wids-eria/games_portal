@@ -64,13 +64,20 @@ namespace :deploy do
   end
 end
 
+after "deploy:setup", "deploy:uploads:setup"
+after "deploy:symlink", "deploy:uploads:symlink"
+namespace :uploads do
+  desc "Create the uploads dir in shared path"
+  task :setup do
+    run "cd #{shared_path}; mkdir games"
+  end
 
-# ==============================
-# Paperclip Uploads proper capistrano symlink
-# ==============================
+  desc "Link pictures from shared to common."
+  task :symlink do
+    run "cd #{current_path}/public; rm -rf games; ln -s #{shared_path}/games ."
+  end
 
 =begin
-  namespace :uploads do
 
     desc <<-EOD
       Creates the upload folders unless they exist
@@ -102,5 +109,5 @@ end
     after       "deploy:finalize_update", "uploads:symlink"
     on :start,  "uploads:register_dirs"
 
-  end
 =end
+end
