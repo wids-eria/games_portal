@@ -32,6 +32,8 @@ after 'deploy:finalize_update', 'deploy:symlink_db'
 after 'deploy:finalize_update', 'deploy:symlink_external_site_config'
 after 'deploy:finalize_update', 'deploy:symlink_secret_token'
 after 'deploy:finalize_update', 'deploy:symlink_application_yml'
+after "deploy:setup", "deploy:uploads:setup"
+after "deploy:symlink", "deploy:uploads:symlink"
 
 namespace :deploy do
   desc "Symlinks the database.yml"
@@ -62,11 +64,8 @@ namespace :deploy do
   task :restart, :roles => :app, :except => { :no_release => true } do
     run "cd #{current_path} && touch tmp/restart.txt"
   end
-end
 
-after "deploy:setup", "deploy:uploads:setup"
-after "deploy:symlink", "deploy:uploads:symlink"
-namespace :uploads do
+  namespace :uploads do
   desc "Create the uploads dir in shared path"
   task :setup do
     run "cd #{shared_path}; mkdir games"
@@ -76,6 +75,8 @@ namespace :uploads do
   task :symlink do
     run "cd #{current_path}/public; rm -rf games; ln -s #{shared_path}/games ."
   end
+
+end
 
 =begin
 
