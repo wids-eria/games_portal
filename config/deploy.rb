@@ -25,15 +25,12 @@ set :use_sudo, false
 
 set :normalize_asset_timestamps, false
 
-
 # CALLBACKS #########
 
 after 'deploy:finalize_update', 'deploy:symlink_db'
 after 'deploy:finalize_update', 'deploy:symlink_external_site_config'
 after 'deploy:finalize_update', 'deploy:symlink_secret_token'
 after 'deploy:finalize_update', 'deploy:symlink_application_yml'
-after "deploy:setup", "deploy:uploads:setup"
-after "deploy:symlink", "deploy:uploads:symlink"
 
 namespace :deploy do
   desc "Symlinks the database.yml"
@@ -64,51 +61,4 @@ namespace :deploy do
   task :restart, :roles => :app, :except => { :no_release => true } do
     run "cd #{current_path} && touch tmp/restart.txt"
   end
-
-  namespace :uploads do
-  desc "Create the uploads dir in shared path"
-  task :setup do
-    run "cd #{shared_path}; mkdir games"
-  end
-
-  desc "Link pictures from shared to common."
-  task :symlink do
-    run "cd #{current_path}/public; rm -rf games; ln -s #{shared_path}/games ."
-  end
-
-end
-
-=begin
-
-    desc <<-EOD
-      Creates the upload folders unless they exist
-      and sets the proper upload permissions.
-    EOD
-    task :setup, :except => { :no_release => true } do
-      dirs = uploads_dirs.map { |d| File.join(shared_path, d) }
-      run "#{try_sudo} mkdir -p #{dirs.join(' ')} && #{try_sudo} chmod g+w #{dirs.join(' ')}"
-    end
-
-    desc <<-EOD
-      [internal] Creates the symlink to uploads shared folder
-      for the most recently deployed version.
-    EOD
-    task :symlink, :except => { :no_release => true } do
-      run "rm -rf #{release_path}/public/system"
-      run "ln -nfs #{shared_path}/uploads #{release_path}/public/system"
-    end
-
-    desc <<-EOD
-      [internal] Computes uploads directory paths
-      and registers them in Capistrano environment.
-    EOD
-    task :register_dirs do
-      set :uploads_dirs,    %w(uploads uploads/partners)
-      set :shared_children, fetch(:shared_children) + fetch(:uploads_dirs)
-    end
-
-    after       "deploy:finalize_update", "uploads:symlink"
-    on :start,  "uploads:register_dirs"
-
-=end
 end
