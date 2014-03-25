@@ -2,7 +2,8 @@
 
 #gamelist{
   background: rgba(204, 204, 204, 0.73) !important;
-  padding: 10px;
+  padding: 9px;
+  padding-right: 0px;
   height: 130px;
   margin: 30px 0px;
 
@@ -16,7 +17,8 @@
 
   img{
     width: 300px;
-    height: auto;  }
+    height: auto;
+  }
 }
 
 .owl-page{
@@ -25,4 +27,9 @@
 
 .owl-buttons div{
   background: black !important;
+}
+
+//Override default width value
+.owl-carousel{
+  width: auto !important;
 }
