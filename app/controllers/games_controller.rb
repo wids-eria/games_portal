@@ -27,9 +27,6 @@ class GamesController < ApplicationController
 
   def create
     @game = Game.new(params[:game])
-
-    puts @game.file.inspect
-
     if @game.save
       redirect_to root_url
     else

@@ -12,4 +12,5 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require owl.carousel.min
 //= require_tree .

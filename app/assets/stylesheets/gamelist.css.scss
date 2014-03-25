@@ -1,0 +1,28 @@
+@import 'base';
+
+#gamelist{
+  background: rgba(204, 204, 204, 0.73) !important;
+  padding: 10px;
+  height: 130px;
+  margin: 30px 0px;
+
+  .game{
+    padding: 0px;
+    margin: 0px;
+    width: 300px;
+    height: 100%;
+    display: inline-block;
+  }
+
+  img{
+    width: 300px;
+    height: auto;  }
+}
+
+.owl-page{
+  display: none !important;
+}
+
+.owl-buttons div{
+  background: black !important;
+}

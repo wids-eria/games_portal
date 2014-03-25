@@ -15,17 +15,5 @@
     </div>
   <% end %>
 
-  <%= div_for(@game, :class => "game") do |g| %>
-
-      <%= link_to game_landing_url(id: g.path) do %>
-       <div class="placeholder">
-        <%= image_tag @game.image.url %>
-       </div>
-      <% end %>
-
-    <div class="description">
-      <h1><%= g.name %></h1>
-      <p><%= g.description %></p>
-    </div>
-  <% end %>
+  <%= render "preview" %>
 </div>
