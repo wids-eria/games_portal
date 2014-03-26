@@ -1,1 +1,5 @@
+<% featured = true %>
+<% if featured %>
+  <%= render "games/featured" %>
+<% end %>
 <%= render "games/list", games: @games %>
