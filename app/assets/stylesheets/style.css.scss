@@ -12,20 +12,12 @@
 
 /* GENERALS ------------------------------------------------------------------*/
 
-html{ overflow:scroll;
-
+html{
+    height: 100%;
 }
 body{
-
+  //  height: 100%;
     background: image-url("bg_tile.jpg");
-}
-
-hr{
-    border-top:1px dashed #b9aea0;
-    border-bottom:1px dashed white;
-    margin:20px 0 20px 0;
-    width:100%;
-    float:left;
 }
 
 a{ text-decoration:none; }
@@ -71,14 +63,15 @@ textarea{
     height: 60px;
     background: white;
 
-    &::before {
+    &::after {
         content: "";
         position: absolute;
         top: 0px;
         left: 0; right: 0;
-        -webkit-box-shadow: 0px 1px 4px 0 rgba(165, 165, 165, 0.6);
-        box-shadow: 0px 2px 7px 1px rgba(165, 165, 165, 0.6);
+        -webkit-box-shadow: 0px 1px 4px 1px rgba(165, 165, 165, 0.5);
+        box-shadow: 0px 1px 4px 1px rgba(165, 165, 165, 0.5);
         height: 60px;
+        pointer-events:none;
     }
 
     #links{
@@ -106,10 +99,11 @@ textarea{
 }
 .content{
     width:980px;
+    height: 100%;
     margin:0 auto;
     border-right: 1px solid rgb(185, 183, 183);
     border-left: 1px solid rgb(185, 183, 183);
-    padding: 20px;
+    padding: 30px;
     background: white;
 }
 
@@ -128,7 +122,6 @@ textarea{
 }
 
 #footer{
-    padding: 20px 0px;
     width: 100%;
 }
 
@@ -259,11 +252,14 @@ textarea{
 }
 
 #unityPlayer {
-    padding:20px 0 20px 0;
-    margin-left:08%;
+    margin: 0 auto;
+    border: 1px solid black;
     cursor: default;
     height: 600px;
     width: 800px;
+
+    -webkit-box-shadow:inset 2px 2px 5px 0 #F2F2F2;
+    box-shadow:outset 2px 2px 5px 0 #F2F2F2;
 }
 
 #Player {
@@ -275,11 +271,6 @@ textarea{
     width: 940px;
     clear:both;
 }
-
-.login_container{
-    width: 100%;
-}
-
 
 /*      Games       */
 
@@ -308,22 +299,26 @@ textarea{
 }
 
 #landing{
-    height: auto;
+    height: 1000px;
 }
-#game_links{
-    clear:both;
-    display: block;
 
+#game_links{
+    display: block;
+    clear:both;
     background: #eee;
-    padding: 5px;
+    padding: 5px 0px;
+    width: 492px;
 
     a{
-        margin: 10px;
         padding: 10px;
         font-size: 20px;
     }
 }
 
+#games{
+    height: 1200px;
+    overflow-y: auto;
+}
 
 .games{
     width: 100%;
@@ -332,8 +327,11 @@ textarea{
 
 .game{
     margin: 0 auto;
-    margin-top: 10px;
-    padding-top: 20px;
+    margin-top: 30px;
+    a{
+        height: 100%;
+        margin-bottom: 30px;
+    }
 }
 
 .placeholder{
@@ -344,18 +342,20 @@ textarea{
 }
 
 .description{
-    padding: 0px 10px 10px 10px;
-    width: 450px;
+    padding: 0px 10px 10px 20px;
+    width: 430px;
+    height: 100px;
+
     float:left;
 
     h1{
-        font-size: 12px;
-        font-family: proxima-nova;
+        font-size: 30px;
         font-weight: 700;
         color: #42494f;
-        text-transform: uppercase;
         letter-spacing: 1px;
-        font-size: 30px;
+
+        font-family: proxima-nova;
+        text-transform: uppercase;
     }
 
     p{

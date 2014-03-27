@@ -10,26 +10,24 @@
   <link href='http://fonts.googleapis.com/css?family=Homenaje' rel='stylesheet' type='text/css'>
 </head>
 <body>
-<div id="header">
-  <div id="links">
-    <%= link_to "Home" , root_url%>
-    <%= render "user/account" %>
+  <div id="header">
+    <div id="links">
+      <%= link_to "Home" , root_url%>
+      <%= render "user/account" %>
+    </div>
+    <% render "user/admin" %>
   </div>
-  <% render "user/admin" %>
-</div>
 
-<div class="content">
-  <div id="notifications" class="medium center"><%= flash[:notice] %></div>
+  <div class="content">
+    <div id="notifications" class="medium center"><%= flash[:notice] %></div>
 
-  <%= yield %>
-  <hr>
+    <%= yield %>
 
-  <div id="footer">
-    <div class="floatleft">
-      <p class="center">Copyright © 2013 Games Learning Society</p>
-    </di>
+    <div id="footer">
+      <div class="floatleft">
+        <p class="center"></p>
+      </di>
+    </div>
   </div>
-</div>
-
 </body>
 </html>

@@ -1,11 +1,11 @@
 <div id="landing">
 
-  <%= div_for(@game, :class => "") do |g| %>
-    <%= link_to play_game_url(id: g.path) do %>
-      <div class="placeholder">
+  <%= div_for(@game) do |g| %>
+    <div class="placeholder">
+      <%= link_to play_game_url(id: g.path) do %>
         <%= image_tag @game.image.url %>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
 
     <div class="description">
       <h1><%= g.name %></h1>
