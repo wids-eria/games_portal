@@ -91,6 +91,9 @@ GEM
       nokogiri (>= 1.5.0)
       rails (>= 3.0.0)
     database_cleaner (1.2.0)
+    db-charmer (1.9.0)
+      activerecord (< 4.0.0)
+      activesupport (< 4.0.0)
     devise (2.2.8)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.1)
@@ -253,6 +256,7 @@ DEPENDENCIES
   connection_ninja
   cucumber-rails
   database_cleaner
+  db-charmer
   devise
   devise-guests (~> 0.3.2)
   fabrication

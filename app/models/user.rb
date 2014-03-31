@@ -1,11 +1,12 @@
 class User < ActiveRecord::Base
-
-  #inlcude these devise modules to preserve the devise routes
+  #include these devise modules to preserve the devise routes
   devise :registerable, :token_authenticatable, :authentication_keys => [:login]
 
+  has_and_belongs_to_many :roles
   attr_accessor :login
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :player_name, :ada_id, :token, :guest, :auth_token
+  attr_readonly :roles
 
   validates_presence_of :token, :ada_id
 
@@ -24,4 +25,6 @@ class User < ActiveRecord::Base
   def self.create_guest
 
   end
+
+
 end

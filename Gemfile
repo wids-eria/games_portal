@@ -4,6 +4,7 @@ gem 'rails', '3.2.1'
 gem 'devise'
 gem 'cancan'
 gem 'connection_ninja'
+gem 'db-charmer', :require => 'db_charmer'
 
 gem 'haml'
 gem 'pg'
