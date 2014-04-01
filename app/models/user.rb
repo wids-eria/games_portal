@@ -25,10 +25,22 @@ class User < ActiveRecord::Base
   end
 
   def roles
+    #Does a query to get all the roles for a user, this is done via sql because you cannot use ada_id to join on with the rails ORM
+
     query = "SELECT roles.* FROM roles
     INNER JOIN roles_users ON roles.id = roles_users.role_id
     WHERE roles_users.user_id = " + self.ada_id.to_s
 
     return Role.on_db(:adage).find_by_sql(query)
+  end
+
+  def has_role(role)
+    role = role.to_s.downcase + "role"
+    for temp in roles do
+      if temp.type.to_s.downcase == role
+        return true
+      end
+    end
+    false
   end
 end
