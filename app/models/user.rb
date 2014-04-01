@@ -2,11 +2,9 @@ class User < ActiveRecord::Base
   #include these devise modules to preserve the devise routes
   devise :registerable, :token_authenticatable, :authentication_keys => [:login]
 
-  has_and_belongs_to_many :roles
   attr_accessor :login
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :player_name, :ada_id, :token, :guest, :auth_token
-  attr_readonly :roles
 
   validates_presence_of :token, :ada_id
 
@@ -26,5 +24,11 @@ class User < ActiveRecord::Base
 
   end
 
+  def roles
+    query = "SELECT roles.* FROM roles
+    INNER JOIN roles_users ON roles.id = roles_users.role_id
+    WHERE roles_users.user_id = " + self.ada_id.to_s
 
+    return Role.on_db(:adage).find_by_sql(query)
+  end
 end
