@@ -7,6 +7,8 @@
 @import 'owl.transitions';
 @import 'owl.carousel';
 @import 'featured';
+@import 'profile';
+
 
 *{ margin: 0;padding: 0; }
 
@@ -36,8 +38,8 @@ textarea{
 
 
 /* CLASSES --------------------------------------*/
-.orange{ color:#e9b252; }
-.bold{ font-weight:bold; }
+.orange{ color:#e9b252 !important; }
+.bold{ font-weight:bold !important; }
 
 .clear{ clear: both; }
 .center{
@@ -315,8 +317,8 @@ textarea{
     }
 }
 #container{
-    height: 1000px;
-
+    width: 100%;
+    min-height: 1000px;
     overflow-x: hidden;
     overflow-y: hidden;
 }

@@ -19,6 +19,9 @@ GlsPortal::Application.routes.draw do
   get 'auth/failure' => 'session#failure'
   get 'users/new_user' => 'session#create'
 
+
+  get 'profile' => 'user#show'
+
   get 'login' => 'session#login'
   get 'guest' => 'session#create_guest'
   delete 'logout' => 'session#destroy'
