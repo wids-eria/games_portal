@@ -1,17 +1,23 @@
 defaults: &DEFAULTS
   adapter: postgresql
   encoding: unicode
-  pool: 5
-  username:
-  password:
 
 development:
   <<: *DEFAULTS
-  database: pathfinder_development
+  database: gls_portal_development
+
+  adage:
+    <<: *DEFAULTS
+    database: ada_development
 
 test: &TEST
   <<: *DEFAULTS
-  database: pathfinder_distributor_test
+  database: gls_portal_test
+
+  adage:
+    <<: *DEFAULTS
+    database: ada_test
+
 
 cucumber:
   <<: *TEST
