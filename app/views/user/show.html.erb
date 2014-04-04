@@ -1,14 +1,14 @@
 <div id="container">
-  <h3>Profile</h3>
+  <h2 id="title" >Profile</h2>
 
   <div id="user">
-    <h3 class="orange"><%= @user.player_name %></h3>
-    <% @user.roles.each do |role| %>
-      <%= role.type.to_s.split("Role")[0] %>
-    <% end %>
-    <span class="button">
-      <a href=<%= ENV["ADAGE_PROFILE_URL"] %>>Change Profile</a>
-    </span>
+    <div id="account">
+      <h2 class="orange"><%= @user.player_name %></h2>
+      <% @user.roles.each do |role| %>
+        <%= role.type.to_s.split("Role")[0] %>
+      <% end %>
+    </div>
+    <a href=<%= ENV["ADAGE_PROFILE_URL"] %> class="button">Update Profile</a>
   </div>
 
   <div id="game_stats">
@@ -34,7 +34,6 @@
   </div>
 
   <div id="badges">
-
-
+    Room for Badges or achievements
   </div>
 </div>

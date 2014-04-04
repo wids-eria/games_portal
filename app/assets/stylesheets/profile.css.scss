@@ -1,15 +1,19 @@
+#title{
+  margin-bottom: 10px;
+}
+
 #user{
-  border: 1px solid darkgray;
+  border: 2px solid darkgray;
   width: 40%;
-  padding: 10px;
+  padding: 20px;
   float:right;
 }
 
 #game_stats{
-  padding: 10px;
-  margin-bottom: 50px;
+  padding: 20px;
+  margin-bottom: 30px;
   width: 40%;
-  border: 1px solid darkgray;
+  border: 2px solid darkgray;
 
   #played{
     margin-top: 5px;
@@ -26,8 +30,15 @@
   }
 }
 
+#user{
+  #account{
+    min-height: 300px;
+  }
+}
+
 #badges{
   height: 500px;
-  border: 1px solid darkgray;
+  padding: 20px;
+  border: 2px solid darkgray;
   margin: 0 auto;
 }
