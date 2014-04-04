@@ -15,23 +15,39 @@
   width: 40%;
   border: 2px solid darkgray;
 
+  h2{
+    padding-bottom: 4px;
+    border-bottom: 2px solid lightgray;
+  }
+
   #played{
     margin-top: 5px;
     min-height: 300px;
 
-    .title{
-      margin-right: 10px;
+    #game{
+      margin-top: 10px;
+
+      div{
+        display: inline-block;
+        padding: 5px;
+
+        label{
+          text-align: left;
+        }
+      }
     }
 
-    ul{
-      float: right;
-      padding: 5px;
+    .title{
+      display: inline-block;
+      width: 150px;
+      margin-right: 10px;
     }
   }
 }
 
 #user{
   #account{
+    margin-bottom: 20px;
     min-height: 300px;
   }
 }

@@ -21,10 +21,10 @@
         <% if game.has_data %>
           <div id="game">
             <span class="title large"><%= game.name %></span>
-            <ul class="medium">
-                LastPlayed:
-                <%= Time.at(game.last_playtime.to_i).strftime "%A, %B %-d"  %>
-            </ul>
+            <div class="medium">
+                <label>LastPlayed:</label>
+                <span><%= Time.at(game.last_playtime.to_i).strftime "%A, %B %-d"  %></span>
+            </div>
           </div>
           <% total += 55 %>
         <% end %>
