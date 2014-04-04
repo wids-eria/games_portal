@@ -5,6 +5,7 @@ gem 'devise'
 gem 'cancan'
 gem 'connection_ninja'
 gem 'db-charmer', :require => 'db_charmer'
+gem 'mongoid'
 
 gem 'haml'
 gem 'pg'
@@ -19,7 +20,6 @@ gem 'omniauth-oauth2', '1.1.1'
 gem 'omniauth-ada', git: 'git://github.com/wids-eria/omniauth-ada.git'
 gem 'figaro'
 gem 'simple_form'
-gem 'mongoid', '2.6'
 
 group :assets do
   gem 'sass-rails'

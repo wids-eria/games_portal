@@ -4,7 +4,7 @@ class UserController < ApplicationController
 
   def show
     @user = current_user
+    @games = Game.all
 
-    puts @user.to_yaml
   end
 end

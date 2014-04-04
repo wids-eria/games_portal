@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/thoughtbot/paperclip.git
-  revision: 9ee29f361f5a7233667472cf03f11cc64c2738c6
+  revision: 113198f979bc793882506114fcc3dc9f6c4e4575
   specs:
     paperclip (4.1.1)
       activemodel (>= 3.0.0)
@@ -50,7 +50,6 @@ GEM
     bcrypt (3.1.7)
     bcrypt-ruby (3.1.5)
       bcrypt (>= 3.1.3)
-    bson (1.9.2)
     builder (3.0.4)
     cancan (1.6.10)
     capistrano (2.15.5)
@@ -69,7 +68,7 @@ GEM
       xpath (~> 2.0)
     climate_control (0.0.3)
       activesupport (>= 3.0)
-    cocaine (0.5.3)
+    cocaine (0.5.4)
       climate_control (>= 0.0.3, < 1.0)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
@@ -79,7 +78,7 @@ GEM
       execjs
     coffee-script-source (1.7.0)
     connection_ninja (0.4.1)
-    cucumber (1.3.12)
+    cucumber (1.3.14)
       builder (>= 2.1.2)
       diff-lcs (>= 1.1.3)
       gherkin (~> 2.12)
@@ -104,7 +103,7 @@ GEM
     diff-lcs (1.2.5)
     erubis (2.7.0)
     execjs (2.0.2)
-    fabrication (2.9.8)
+    fabrication (2.11.0)
     factory_girl (4.4.0)
       activesupport (>= 3.0.0)
     factory_girl_rails (4.4.1)
@@ -140,14 +139,14 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.25.1)
-    mini_portile (0.5.2)
-    mongo (1.9.2)
-      bson (~> 1.9.2)
-    mongoid (2.6.0)
-      activemodel (~> 3.1)
-      mongo (~> 1.7)
-      tzinfo (~> 0.3.22)
-    multi_json (1.9.0)
+    mini_portile (0.5.3)
+    mongoid (3.1.6)
+      activemodel (~> 3.2)
+      moped (~> 1.4)
+      origin (~> 1.0)
+      tzinfo (~> 0.3.29)
+    moped (1.5.2)
+    multi_json (1.9.2)
     multi_test (0.1.1)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
@@ -172,13 +171,14 @@ GEM
     omniauth-oauth2 (1.1.1)
       oauth2 (~> 0.8.0)
       omniauth (~> 1.0)
+    origin (1.1.0)
     orm_adapter (0.5.0)
     pg (0.17.1)
     polyglot (0.3.4)
     rack (1.4.5)
     rack-cache (1.2)
       rack (>= 0.4)
-    rack-ssl (1.3.3)
+    rack-ssl (1.3.4)
       rack
     rack-test (0.6.2)
       rack (>= 1.0)
@@ -197,7 +197,7 @@ GEM
       rake (>= 0.8.7)
       rdoc (~> 3.4)
       thor (~> 0.14.6)
-    rake (10.1.1)
+    rake (10.2.2)
     rdoc (3.12.2)
       json (~> 1.4)
     ref (1.0.5)
@@ -205,7 +205,7 @@ GEM
     rspec-expectations (2.14.5)
       diff-lcs (>= 1.1.3, < 2.0)
     rspec-mocks (2.14.6)
-    rspec-rails (2.14.1)
+    rspec-rails (2.14.2)
       actionpack (>= 3.0)
       activemodel (>= 3.0)
       activesupport (>= 3.0)
@@ -215,7 +215,7 @@ GEM
       rspec-mocks (~> 2.14.0)
     rvm-capistrano (1.5.1)
       capistrano (~> 2.15.4)
-    sass (3.3.3)
+    sass (3.3.4)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
       sass (>= 3.1.10)
@@ -265,7 +265,7 @@ DEPENDENCIES
   haml
   httparty
   jquery-rails (~> 2.0.1)
-  mongoid (= 2.6)
+  mongoid
   omniauth-ada!
   omniauth-oauth2 (= 1.1.1)
   paperclip!

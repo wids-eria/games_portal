@@ -9,8 +9,21 @@
   padding: 10px;
   margin-bottom: 50px;
   width: 40%;
-  height: 500px;
   border: 1px solid darkgray;
+
+  #played{
+    margin-top: 5px;
+    min-height: 300px;
+
+    .title{
+      margin-right: 10px;
+    }
+
+    ul{
+      float: right;
+      padding: 5px;
+    }
+  }
 }
 
 #badges{

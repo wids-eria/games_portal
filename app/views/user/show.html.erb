@@ -2,20 +2,39 @@
   <h3>Profile</h3>
 
   <div id="user">
-    <ul><%= @user.player_name %></ul>
-    <ul>email</ul>
-    <ul>link to adage update profile</ul>
-    <ul>user roles?</ul>
+    <h3 class="orange"><%= @user.player_name %></h3>
+    <% @user.roles.each do |role| %>
+      <%= role.type.to_s.split("Role")[0] %>
+    <% end %>
+    <span class="button">
+      <a href=<%= ENV["ADAGE_PROFILE_URL"] %>>Change Profile</a>
+    </span>
   </div>
 
   <div id="game_stats">
-    <ul>Top played games/Time per game</ul>
-    <ul>GameName: 55min</ul>
-    <ul>GameName: 55min</ul>
-    <ul>GameName: 55min</ul>
-    <ul>Total Play time</ul>
+    <h2>Top Games</h2>
+    <% total = 0 %>
+
+    <div id="played">
+      <% @games.each do |game| %>
+
+        <% if game.has_data %>
+          <div id="game">
+            <span class="title large"><%= game.name %></span>
+            <ul class="medium">
+                LastPlayed:
+                <%= Time.at(game.last_playtime.to_i).strftime "%A, %B %-d"  %>
+            </ul>
+          </div>
+          <% total += 55 %>
+        <% end %>
+      <% end %>
+    </div>
+    <ul class="large">Total Play time: <%= total %></ul>
   </div>
 
   <div id="badges">
+
+
   </div>
 </div>
