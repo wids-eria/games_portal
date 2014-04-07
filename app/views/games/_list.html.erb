@@ -2,7 +2,7 @@
   <%= div_for(games) do |g| %>
      <div class="placeholder">
       <%= link_to play_game_url(id: g.path) do %>
-          <%= image_tag g.image.url %>
+          <%= image_tag g.image.url, class: "game-img" %>
       <% end %>
      </div>
 

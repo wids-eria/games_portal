@@ -44,8 +44,8 @@ class ApplicationController < ActionController::Base
 
   def must_consent
     unless current_user.consented?
-      set_return(request.url)
-      redirect_to consent_form_url
+      #set_return(request.url)
+      #redirect_to consent_form_url
     end
   end
 end

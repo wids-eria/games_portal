@@ -3,7 +3,7 @@
   <% unless Game.first.nil? %>
     <%= div_for(Game.first) do |g| %>
       <%= link_to play_game_url(id: g.path) do %>
-        <%= image_tag g.image.url %>
+        <%= image_tag g.image.url ,class: "game-img" %>
       <% end %>
 
       <span>Play Now</span>
