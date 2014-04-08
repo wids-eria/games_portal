@@ -278,18 +278,7 @@ textarea{
     height: 1000px;
 }
 
-#game_links{
-    display: block;
-    clear:both;
-    background: #eee;
-    padding: 5px 0px;
-    width: 492px;
 
-    a{
-        padding: 10px;
-        font-size: 20px;
-    }
-}
 #container{
     width: 100%;
     min-height: 1000px;
@@ -309,6 +298,9 @@ textarea{
 .game{
     margin: 0 auto;
     margin-top: 30px;
+    margin-bottom: 15px;
+    height: 240px;
+
     a{
         height: 100%;
         margin-bottom: 30px;
@@ -316,6 +308,7 @@ textarea{
 }
 
 .placeholder{
+    display: block;
     height: 218px;
     width: 492px;
     float:left;

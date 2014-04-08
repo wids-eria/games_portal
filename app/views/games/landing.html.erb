@@ -2,8 +2,12 @@
 
   <%= div_for(@game) do |g| %>
     <div class="placeholder">
-      <%= link_to play_game_url(id: g.path) do %>
-        <%= image_tag @game.image.url, class: "game-img"  %>
+      <% if current_user && g.file.exists? %>
+        <%= link_to play_game_url(id: g.path) do %>
+            <%= image_tag g.image.url, class: "game-img" %>
+        <% end %>
+      <% else %>
+        <%= image_tag g.image.url, class: "game-img" %>
       <% end %>
     </div>
 
@@ -30,7 +34,10 @@
   <% end %>
 
   <div id="play">
-    <%= link_to "Play", play_game_url(id: @game.path), class: "button" %>
+    <% if @game.file.exists? %>
+      <%= link_to "Play", play_game_url(id: @game.path), class: "button" %>
+    <% end %>
+
     <% unless @game.survey.url.blank? %>
       <%= link_to "Survey", survey_game_url(id: @game.path), class: "button" %>
     <% end %>

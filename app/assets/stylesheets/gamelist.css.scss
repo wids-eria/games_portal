@@ -38,3 +38,20 @@
 .owl-carousel{
   width: auto !important;
 }
+
+.game_links{
+  display: block;
+  clear:both;
+  background: #eee;
+  padding: 5px 0px;
+  width: 492px;
+
+  a{
+      padding: 10px;
+      font-size: 20px;
+  }
+
+  &:empty{
+    display: none;
+  }
+}
