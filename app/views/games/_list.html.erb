@@ -1,8 +1,7 @@
 <div id="container">
   <%= div_for(games) do |g| %>
      <div class="placeholder">
-
-      <% if g.file.exists? %>
+      <% if current_user && g.file.exists? %>
         <%= link_to play_game_url(id: g.path) do %>
             <%= image_tag g.image.url, class: "game-img" %>
         <% end %>
@@ -16,16 +15,16 @@
       <p><%= g.description %></p>
     </div>
 
-      <% if g.file.exists? or can? :show, g %>
-        <div class="game_links">
-          <% if g.file.exists? %>
-            <%= link_to "Play",play_game_url(id: g.path), class: "link"%>
-          <% end %>
+    <% if g.file.exists? or can? :show, g %>
+      <div class="game_links">
+        <% if g.file.exists? %>
+          <%= link_to "Play",play_game_url(id: g.path), class: "link"%>
+        <% end %>
 
-          <% if can? :landing, g  %>
-              <%= link_to "Resources",game_landing_url(id: g.path), class: "link" %>
-          <% end %>
-        </div>
-      <% end %>
+        <% if can? :landing, g  %>
+            <%= link_to "Resources",game_landing_url(id: g.path), class: "link" %>
+        <% end %>
+      </div>
+    <% end %>
   <% end %>
 </div>
