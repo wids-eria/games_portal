@@ -18,7 +18,9 @@ function GetAuthToken() {
 }
 
 function GetAccessToken() {
+  alert("Getting GetAccessToken");
   GetUnity().SendMessage("ADA", "ListenForAccessToken", <%= current_user.token.to_json.html_safe %>);
+  console.log(GetUnity());
 }
 
 function ConsoleAccess(s) {
