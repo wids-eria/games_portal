@@ -14,13 +14,16 @@ if (typeof unityObject != "undefined") {
 }
 
 function GetAuthToken() {
-  GetUnity().SendMessage("ADA", "ListenForToken", <%= current_user.auth_token.to_json.html_safe %>);
+  var authtoken = <%= current_user.token.to_json.html_safe %>;
+  GetUnity().SendMessage("ADA", "ListenForToken", authtoken);
 }
 
 function GetAccessToken() {
-  alert("Getting GetAccessToken");
-  GetUnity().SendMessage("ADA", "ListenForAccessToken", <%= current_user.token.to_json.html_safe %>);
-  console.log(GetUnity());
+  var token = <%= current_user.token.to_json.html_safe %>;
+
+  GetUnity().SendMessage("ADA", "ListenForAccessToken", token);
+  document['Main'].ListenForAccessToken(token);
+  console.log(document['Main']);
 }
 
 function ConsoleAccess(s) {
