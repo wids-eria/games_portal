@@ -62,8 +62,9 @@ function GetAccessToken() {
 
   setTimeout(function(){
     var swf  = document.Main;
+    console.log("Token Callback");
     swf.ListenForAccessToken(token);
-  },500);
+  },1000);
 
   if(GetUnity()) GetUnity().SendMessage("ADA", "ListenForAccessToken", token);
 }
