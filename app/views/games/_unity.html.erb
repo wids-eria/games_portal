@@ -58,15 +58,12 @@ function GetFlash(name) {
 }
 
 function GetAccessToken() {
-  alert("GetAccessToken");
-    console.log("Request Token Callback");
   var token = <%= current_user.token.to_json.html_safe %>;
 
   setTimeout(function(){
     var swf  = document.Main;
-    console.log("Token Callback");
     swf.ListenForAccessToken(token);
-  },2000);
+  },500);
 
   if(GetUnity()) GetUnity().SendMessage("ADA", "ListenForAccessToken", token);
 }
