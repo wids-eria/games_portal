@@ -9,7 +9,7 @@
 	
 	<drupalService>
 		<enabled>true</enabled>
-		<url>http://citizenscience.eriainteractive.com/services/amfphp</url>
+		<url>http://citizenscience.erca.com/services/amfphp</url>
 		<domain>cts</domain>
 		<apiKey>e61826d6b1992d1dfffb3ed726e6a372</apiKey>
 		<username></username>
