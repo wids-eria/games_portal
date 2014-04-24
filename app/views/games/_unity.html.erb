@@ -31,7 +31,7 @@ $(document).ready(function(){
     flashObj = document.Main;
 
     $('#content').click(function(){
-        //flashObj.ListenForAccessToken("ASDASDASDASD");
+        flashObj.ListenForAccessToken("ASDASDASDASD");
     });
 });
 
@@ -48,6 +48,7 @@ if (typeof unityObject != "undefined") {
 }
 
 function GetAuthToken() {
+  console.log("GetAuthToken");
   var authtoken = <%= current_user.token.to_json.html_safe %>;
   GetUnity().SendMessage("ADA", "ListenForToken", authtoken);
 }
@@ -58,12 +59,13 @@ function GetFlash(name) {
 }
 
 function GetAccessToken() {
+  console.log("GetAccessToken");
   var token = <%= current_user.token.to_json.html_safe %>;
-
   setTimeout(function(){
+    console.log("Delay Called");
     var swf  = document.Main;
     swf.ListenForAccessToken(token);
-  },500);
+  },200);
 
   if(GetUnity()) GetUnity().SendMessage("ADA", "ListenForAccessToken", token);
 }
