@@ -3,75 +3,31 @@
 
 <script type="text/javascript">
 <!--
-/*
-
-(function GetGameObject(){
-  if (typeof gameObject == 'undefined'){
-    console.log(document.getElementById("unityPlayer"));
-    if (document.getElementById("unityPlayer") != null) {
-      unityObject.embedUnity("unityPlayer", "<%= @game.file %>", 800, 600);
-      gameObject = unityObject.getObjectById("unityPlayer");
-
-      console.log("getting unity");
-    }else{
-      console.log("getting flash");
-      gameObject = document.Main;
-    }
-  }
-
-  console.log(typeof gameObject);
-
-
-  console.log(gameObject);
-})();
-
-*/
 $(document).ready(function(){
-
-    flashObj = document.Main;
-
-    $('#content').click(function(){
-        flashObj.ListenForAccessToken("ASDASDASDASD");
-    });
+  (function GetGameObject(){
+    if (typeof gameObject == 'undefined'){
+      if ($('#unityPlayer').length > 0) {
+        unityObject.embedUnity("unityPlayer", "<%= @game.file %>", 800, 600);
+        gameObject = unityObject.getObjectById("unityPlayer");
+      }else{
+        gameObject = document.Main;
+      }
+    }
+  })();
 });
 
-
-function GetUnity() {
-  if (typeof unityObject != "undefined") {
-    return unityObject.getObjectById("unityPlayer");
-  }
-  return null;
-}
-
-if (typeof unityObject != "undefined") {
-  unityObject.embedUnity("unityPlayer", "<%= @game.file %>", 800, 600);
-}
-
 function GetAuthToken() {
-  console.log("GetAuthToken");
   var authtoken = <%= current_user.token.to_json.html_safe %>;
-  GetUnity().SendMessage("ADA", "ListenForToken", authtoken);
-}
-
-function GetFlash(name) {
-    var isIE = navigator.appName.indexOf("Microsoft") != -1;
-    return (isIE) ? window[name] : document[name];
+  gameObject.SendMessage("ADA", "ListenForToken", authtoken);
 }
 
 function GetAccessToken() {
-  console.log("GetAccessToken");
   var token = <%= current_user.token.to_json.html_safe %>;
   setTimeout(function(){
-    console.log("Delay Called");
-    var swf  = document.Main;
-    swf.ListenForAccessToken(token);
+    gameObject.ListenForAccessToken(token);
   },200);
 
-  if(GetUnity()) GetUnity().SendMessage("ADA", "ListenForAccessToken", token);
-}
-
-function ConsoleAccess(s) {
-  console.log(s);
+  gameObject.SendMessage("ADA", "ListenForAccessToken", token);
 }
 -->
 </script>
