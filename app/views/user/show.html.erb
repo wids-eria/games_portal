@@ -1,39 +1,42 @@
-<div id="container">
-  <h2 id="title" >Profile</h2>
+<div class="welcome_back_container">
 
-  <div id="user">
-    <div id="account">
-      <h2 class="orange"><%= @user.player_name %></h2>
-      <% @user.roles.each do |role| %>
-        <%= role.type.to_s.split("Role")[0] %>
+    <p class="left">Welcome back, <span class="welcome_name"><%= @user.player_name %></span> </p>
+
+    <a href="<%= ENV["ADAGE_PROFILE_URL"] %>" class="right">
+        <div class="blue_button">
+            <p>Update Profile</p>
+        </div>
+    </a>
+</div>
+
+
+<div class="module full">
+    <h2>Activity</h2>
+        <hr>
+    <p>Christian Played: Cristals of Kaydor for <span class="bold">5:23</span></p>
+</div>
+<div class="module one_third left">
+    <h2>Students</h2>
+        <hr>
+    <p class="bold">Timmy Smith</p>
+    <hr>
+    <p class="bold">Timmy Smith</p>
+    <hr>
+    <p class="bold">Timmy Smith</p>
+    <hr>
+    <p class="bold">Timmy Smith</p>
+    <hr>
+    <p class="bold">Timmy Smith</p>
+</div>
+
+<div class="module two_thirds right">
+    <h2>Play Time</h2>
+    <% @games.each do |game| %>
+      <% if game.has_data %>
+        <hr>
+
+        <p class="left">Last Played: Cristals of Kaydor for <span class="bold">5:23</span></p>
+        <a class="view_all right">View All</a>
       <% end %>
-    </div>
-    <a href=<%= ENV["ADAGE_PROFILE_URL"] %> class="button">Update Profile</a>
-  </div>
-
-  <div id="game_stats">
-    <h2>Recent Games</h2>
-    <% total = 0 %>
-
-    <div id="played">
-      <% @games.each do |game| %>
-
-        <% if game.has_data %>
-          <div id="game">
-            <span class="title large"><%= game.name %></span>
-            <div class="medium">
-                <label>LastPlayed:</label>
-                <span><%= Time.at(game.last_playtime.to_i).strftime "%A, %B %-d"  %></span>
-            </div>
-          </div>
-          <% total += 55 %>
-        <% end %>
-      <% end %>
-    </div>
-    <ul class="large">Total Play time: <%= total %></ul>
-  </div>
-
-  <div id="badges">
-    Room for Badges or achievements
-  </div>
+    <% end %>
 </div>

@@ -1,12 +1,19 @@
-<div id="featured">
+<% unless Game.first.nil? %>
+  <div class="featured_game_container">
+    <%= div_for(Game.first, class: "fg_image") do |g| %>
 
-  <% unless Game.first.nil? %>
-    <%= div_for(Game.first) do |g| %>
-      <%= link_to play_game_url(id: g.path) do %>
-        <%= image_tag g.image.url ,class: "game-img" %>
-      <% end %>
+        <div class="play_now_container">
+            <%= link_to play_game_url(id: g.path) do %>
+                <div class="blue_button">
+                    <p>Play Now</p>
+                </div>
+            <% end %>
 
-      <span>Play Now</span>
+            <div class="featured_game_title">
+                <p class="fg_label">Featured Game:</p>
+                <p class="fg_name"><%= g.name %></p>
+            </div>
+        </div>
     <% end %>
-  <% end %>
-</div>
+  </div>
+<% end %>

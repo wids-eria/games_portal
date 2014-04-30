@@ -1,13 +1,13 @@
-<div id="account">
+<div class="logged_in_as">
   <% if user_signed_in? %>
-    <span class="orange bold"><%= link_to current_user.player_name, profile_path, class: "orange bold" %></span>
+    <p><%= current_user.player_name%></p>
     <%= link_to main_app.logout_path, :method => :delete do %>
-      <span class="small">Log Out</span>
+      Log Out
     <% end %>
   <% else %>
     <% if !logged_in %>
       <%= link_to main_app.login_path do %>
-        <span class="small">Sign in</span>
+        Sign in
       <% end %>
     <% end %>
   <% end %>

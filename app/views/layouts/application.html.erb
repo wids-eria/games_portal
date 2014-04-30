@@ -1,36 +1,56 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>GlsPortal</title>
-  <%= stylesheet_link_tag    "style", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
+    <title>Playsquad Outreach - Dashboard</title>
+    <meta name="description"
+          content="">
+    <%= stylesheet_link_tag    "style", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+    <!-- Stylesheets -->
 
-  <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
-  <link href='http://fonts.googleapis.com/css?family=Homenaje' rel='stylesheet' type='text/css'>
+    <!-- Add jQuery Library -->
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+    <!-- Typekit -->
+    <script type="text/javascript" src="//use.typekit.net/ulg5kch.js"></script>
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+
 </head>
+
 <body>
-  <div id="header">
-    <div id="links">
-      <%= link_to "Home" , root_url%>
-      <%= render "user/account" %>
-    </div>
-  </div>
+  <header>
+    <!-- Navigation -->
+    <div class="navigation_container">
+        <%= link_to root_url do%>
+          <div class="header_logo"></div>
+        <% end %>
 
-  <div id="content">
+        <ul class="nav">
+            <div class="nav_divider"></div>
+
+            <% if user_signed_in? %>
+              <%= link_to main_app.profile_path do %>
+                <li>Dashboard</li>
+              <% end %>
+            <% end %>
+            <div class="nav_divider"></div>
+            <%= link_to root_url do%>
+              <li>Games</li>
+            <% end %>
+            <div class="nav_divider"></div>
+        </ul>
+
+        <%= render "user/account" %>
+    </div> <!-- End Navigation -->
+  </header>
+
+  <div class="page_wrap">
     <div id="notifications" class="medium center"><%= flash[:notice] %></div>
-
     <%= yield %>
-
-    <div id="footer">
-      <div class="floatleft">
-        <p class="center"></p>
-      </di>
-    </div>
   </div>
-</body>
 
-<footer>
-  <%= render "user/admin" %>
-</footer>
+  <footer><%= render "user/admin" %></footer>
+  <div class="clear"></div>
+</body>
 </html>

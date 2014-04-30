@@ -1,8 +1,18 @@
 <%= render "unity", game: @game.path %>
-<div id="container">
 
+<div class="welcome_back_container">
+    <p class="left"><%= @game.name %></p>
+
+    <a href="" class="right">
+        <div class="blue_button">
+            <p>More Info</p>
+        </div>
+    </a>
+</div>
+
+<div id="play_container">
   <% if @game.localpath.empty? %>
-    <div id="unityPlayer">
+    <div id="unityPlayer" class="center">
       <div class="missing">
         <a href="http://unity3d.com/webplayer/" title="Unity Web Player. Install now!">
           <img alt="Unity Web Player. Install now!" src="http://webplayer.unity3d.com/installation/getunity.png" width="193" height="63" />
@@ -14,6 +24,10 @@
         <%= raw(@file)%>
     </div>
   <% end %>
+</div>
 
-  <%= render "preview" %>
+<div class="module full">
+    <h2>Activity</h2>
+        <hr>
+    <p>Christian Played: Cristals of Kaydor for <span class="bold">5:23</span></p>
 </div>
