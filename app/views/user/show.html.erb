@@ -9,25 +9,31 @@
     </a>
 </div>
 
-
 <div class="module full">
     <h2>Activity</h2>
+    <% @games.each do |game| %>
+      <% if game.has_data %>
         <hr>
-    <p>Christian Played: Cristals of Kaydor for <span class="bold">5:23</span></p>
+        <p class="left">Last Played: <%= game.name %> on <span class="bold"><%= Time.at(game.last_playtime.to_i).strftime('%m/%d') %></span></p>
+      <% end %>
+    <% end %>
 </div>
-<div class="module one_third left">
-    <h2>Students</h2>
-        <hr>
-    <p class="bold">Timmy Smith</p>
-    <hr>
-    <p class="bold">Timmy Smith</p>
-    <hr>
-    <p class="bold">Timmy Smith</p>
-    <hr>
-    <p class="bold">Timmy Smith</p>
-    <hr>
-    <p class="bold">Timmy Smith</p>
-</div>
+
+<% if @user.has_role(:teacher) %>
+  <div class="module one_third left">
+      <h2>Students</h2>
+          <hr>
+      <p class="bold">Timmy Smith</p>
+      <hr>
+      <p class="bold">Timmy Smith</p>
+      <hr>
+      <p class="bold">Timmy Smith</p>
+      <hr>
+      <p class="bold">Timmy Smith</p>
+      <hr>
+      <p class="bold">Timmy Smith</p>
+  </div>
+<% end %>
 
 <div class="module two_thirds right">
     <h2>Play Time</h2>
@@ -35,7 +41,7 @@
       <% if game.has_data %>
         <hr>
 
-        <p class="left">Last Played: Cristals of Kaydor for <span class="bold">5:23</span></p>
+        <p class="left">Last Played: <%= game.name %> for <span class="bold"><%= game.last_playtime%></span></p>
         <a class="view_all right">View All</a>
       <% end %>
     <% end %>

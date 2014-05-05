@@ -6,10 +6,10 @@
     <%= s.input :url , required: false, label: "Survey Url" ,placeholder: 'Link to the google form survey' %>
   <% end %>
 
-
-  <%= f.input :about , placeholder: 'About the game', as: :text%>
-  <%= f.input :description, placeholder: 'Additional Description of the game', as: :text %>
-  <%= f.input :resources, placeholder: 'Curriculum resources for the game', as: :text %>
+  <%= f.input :about , placeholder: 'About the game'%>
+  <%= f.input :description, placeholder: 'Additional Description of the game'%>
+  <%= f.input :microsite, placeholder: 'Link to Microsite for the game'%>
+  <%= f.input :external_download, placeholder: 'Link to external download for the game, if it is not web-playable' %>
 
   <%= f.input :image %>
   <% if @game.image? %>
@@ -26,6 +26,9 @@
       </span>
     <% end %>
   </div>
+
+  <%= f.input :lesson_plan %>
+  <%= f.input :cirriculum %>
 
   <%= f.input :localpath, placeholder: 'Path to a local game folder (for games hosted as a directory)'%>
 

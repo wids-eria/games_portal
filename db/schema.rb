@@ -11,13 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140108163247) do
+ActiveRecord::Schema.define(:version => 20140502193821) do
 
   create_table "games", :force => true do |t|
     t.string   "name"
     t.string   "path"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
+    t.datetime "created_at",               :null => false
+    t.datetime "updated_at",               :null => false
     t.text     "description"
     t.string   "image_file_name"
     t.string   "image_content_type"
@@ -28,8 +28,17 @@ ActiveRecord::Schema.define(:version => 20140108163247) do
     t.integer  "file_file_size"
     t.datetime "file_updated_at"
     t.text     "about"
-    t.text     "resources"
     t.string   "localpath"
+    t.string   "lesson_plan_file_name"
+    t.string   "lesson_plan_content_type"
+    t.integer  "lesson_plan_file_size"
+    t.datetime "lesson_plan_updated_at"
+    t.string   "cirriculum_file_name"
+    t.string   "cirriculum_content_type"
+    t.integer  "cirriculum_file_size"
+    t.datetime "cirriculum_updated_at"
+    t.string   "microsite"
+    t.string   "external_download"
   end
 
   create_table "surveys", :force => true do |t|

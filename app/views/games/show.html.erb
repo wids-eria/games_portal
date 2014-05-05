@@ -3,11 +3,13 @@
 <div class="welcome_back_container">
     <p class="left"><%= @game.name %></p>
 
-    <a href="" class="right">
-        <div class="blue_button">
-            <p>More Info</p>
-        </div>
-    </a>
+    <% unless @game.microsite.empty? %>
+      <a href="<%= @game.microsite %>" class="right">
+          <div class="blue_button">
+              <p>More Info</p>
+          </div>
+      </a>
+    <% end %>
 </div>
 
 <div id="play_container">

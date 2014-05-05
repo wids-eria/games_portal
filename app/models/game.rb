@@ -1,8 +1,11 @@
 class Game < ActiveRecord::Base
-  attr_accessible :name,:path,:description,:image,:file,:survey,:survey_attributes,:about,:resources,:localpath
+  attr_accessible :name,:path,:description,:image,:file,:lesson_plan,:cirriculum,:survey,:survey_attributes,:about,:localpath,:microsite,:external_download
 
   has_attached_file :image, :default_url => "/images/:style/missing.png"
   has_attached_file :file
+  has_attached_file :lesson_plan
+  has_attached_file :cirriculum
+
   has_one :survey
   accepts_nested_attributes_for :survey
 
