@@ -1,23 +1,16 @@
 #play_container{
   margin: 10px;
-  height: 25pc;
   clear: both;
 
   #instructions{
     margin: 0 auto;
-    clear: both;
-    height: 100%;
-    h2 {text-align: center;}
-    p{ height: 70%; }
 
-    a{
-      display: inline-block;
-      margin: 0 auto;
-    }
+    h2 {text-align: center;}
+    a{ display: inline-block; }
 
     #external{
-      width: 200px;
       margin: 0 auto;
+      width: 200px;
     }
   }
 }
