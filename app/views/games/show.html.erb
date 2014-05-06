@@ -4,26 +4,45 @@
     <p class="left"><%= @game.name %></p>
 
     <% unless @game.microsite.empty? %>
-      <a href="<%= @game.microsite %>" class="right">
-          <div class="blue_button">
-              <p>More Info</p>
-          </div>
-      </a>
+      <%= link_to @game.microsite, class: "right" do %>
+        <div class="blue_button">
+            <p>More Info</p>
+        </div>
+      <% end %>
     <% end %>
 </div>
 
 <div id="play_container">
-  <% if @game.localpath.empty? %>
-    <div id="unityPlayer" class="center">
-      <div class="missing">
-        <a href="http://unity3d.com/webplayer/" title="Unity Web Player. Install now!">
-          <img alt="Unity Web Player. Install now!" src="http://webplayer.unity3d.com/installation/getunity.png" width="193" height="63" />
-        </a>
+  <% if @game.external_download.empty? %>
+    <% if @game.localpath.empty? %>
+      <div id="unityPlayer" class="center">
+        <div class="missing">
+          <a href="http://unity3d.com/webplayer/" title="Unity Web Player. Install now!">
+            <img alt="Unity Web Player. Install now!" src="http://webplayer.unity3d.com/installation/getunity.png" width="193" height="63" />
+          </a>
+        </div>
       </div>
-    </div>
+    <% else %>
+      <div id="Player">
+          <%= raw(@file)%>
+      </div>
+    <% end %>
   <% else %>
-    <div id="Player">
-        <%= raw(@file)%>
+    <div id="instructions" class="module two_thirds">
+      <h2>Download Instructions</h2>
+      <hr/>
+      <p>
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas nulla odio, condimentum eget justo pharetra, lobortis bibendum mauris. Cras eu fermentum sapien. In eu lorem neque. Sed in magna vitae nulla dignissim vestibulum tristique at nisi. Duis lacinia eget risus eu aliquam. Nulla est orci, rutrum quis consequat non, imperdiet at nulla. Duis felis enim, convallis ut dapibus in, lacinia eu mi. Integer in massa ut enim rhoncus tincidunt.uet eros sit amet laoreet auctor. Suspendisse nulla odio, faucibus et ipsum ut, dignissim iaculis est.
+      </p>
+      <hr/>
+
+      <div id="external">
+        <%= link_to @game.external_download do %>
+          <div class="blue_button center">
+            <p>Download</p>
+          </div>
+      <% end %>
+      </div>
     </div>
   <% end %>
 </div>

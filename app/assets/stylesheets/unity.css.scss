@@ -1,5 +1,23 @@
 #play_container{
   padding: 20px;
+  min-height: 30%;
+  clear: both;
+  #instructions{
+    margin: 0 auto;
+    clear: both;
+
+    h2 {text-align: center;}
+
+    a{
+      display: inline-block;
+      margin: 0 auto;
+    }
+
+    #external{
+      width: 100%;
+      padding-left: 40%;
+    }
+  }
 }
 
 #unityPlayer{
