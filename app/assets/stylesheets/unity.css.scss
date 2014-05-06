@@ -1,12 +1,14 @@
 #play_container{
-  padding: 20px;
-  min-height: 30%;
+  margin: 10px;
+  height: 25pc;
   clear: both;
+
   #instructions{
     margin: 0 auto;
     clear: both;
-
+    height: 100%;
     h2 {text-align: center;}
+    p{ height: 70%; }
 
     a{
       display: inline-block;
@@ -14,8 +16,8 @@
     }
 
     #external{
-      width: 100%;
-      padding-left: 40%;
+      width: 200px;
+      margin: 0 auto;
     }
   }
 }
