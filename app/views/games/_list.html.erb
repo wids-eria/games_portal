@@ -5,8 +5,9 @@
     <h1><%= g.name %></h1>
     <p><%= g.description %></p>
 
-    <% if g.file.exists? or can? :show, g %>
+    <% if g.file.exists? or g.external_download %>
       <ul class="game_nav">
+
         <% if g.file.exists? or g.external_download %>
           <%= link_to play_game_url(id: g.path) do %>
             <li>Play</li>

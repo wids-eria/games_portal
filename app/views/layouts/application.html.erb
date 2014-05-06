@@ -46,7 +46,11 @@
   </header>
 
   <div class="page_wrap">
-    <div id="notifications" class="medium center"><%= flash[:notice] %></div>
+    <% if flash[:notice] %>
+      <div id="notifications" class="module center">
+          <p><%= flash[:notice] %></p>
+      </div>
+    <% end %>
     <%= yield %>
   </div>
 

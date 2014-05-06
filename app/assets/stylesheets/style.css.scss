@@ -23,6 +23,7 @@ STYLESHEET CONTENTS
 
 -------------------------------------------------------------------*/
 
+@import 'layout.css.scss';
 @import 'unity.css.scss';
 
 
@@ -75,6 +76,7 @@ html{ overflow:scroll; background:#d4dce0; }
 
 body{
     background:url(bg_grad.png) 50% 0% no-repeat;
+    height: 100%;
 }
 
 a{ text-decoration:none; }
