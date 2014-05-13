@@ -1,15 +1,15 @@
-<div class="large_gls_logo">Insert GLS Logo</div>
+<div class="playsquad_login_container">
 
-<hr>
-<% if flash[:notice] %>
-  <div class="error_container center">
-    <div class= "error_box center ">
-      <div class="error_img"></div>
-      <span id="notice"><%= flash[:notice] %></span>
-    </div>
-  </div>
-<% end %>
+    <div class="playsquad_logo"></div>
 
-<div class="login_container">
-  <%= render "links" %>
+    <input type="textbox" class="login_textbox" placeholder="Enter Your Username Here">
+    </input>
+
+    <input type="textbox" class="login_textbox" placeholder="Enter Your Password Here">
+    </input>
+
+    <a href="dashboard.html">
+       <%= render "links" %>
+    </a>
+
 </div>

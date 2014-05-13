@@ -9,7 +9,7 @@ class SessionController < ApplicationController
       session[:token] = omniauth['credentials']['token']
       session[:player_name] = omniauth['extra']['raw_info']['info']['player_name']
       session[:auth] = omniauth['extra']['raw_info']['info']['auth']
-      session[:ada_id] = omniauth['uid']
+      session[:id] = omniauth['uid']
 
       User.create_from_session(session)
     end
@@ -23,7 +23,7 @@ class SessionController < ApplicationController
 
   def destroy
     reset_session
-    flash[:notice] = %Q[You have been logged out of the Fairplay but are still logged into your <a href="http://ada.production.eriainteractive.com">GLS account.</a>].html_safe
+    flash[:notice] = %Q[You have been logged out of the Game Portal but are still logged into your <a href="http://ada.production.eriainteractive.com">GLS account.</a>].html_safe
 
     redirect_to root_url
   end
@@ -48,7 +48,7 @@ class SessionController < ApplicationController
     if auth_response.code == 200
       session[:token] = token
       session[:guest] = true
-      session[:ada_id] = auth_response['uid']
+      session[:id] = auth_response['uid']
       session[:player_name] = auth_response['info']['player_name']
       session[:auth] = auth_response['info']['auth']
 

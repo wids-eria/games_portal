@@ -1,8 +1,8 @@
 class GamesController < ApplicationController
   load_and_authorize_resource :game, :find_by => :path, only: [:landing]
   load_and_authorize_resource :game, :find_by => :id, only: [:landing]
-  before_filter :present_login, only: [:show]
-  before_filter :must_consent, only: [:show]
+  #before_filter :present_login, only: [:show]
+  #before_filter :must_consent, only: [:show]
 
   def player
     authorize! :read, :game

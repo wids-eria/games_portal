@@ -1,5 +1,14 @@
 
 <% if !logged_in %>
-  <%= link_to "Sign in", main_app.login_path, class: "button hover center" %></br>
-  <%= link_to "Guest", main_app.guest_path, class: "button hover center" %>
+  <%= link_to main_app.login_path, class: "left" do %>
+    <div class="blue_button">
+      <p>Log In</p>
+    </div>
+  <% end %>
+  <%= link_to main_app.guest_path, class: "right" do %>
+    <div class="blue_button">
+      <p>Guest</p>
+    </div>
+  <% end %>
 <% end -%>
+

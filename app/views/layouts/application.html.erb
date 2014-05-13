@@ -27,9 +27,8 @@
         <% end %>
 
         <ul class="nav">
-            <div class="nav_divider"></div>
-
             <% if user_signed_in? %>
+              <div class="nav_divider"></div>
               <%= link_to main_app.profile_path do %>
                 <li>Dashboard</li>
               <% end %>

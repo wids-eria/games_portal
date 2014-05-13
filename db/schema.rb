@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140505211202) do
+ActiveRecord::Schema.define(:version => 20140513183607) do
 
   create_table "games", :force => true do |t|
     t.string   "name"
@@ -50,7 +50,6 @@ ActiveRecord::Schema.define(:version => 20140505211202) do
   create_table "users", :force => true do |t|
     t.datetime "created_at",                     :null => false
     t.datetime "updated_at",                     :null => false
-    t.integer  "ada_id"
     t.boolean  "consented",   :default => false
     t.string   "player_name"
     t.string   "token"
@@ -58,7 +57,5 @@ ActiveRecord::Schema.define(:version => 20140505211202) do
     t.boolean  "admin"
     t.string   "auth_token"
   end
-
-  add_index "users", ["ada_id"], :name => "index_users_on_ada_id", :unique => true
 
 end
