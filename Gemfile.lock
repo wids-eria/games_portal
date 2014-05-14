@@ -16,6 +16,13 @@ GIT
       omniauth
       omniauth-oauth2
 
+GIT
+  remote: git://github.com/wids-eria/zoo_pass.git
+  revision: 512530cd1400c7a1b1f4c5bc1b925efca7cd5cde
+  branch: abstracting
+  specs:
+    zoo_pass (0.0.2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -277,3 +284,4 @@ DEPENDENCIES
   simple_form
   therubyracer
   uglifier (>= 1.0.3)
+  zoo_pass!

@@ -3,9 +3,9 @@ class ApplicationController < ActionController::Base
 
   def current_user
     if session[:current_user].nil?
-      session[:current_user] = User.find_by_ada_id(session[:ada_id])
+      #session[:current_user] = User.find_by_id(session[:id])
     end
-    return session[:current_user]
+    return User.find_by_id(session[:id])
   end
 
   def guest
@@ -22,7 +22,6 @@ class ApplicationController < ActionController::Base
   def login_required
     if !current_user
       respond_to do |format|
-        session[:type] = request.query_parameters['type']
         format.html  {
           redirect_to '/auth/ada'
         }

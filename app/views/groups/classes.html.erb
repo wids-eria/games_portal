@@ -1,0 +1,29 @@
+<div class="welcome_back_container"></div>
+
+<div class="module full">
+  <h2>
+    Classes
+
+    <span class="right"><%= link_to "Add", new_group_url %></span>
+  </h2>
+  <hr/>
+
+  <% if @groups.nil?%>
+    <p class="left">
+      You currently have no Classes,
+      <span class="welcome_name">
+        <%= link_to "Create one", new_group_url %>
+      </span>
+    </p>
+  <% end %>
+
+
+  <%= content_tag_for(:p, @groups, :class => "") do |g| %>
+    <span class="one_third"><%= g.name %></span>
+    Total Students: <%=g.on_db(:adage).users.count%>
+    <span class="one_third right">Code: <%= g.code %></span>
+
+
+    <hr/>
+  <% end %>
+</div>

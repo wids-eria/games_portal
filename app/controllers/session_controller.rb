@@ -1,6 +1,6 @@
 class SessionController < ApplicationController
   skip_authorization_check
-  before_filter :login_required, except: [:from_oauth, :destroy, :create_guest, :testpost]
+  before_filter :login_required, except: [:from_oauth, :destroy, :create_guest]
 
   def from_oauth
     omniauth = env['omniauth.auth']

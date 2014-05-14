@@ -1,4 +1,13 @@
 GlsPortal::Application.routes.draw do
+  resources :groups do
+    member do
+      put :add_user
+    end
+    collection do
+
+      get "classes" => "groups#classes"
+    end
+  end
   devise_for :users
   resources :games do
     member do

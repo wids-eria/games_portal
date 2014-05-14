@@ -18,6 +18,7 @@ gem "devise-guests", "~> 0.3.2"
 
 gem 'omniauth-oauth2', '1.1.1'
 gem 'omniauth-ada', git: 'git://github.com/wids-eria/omniauth-ada.git'
+gem 'zoo_pass', github: 'wids-eria/zoo_pass', branch: 'abstracting'
 gem 'figaro'
 gem 'simple_form'
 
