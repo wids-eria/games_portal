@@ -1,34 +1,59 @@
 
-<% if game.has_data(current_user) %>
 <div class="module full">
     <h2>Activity</h2>
     <% @games.each do |game| %>
+        <% if game.has_data(current_user) %>
         <hr>
         <p class="left">Last Played: <%= game.name %> on <span class="bold"><%= Time.at(game.last_playtime(current_user).to_i).strftime('%m/%d') %></span></p>
+        <% end %>
     <% end %>
 </div>
 
-<div class="module one_third left">
-    <h2>Students</h2>
-        <hr>
-    <p class="bold">Timmy Smith</p>
-    <hr>
-    <p class="bold">Timmy Smith</p>
-    <hr>
-    <p class="bold">Timmy Smith</p>
-    <hr>
-    <p class="bold">Timmy Smith</p>
-    <hr>
-    <p class="bold">Timmy Smith</p>
+<!--
+    <div class="module full">
+        <h2>Play Time</h2>
+        <% @games.each do |game| %>
+          <% if game.has_data(current_user) %>
+            <hr>
+
+            <p class="left">Last Played: <%= game.name %> for <span class="bold"><%= game.last_playtime(current_user)%></span></p>
+            <a class="view_all right">View All</a>
+          <% end %>
+        <% end %>
+    </div>
+-->
+
+<div class="welcome_back_container">
+    <p class="left">Classes</p>
+    <%= link_to new_group_url, class: :right do %>
+        <div class="blue_button">
+            <p>Add</p>
+        </div>
+    <% end %>
+    <hr/>
 </div>
 
-<div class="module two_thirds right">
-    <h2>Play Time</h2>
-    <% @games.each do |game| %>
-        <hr>
+<% if current_user.owned_groups.count ==0 %>
+    <p class="module full">
+      You currently have no Classes!
+      <span class="welcome_name">
+        <%= link_to "Create one", new_group_url %>
+      </span>
+    </p>
+<% end %>
 
-        <p class="left">Last Played: <%= game.name %> for <span class="bold"><%= game.last_playtime(current_user)%></span></p>
-        <a class="view_all right">View All</a>
-  <% end %>
-</div>
+<% current_user.owned_groups.each do |course| %>
+    <div class="module one_third left">
+        <h2><span class="full left"><%= course.name %></span><p class="full right"><%= course.code %></p></h2>
+        <% if course.on_db(:adage).users.count == 0 %>
+            <hr>
+            <p>No Students in class yet!</p>
+        <% else %>
+
+            <% course.on_db(:adage).users.each do |student| %>
+                <hr>
+                <p class="bold"><%= student.player_name %></p>
+            <% end %>
+        <% end %>
+    </div>
 <% end %>

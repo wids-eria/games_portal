@@ -1,16 +1,23 @@
-<div class="welcome_back_container">
+<% if @user %>
+  <div class="welcome_back_container">
 
-    <p class="left">Welcome back, <span class="welcome_name"><%= @user.player_name %></span> </p>
+      <p class="left">Welcome back, <span class="welcome_name"><%= @user.player_name %></span> </p>
 
-    <a href="<%= ENV["ADAGE_PROFILE_URL"] %>" class="right">
-        <div class="blue_button">
-            <p>Update Profile</p>
-        </div>
-    </a>
-</div>
+      <a href="<%= ENV["ADAGE_PROFILE_URL"] %>" class="right">
+          <div class="blue_button">
+              <p>Update Profile</p>
+          </div>
+      </a>
+  </div>
 
-<% if @user.has_role(:teacher) %>
-  <%= render "teacher_dashboard" %>
+  <% if @user.has_role(:teacher) && @user == current_user%>
+    <%= render "teacher_dashboard" %>
+  <% else %>
+    <%= render "student_dashboard" %>
+  <% end %>
 <% else %>
-  <%= render "student_dashboard" %>
+  <div class="welcome_back_container">
+    <p class="left">Player <span class="welcome_name"><%= params[:name]%></span> could not be found!</p>
+  </div>
+
 <% end %>

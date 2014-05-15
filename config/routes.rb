@@ -4,10 +4,10 @@ GlsPortal::Application.routes.draw do
       put :add_user
     end
     collection do
-
       get "classes" => "groups#classes"
     end
   end
+
   devise_for :users
   resources :games do
     member do
@@ -29,7 +29,7 @@ GlsPortal::Application.routes.draw do
   get 'users/new_user' => 'session#create'
 
 
-  get 'profile' => 'user#show'
+  get 'profile/:name', to:'user#show', as: "profile"
 
   get 'login' => 'session#login'
   get 'guest' => 'session#create_guest'

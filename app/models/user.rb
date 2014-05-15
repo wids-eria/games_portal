@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :player_name, :token, :guest, :auth_token
 
-  validates_presence_of :token
+  validates_presence_of :player_name
 
   has_many :group_ownerships
   has_many :owned_groups, through: :group_ownerships, source: :group
@@ -20,11 +20,30 @@ class User < ActiveRecord::Base
     where(conditions).where(["lower(player_name) = :login OR lower(email) = :login", login: login.strip.downcase]).first
   end
 
+  def self.create_from_adage(user)
+    unless User.find_by_id(user[:id])
+      u = User.new(player_name: user[:player_name])
+      u.id = user[:id]
+      u.save
+      return u
+    else
+      return User.find_by_id(user[:id])
+    end
+  end
+
   def self.create_from_session(session)
     unless User.find_by_id(session[:id])
       u = User.new(player_name: session[:player_name], token: session[:token], auth_token: session[:auth])
       u.id = session[:id]
       return u.save
+    else
+      user =  User.find_by_id(session[:id])
+
+      if user.token.nil?
+        user[:token] = session[:token]
+        user[:auth_token] = session[:auth]
+        user.save
+      end
     end
   end
 
@@ -33,9 +52,9 @@ class User < ActiveRecord::Base
   end
 
   def has_role(role)
-    role = role.to_s.downcase + "role"
+    role = role.to_s.downcase
     for temp in roles do
-      if temp.type.to_s.downcase == role
+      if temp.name.to_s.downcase == role
         return true
       end
     end
