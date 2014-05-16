@@ -26,4 +26,85 @@ class Game < ActiveRecord::Base
     return AdaData.with_game(self.path).last.timestamp
   end
 
+  def play_data(user)
+    @users = [user]
+
+    map = %Q{
+      function(){
+        var key = {user_id: this.user_id,session: this.session_token};
+        var data = {start:this.timestamp,end:this.timestamp};
+        emit(key,data);
+      }
+    }
+
+    reduce = %Q{
+      function(key,values){
+        var results = {start: null,end:0};
+
+        values.forEach(function(value){
+            if(results.start == null) results.start = value.start;
+            results.end = value.end;
+        });
+
+        return results;
+      }
+    }
+
+    @average_time = 0
+    @session_count = 0
+    #Check for the ADAVersion for compatability before all the processing
+    log = AdaData.with_game(self.path).only(:_id,:ADAVersion).where(:ADAVersion.exists=>true).first
+
+    unless log.nil?
+      drunken_dolphin = log.ADAVersion.include?('drunken_dolphin')
+      logs = AdaData.with_game(self.path).order_by(:timestamp.asc).in(user_id: user.id).only(:ADAVersion,:timestamp,:user_id,:session_token).where(:ADAVersion.exists=>true).map_reduce(map,reduce).out(inline:1)
+
+      sessions_played = 0
+      total_session_length = 0
+      last_user = -1
+      index = -1
+
+      session_time = Hash.new
+      logs.each do |log|
+        log_user = log["_id"]["user_id"].to_i
+        if(log_user != last_user)
+          session_time = Hash.new
+          last_user = log_user
+          index += 1
+        end
+
+        if drunken_dolphin
+          start_time = log["value"]["start"]
+          end_time = log["value"]["end"]
+
+          if start_time.is_a? String
+            start_time = start_time.to_i
+            end_time = end_time.to_i
+          end
+
+          start_time = Time.at(start_time).to_i
+          end_time = Time.at(end_time).to_i
+        else
+          start_time = DateTime.strptime(log["value"]["start"], "%m/%d/%Y %H:%M:%S").to_time.to_i
+          end_time = DateTime.strptime(log["value"]["end"], "%m/%d/%Y %H:%M:%S").to_time.to_i
+        end
+        minutes = (end_time - start_time)/1.minute.round
+        session_time[start_time] = minutes
+
+        total_session_length += minutes
+        sessions_played += 1
+      end
+
+      unless sessions_played == 0
+        @average_time = total_session_length/sessions_played
+      else
+        @average_time = 0
+      end
+      @session_count = sessions_played
+      @total_time = total_session_length
+      return {average_time: @average_time, sessions: @session_count, total_time: @total_time}
+    end
+    return nil
+  end
+
 end

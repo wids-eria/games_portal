@@ -1,27 +1,5 @@
-
-<div class="module full">
-    <h2>Activity</h2>
-    <% @games.each do |game| %>
-        <% if game.has_data(current_user) %>
-        <hr>
-        <p class="left">Last Played: <%= game.name %> on <span class="bold"><%= Time.at(game.last_playtime(current_user).to_i).strftime('%m/%d') %></span></p>
-        <% end %>
-    <% end %>
-</div>
-
-<!--
-    <div class="module full">
-        <h2>Play Time</h2>
-        <% @games.each do |game| %>
-          <% if game.has_data(current_user) %>
-            <hr>
-
-            <p class="left">Last Played: <%= game.name %> for <span class="bold"><%= game.last_playtime(current_user)%></span></p>
-            <a class="view_all right">View All</a>
-          <% end %>
-        <% end %>
-    </div>
--->
+<%= render "activity_module" %>
+<%= render "playtime_module" %>
 
 <div class="welcome_back_container">
     <p class="left">Classes</p>
@@ -52,7 +30,7 @@
 
             <% course.on_db(:adage).users.each do |student| %>
                 <hr>
-                <p class="bold"><%= student.player_name %></p>
+                <p class=""><%= link_to student.player_name, profile_path(name: student.player_name) %></p>
             <% end %>
         <% end %>
     </div>

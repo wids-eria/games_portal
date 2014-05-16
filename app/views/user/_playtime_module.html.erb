@@ -1,0 +1,15 @@
+<div class="module full right">
+    <h1>Play Time</h1>
+    <% @games.each do |game| %>
+      <% if game.has_data(@user) %>
+        <hr>
+
+        <% data = game.play_data(@user) %>
+        <p class="full"><h2><%= game.name %></h2></p>
+
+        <p class="one_third left">Average Playtime <b><%= data[:average_time] %> minutes</b></p>
+        <p class="one_third left">Total Playtime <b><%= data[:total_time]%> minutes</b></p>
+        <p class="one_third left">Times Played <b><%= data[:sessions]%> times</b></p>
+      <% end %>
+    <% end %>
+</div>

@@ -1,0 +1,9 @@
+<div class="module full">
+    <h1>Activity</h1>
+    <% @games.each do |game| %>
+      <% if game.has_data(current_user) %>
+        <hr>
+        <p class="left">Last Played: <%= game.name %> on <span class="bold"><%= Time.at(game.last_playtime(current_user).to_i).strftime('%m/%d') %></span></p>
+      <% end %>
+    <% end %>
+</div>
