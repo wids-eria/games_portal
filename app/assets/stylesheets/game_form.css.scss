@@ -1,0 +1,29 @@
+form{
+  padding: 40px;
+  clear:both;
+
+  input{
+    float:none;
+  }
+  input[type=text]{
+    float:none;
+  }
+
+  input[type=url]{
+    float:none;
+  }
+  input[type=file]{
+    margin-bottom: 5px;
+
+  }
+
+
+  label{
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-family:verdana;
+    width: 250px;
+    display: block;
+    font-size: 18pt;
+  }
+}

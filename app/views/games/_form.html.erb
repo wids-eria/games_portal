@@ -10,7 +10,7 @@
   <%= f.input :microsite, placeholder: 'Link to Microsite for the game'%>
   <%= f.input :external_download, placeholder: 'Link to external download for the game, if it is not web-playable' %>
 
-  <%= f.input :image %>
+  <%= f.input :image ,class: :module %>
   <% if @game.image? %>
     <div id="image">
       <%= image_tag(@game.image) %>
@@ -18,9 +18,9 @@
   <% end %>
 
   <div id="file">
-    <%= f.input :file , placeholder: 'Actual Game File'%>
+    <%= f.input :file , placeholder: 'Actual Game File',class: :module %>
     <% if @game.file? %>
-      <span id="fileinput">
+      <span id="fileinput" class="module">
         <%= link_to @game.file.to_s.split(/[\/|\?]/)[-2],raw(@game.file)%>
       </span>
     <% end %>
