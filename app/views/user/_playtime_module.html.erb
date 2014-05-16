@@ -5,11 +5,13 @@
         <hr>
 
         <% data = game.play_data(@user) %>
-        <p class="full"><h2><%= game.name %></h2></p>
+        <% if data %>
+          <p class="full"><h2><%= game.name %></h2></p>
 
-        <p class="one_third left">Average Playtime <b><%= data[:average_time] %> minutes</b></p>
-        <p class="one_third left">Total Playtime <b><%= data[:total_time]%> minutes</b></p>
-        <p class="one_third left">Times Played <b><%= data[:sessions]%> times</b></p>
+          <p class="one_third left">Average Playtime <b><%= data[:average_time] %> minutes</b></p>
+          <p class="one_third left">Total Playtime <b><%= data[:total_time]%> minutes</b></p>
+          <p class="one_third left">Times Played <b><%= data[:sessions]%> times</b></p>
+        <% end %>
       <% end %>
     <% end %>
 </div>
