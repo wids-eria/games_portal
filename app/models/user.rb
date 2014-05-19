@@ -51,6 +51,18 @@ class User < ActiveRecord::Base
 
   end
 
+  def can_view_user(other)
+    self.owned_groups.each do |group|
+      group.on_db(:adage).users.each do |temp|
+        if other == temp
+          return true
+        end
+      end
+    end
+    false
+  end
+
+
   def has_role(role)
     role = role.to_s.downcase
     for temp in roles do

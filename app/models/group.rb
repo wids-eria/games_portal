@@ -1,4 +1,5 @@
 class Group < ActiveRecord::Base
+
   db_magic connection: :adage
 
   has_and_belongs_to_many :users

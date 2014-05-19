@@ -12,9 +12,15 @@ class UserController < ApplicationController
          @user  = User.create_from_adage(adage)
         end
       end
+
+      unless current_user.can_view_user(@user)
+        flash[:error] = "You do not have permission to view user #{@user.player_name}'s profile"
+        redirect_to profile_url(name: current_user.player_name)
+      end
     else
       @user = current_user
     end
+
     @games = Game.all
   end
 
