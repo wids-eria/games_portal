@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140513183607) do
+ActiveRecord::Schema.define(:version => 20140519192820) do
 
   create_table "games", :force => true do |t|
     t.string   "name"
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(:version => 20140513183607) do
     t.datetime "cirriculum_updated_at"
     t.string   "microsite"
     t.string   "external_download"
+    t.string   "token"
   end
 
   create_table "surveys", :force => true do |t|

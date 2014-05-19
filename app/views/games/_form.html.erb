@@ -1,6 +1,7 @@
 <%= simple_form_for @game do |f| %>
   <%= f.input :name  , placeholder: 'Name of Game'%>
   <%= f.input :path  , placeholder: 'The game Url path, ie how its accessed games/{path}'%>
+  <%= f.input :token  , placeholder: 'The Adage app token for the game'%>
 
   <%= f.simple_fields_for :survey do |s| %>
     <%= s.input :url , required: false, label: "Survey Url" ,placeholder: 'Link to the google form survey' %>

@@ -1,5 +1,6 @@
 class Game < ActiveRecord::Base
-  attr_accessible :name,:path,:description,:image,:file,:lesson_plan,:cirriculum,:survey,:survey_attributes,:about,:localpath,:microsite,:external_download
+  attr_accessible :name,:path,:description,:image,:file,:lesson_plan,:cirriculum,:survey,
+  :survey_attributes,:about,:localpath,:microsite,:external_download,:token
 
   has_attached_file :image, :default_url => "/images/:style/missing.png"
   has_attached_file :file
@@ -10,7 +11,8 @@ class Game < ActiveRecord::Base
   accepts_nested_attributes_for :survey
 
   validates_uniqueness_of :name,:path
-  validates_presence_of :name,:path,:description
+  validates_presence_of :name,:path,:description,:token
+  validate :is_valid_token
 
   validates_attachment_presence :image
   validates_attachment :image, content_type: {:content_type => ['image/png','image/jpg','image/jpeg']}
@@ -18,12 +20,12 @@ class Game < ActiveRecord::Base
 
   def has_data(user)
     #return !AdaData.with_game(self.path).where(user_id: user.ada_id).last.nil?
-    return !AdaData.with_game(self.path).last.nil?
+    return !AdaData.with_game(self.get_ada_name).last.nil?
   end
 
   def last_playtime(user)
     #return AdaData.with_game(self.path).where(user_id: user.ada_id).last.timestamp
-    return AdaData.with_game(self.path).last.timestamp
+    return AdaData.with_game(self.get_ada_name).last.timestamp
   end
 
   def play_data(user)
@@ -107,4 +109,14 @@ class Game < ActiveRecord::Base
     return nil
   end
 
+  def get_ada_name
+    Game.switch_connection_to(:adage)
+    return Client.find_by_app_token(self.token.strip).implementation.game.name
+  end
+
+  def is_valid_token
+    if Client.find_by_app_token(self.token.strip).nil?
+      errors.add(:token, 'No Adage game exists for token')
+    end
+  end
 end

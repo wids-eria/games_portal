@@ -2,10 +2,10 @@
     <h1>Play Time</h1>
     <% @games.each do |game| %>
       <% if game.has_data(@user) %>
-        <hr>
 
         <% data = game.play_data(@user) %>
         <% if data %>
+        <hr>
           <p class="full"><h2><%= game.name %></h2></p>
 
           <p class="one_third left">Average Playtime <b><%= data[:average_time] %> minutes</b></p>
