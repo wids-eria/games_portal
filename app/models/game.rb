@@ -55,11 +55,11 @@ class Game < ActiveRecord::Base
     @average_time = 0
     @session_count = 0
     #Check for the ADAVersion for compatability before all the processing
-    log = AdaData.with_game(self.path).only(:_id,:ADAVersion).where(:ADAVersion.exists=>true).first
+    log = AdaData.with_game(self.get_ada_name).only(:_id,:ADAVersion).where(:ADAVersion.exists=>true).first
 
     unless log.nil?
       drunken_dolphin = log.ADAVersion.include?('drunken_dolphin')
-      logs = AdaData.with_game(self.path).order_by(:timestamp.asc).in(user_id: user.id).only(:ADAVersion,:timestamp,:user_id,:session_token).where(:ADAVersion.exists=>true).map_reduce(map,reduce).out(inline:1)
+      logs = AdaData.with_game(self.get_ada_name).order_by(:timestamp.asc).in(user_id: user.id).only(:ADAVersion,:timestamp,:user_id,:session_token).where(:ADAVersion.exists=>true).map_reduce(map,reduce).out(inline:1)
 
       sessions_played = 0
       total_session_length = 0
