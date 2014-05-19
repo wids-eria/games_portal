@@ -350,7 +350,10 @@ h5{  }
     .game_description{
         width:75%;
         padding:25px;
-
+        height: 245px;
+        p{
+            height: 50%;
+        }
         .game_nav{
             width:auto;
             height:50px;
