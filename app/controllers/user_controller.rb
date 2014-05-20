@@ -13,9 +13,11 @@ class UserController < ApplicationController
         end
       end
 
-      unless current_user.can_view_user(@user)
-        flash[:error] = "You do not have permission to view user #{@user.player_name}'s profile"
-        redirect_to profile_url(name: current_user.player_name)
+      if @user != current_user
+        unless current_user.can_view_user(@user)
+          flash[:error] = "You do not have permission to view user #{@user.player_name}'s profile"
+          redirect_to profile_url(name: current_user.player_name)
+        end
       end
     else
       @user = current_user
