@@ -52,6 +52,9 @@ class User < ActiveRecord::Base
   end
 
   def can_view_user(other)
+    if other.id == self.id
+      return true
+    end
     self.owned_groups.each do |group|
       group.on_db(:adage).users.each do |temp|
         if other == temp
