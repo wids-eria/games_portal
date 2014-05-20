@@ -52,9 +52,11 @@ class User < ActiveRecord::Base
   end
 
   def can_view_user(other)
+    Rails.logger.debug("[ [ [ " + other.id.to_s + "::" + self.id.to_s + "  ] ] ]")
     if other.id == self.id
       return true
     end
+
     self.owned_groups.each do |group|
       group.on_db(:adage).users.each do |temp|
         if other == temp
