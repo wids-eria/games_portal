@@ -1,17 +1,23 @@
 <div class="module full right">
-    <h2>Play Time</h12>
-    <% @games.each do |game| %>
-      <% if game.has_data(@user) %>
+  <h2>Play Time</h2>
+  <% found_data = false %>
+  <% @games.each do |game| %>
+    <% if game.has_data(@user) %>
 
-        <% data = game.play_data(@user) %>
-        <% if data %>
-        <hr>
-          <p class="full"><h3><%= game.name %></h3></p>
+      <% data = game.play_data(@user) %>
+      <% if data %>
+      <% found_data = true %>
+      <hr>
+        <p class="full"><h3><%= game.name %></h3></p>
 
-          <p class="one_third left">Average Playtime <b><%= data[:average_time] %> minutes</b></p>
-          <p class="one_third left">Total Playtime <b><%= data[:total_time]%> minutes</b></p>
-          <p class="one_third left">Times Played <b><%= data[:sessions]%> times</b></p>
-        <% end %>
+        <p class="one_third left">Average Playtime <b><%= data[:average_time] %> minutes</b></p>
+        <p class="one_third left">Total Playtime <b><%= data[:total_time]%> minutes</b></p>
+        <p class="one_third left">Times Played <b><%= data[:sessions]%> times</b></p>
       <% end %>
     <% end %>
+  <% end %>
+
+  <% unless found_data %>
+    <p class="full">No Game Data Found</p>
+  <% end %>
 </div>
