@@ -110,8 +110,10 @@ class Game < ActiveRecord::Base
   end
 
   def get_ada_name
-    Game.switch_connection_to(:adage)
-    return Client.find_by_app_token(self.token.strip).implementation.game.name
+    on_db :adage do
+      name =  Client.find_by_app_token(self.token.strip).implementation.game.name
+    end
+    return name
   end
 
   def is_valid_token
