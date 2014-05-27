@@ -17,7 +17,8 @@ class GamesController < ApplicationController
 
     unless @game.localpath.empty?
       #Rails Fix to render a static file correctly
-      flash[:notice] = Dir.pwd
+      flash[:notice] = root_url
+
       @file = render_to_string file: "#{Rails.root}/public/games/"+@game.localpath, layout: false
     end
     if @game.nil?
