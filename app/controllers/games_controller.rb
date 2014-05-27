@@ -17,6 +17,7 @@ class GamesController < ApplicationController
 
     unless @game.localpath.empty?
       #Rails Fix to render a static file correctly
+      Dir.chdir "../public"
       @file = render_to_string file: "./public/games/"+@game.localpath, layout: false
     end
     if @game.nil?
