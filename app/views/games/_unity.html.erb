@@ -1,7 +1,7 @@
 <!-- Unity Player -->
 <script type="text/javascript" src="http://webplayer.unity3d.com/download_webplayer-3.x/3.0/uo/UnityObject.js"></script>
 
-  <script type="text/javascript">
+<script type="text/javascript">
   <!--
   $(document).ready(function(){
     if ($('#unityPlayer').length > 0) {
@@ -14,7 +14,7 @@
       if (document.getElementById('unityPlayer') != null) {
         gameObject = unityObject.getObjectById("unityPlayer");
       }else{
-        gameObject = document.Main;
+        gameObject = document.getElementById('game_embed');
       }
     }
     return gameObject;
@@ -48,4 +48,4 @@
       console.log(output);
   };
   -->
-  </script>
+</script>

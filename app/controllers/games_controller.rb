@@ -18,8 +18,8 @@ class GamesController < ApplicationController
     unless @game.localpath.empty?
       #Rails Fix to render a static file correctly
       #flash[:notice] = root_url
-      path  = "#{root_url}static_games/"+@game.localpath
-      @file = "<embed width=960 height=680 src=#{path} allowscriptaccess='sameDomain' />"
+      path  = "#{root_url}static_games/citizenscience/Main.swf"
+      @file = "<embed id='game_embed' width=940 height=640 src=#{path} allowscriptaccess='sameDomain' />"
     end
     if @game.nil?
       flash[:error] = "Game not found for "+params[:id]+"!"
