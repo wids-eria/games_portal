@@ -19,7 +19,7 @@ class GamesController < ApplicationController
       #Rails Fix to render a static file correctly
       flash[:notice] = root_url
 
-      @file = File.open("./#{root_path}public/static_games/"+@game.localpath).read
+      @file = File.open(".#{root_path}public/static_games/"+@game.localpath).read
     end
     if @game.nil?
       flash[:error] = "Game not found for "+params[:id]+"!"
