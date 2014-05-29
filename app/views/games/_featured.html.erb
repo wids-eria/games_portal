@@ -1,6 +1,9 @@
 <% unless Game.first.nil? %>
   <div class="featured_game_container">
-    <%= div_for(Game.first, class: "fg_image") do |g| %>
+    <div class="games_portal_logo">
+        <%= image_tag("gp_logo.png") %>
+    </div>
+    <%= div_for(Game.first, class: "featured_game") do |g| %>
 
         <div class="play_now_container">
             <%= link_to play_game_url(id: g.path) do %>
