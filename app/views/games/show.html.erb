@@ -31,8 +31,7 @@
     <div id="instructions" class="module two_thirds">
       <h2>Download Instructions</h2>
       <hr/>
-      <p>
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas nulla odio, condimentum eget justo pharetra, lobortis bibendum mauris. Cras eu fermentum sapien. In eu lorem neque. Sed in magna vitae nulla dignissim vestibulum tristique at nisi. Duis lacinia eget risus eu aliquam. Nulla est orci, rutrum quis consequat non, imperdiet at nulla. Duis felis enim, convallis ut dapibus in, lacinia eu mi. Integer in massa ut enim rhoncus tincidunt.uet eros sit amet laoreet auctor. Suspendisse nulla odio, faucibus et ipsum ut, dignissim iaculis est.
+      <p><b><%= @game.name %></b> is not available on the GLS Games Portal. You can access XX by downloading it from iTunes/Google Play/etc. Search for <b><%= @game.name %></b> and download it there!
       </p>
       <hr/>
 
@@ -47,8 +46,10 @@
   <% end %>
 </div>
 
-<div class="module full">
-    <h2>Quiz</h2>
-        <hr>
-    <p>Question</p>
-</div>
+<% if @game.external_download.empty? %>
+  <div class="module full">
+      <h2>Quiz</h2>
+          <hr>
+      <p>Question</p>
+  </div>
+<% end %>
