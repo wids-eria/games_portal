@@ -6,6 +6,7 @@ gem 'cancan'
 gem 'connection_ninja'
 gem 'db-charmer', :require => 'db_charmer'
 gem 'mongoid'
+gem 'simple_enum', '~> 1.6.9'
 
 gem 'haml'
 gem 'pg'

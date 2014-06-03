@@ -18,8 +18,8 @@ class GamesController < ApplicationController
     unless @game.localpath.empty?
       #Rails Fix to render a static file correctly
       #flash[:notice] = root_url
-      path  = "#{root_url}static_games/citizenscience/Main.swf"
-      @file = "<embed id='game_embed' width=940 height=640 src=#{path} allowscriptaccess='sameDomain' />"
+      path  = "#{root_url}static_games/"+@game.localpath
+      @file = "<embed id='game_embed' width=950 height=660 src=#{path} allowscriptaccess='sameDomain' />"
     end
     if @game.nil?
       flash[:error] = "Game not found for "+params[:id]+"!"
@@ -29,15 +29,18 @@ class GamesController < ApplicationController
 
   def create
     @game = Game.new(params[:game])
+
     if @game.save
       redirect_to root_url
     else
+      flash[:notice] = @game.errors.messages
       render :new
     end
   end
 
   def update
     @game =  Game.find(params[:id])
+    puts params
 
     if @game.update_attributes params[:game]
       redirect_to root_url
@@ -48,11 +51,14 @@ class GamesController < ApplicationController
 
   def edit
     @game =  Game.find_by_path(params[:id])
+    @game.build_survey
+    @game.attachments.build
   end
 
   def new
     @game = Game.new
     @game.build_survey
+    @game.attachments.build
   end
 
   def index

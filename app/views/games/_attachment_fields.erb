@@ -1,0 +1,8 @@
+<div class="fields">
+  <%= f.simple_fields_for :attachments do |b| %>
+    <%= f.input :description  %>
+    <%= f.input :file ,class: :module,as: :file %>
+    <%= f.select :type, [:lessons,:cirriculum] %>
+    <h4><%= link_to_remove_fields "remove",f %></h4>
+  <% end %>
+</div>

@@ -1,36 +1,59 @@
 <%= simple_form_for @game do |f| %>
-  <%= f.input :name  , placeholder: 'Name of Game'%>
-  <%= f.input :path  , placeholder: 'The game Url path, ie how its accessed games/{path}'%>
-  <%= f.input :token  , placeholder: 'The Adage app token for the game'%>
+  <div class="module clear">
+    <h1>Game</h1>
+    <hr/>
+    <%= f.input :name  , placeholder: 'Name of Game'%>
+    <%= f.input :path  , placeholder: 'The game Url path, ie how its accessed games/{path}'%>
+    <%= f.input :token  , placeholder: 'The Adage app token for the game'%>
 
-  <%= f.simple_fields_for :survey do |s| %>
-    <%= s.input :url , required: false, label: "Survey Url" ,placeholder: 'Link to the google form survey' %>
-  <% end %>
-
-  <%= f.input :description, placeholder: ' Description of the game'%>
-  <%= f.input :microsite, placeholder: 'Link to Microsite for the game'%>
-  <%= f.input :external_download, placeholder: 'Link to external download for the game, if it is not web-playable' %>
-
-  <%= f.input :image ,class: :module %>
-  <% if @game.image? %>
-    <div id="image">
-      <%= image_tag(@game.image) %>
-    </div>
-  <% end %>
-
-  <div id="file">
-    <%= f.input :file , placeholder: 'Actual Game File',class: :module %>
-    <% if @game.file? %>
-      <span id="fileinput" class="module">
-        <%= link_to @game.file.to_s.split(/[\/|\?]/)[-2],raw(@game.file)%>
-      </span>
+    <%= f.simple_fields_for :survey do |s| %>
+      <%= s.input :url , required: false, label: "Survey Url" ,placeholder: 'Link to the google form survey' %>
     <% end %>
+
+    <%= f.input :description, placeholder: ' Description of the game'%>
+    <%= f.input :microsite, placeholder: 'Link to Microsite for the game'%>
+    <%= f.input :external_download, placeholder: 'Link to external download for the game, if it is not web-playable' %>
+
+    <%= f.input :image ,class: :module %>
+    <% if @game.image? %>
+      <div id="image">
+        <%= image_tag(@game.image) %>
+      </div>
+    <% end %>
+
+    <div id="file">
+      <%= f.input :file , placeholder: 'Actual Game File',class: :module %>
+      <% if @game.file? %>
+        <span id="fileinput" class="module">
+          <%= link_to @game.file.to_s.split(/[\/|\?]/)[-2],raw(@game.file)%>
+        </span>
+      <% end %>
+    </div>
+
+    <%= f.input :localpath, placeholder: 'Path to a local game folder (for games hosted as a directory)'%>
   </div>
 
-  <%= f.input :lesson_plan %>
-  <%= f.input :cirriculum %>
 
-  <%= f.input :localpath, placeholder: 'Path to a local game folder (for games hosted as a directory)'%>
+  <div class="module clear">
+    <h1>Attachments</h1>
+    <hr/>
 
-  <%= f.button :submit%>
+    <div class="fields">
+      <% @game.attachments.each do |a| %>
+        <% unless a.file.blank? %>
+          <%= f.simple_fields_for :attachments,a do |b| %>
+            <%= b.input :description  %>
+            <%= b.input :file ,class: :module,as: :file %>
+            <%= b.select :type, [:lessons,:cirriculum] %>
+            <%= link_to a.file.original_filename, raw(a.file) %>
+            <h4><%= link_to_remove_fields "remove",f %></h4>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+
+    <h3><%= link_to_add_fields("Add Attachment",f,:attachments) %></h3>
+
+    <%= f.button :submit%>
+  </div>
 <% end %>

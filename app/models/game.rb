@@ -1,6 +1,6 @@
 class Game < ActiveRecord::Base
   attr_accessible :name,:path,:description,:image,:file,:lesson_plan,:cirriculum,:survey,
-  :survey_attributes,:about,:localpath,:microsite,:external_download,:token
+  :survey_attributes,:about,:localpath,:microsite,:external_download,:token,:attachments_attributes,:_destroy
 
   has_attached_file :image, :default_url => "/images/:style/missing.png"
   has_attached_file :file
@@ -8,7 +8,10 @@ class Game < ActiveRecord::Base
   has_attached_file :cirriculum
 
   has_one :survey
+  has_many :attachments, inverse_of: :game, :dependent => :destroy
+
   accepts_nested_attributes_for :survey
+  accepts_nested_attributes_for :attachments, :reject_if => lambda { |a| a[:description].blank? }, :allow_destroy => true
 
   validates_uniqueness_of :name,:path
   validates_presence_of :name,:path,:description,:token
