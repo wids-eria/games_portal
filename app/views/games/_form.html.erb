@@ -38,21 +38,22 @@
     <h1>Attachments</h1>
     <hr/>
 
-    <div class="fields">
+    <h2><%= link_to_add_fields("Add Another Attachment",f,:attachments) %></h2>
+
       <% @game.attachments.each do |a| %>
         <% unless a.file.blank? %>
           <%= f.simple_fields_for :attachments,a do |b| %>
-            <%= b.input :description  %>
-            <%= b.input :file ,class: :module,as: :file %>
-            <%= b.select :type, [:lessons,:cirriculum] %>
-            <%= link_to a.file.original_filename, raw(a.file) %>
-            <h4><%= link_to_remove_fields "remove",f %></h4>
+            <div class="fields">
+              <%= b.input :description  %>
+              <%= b.input :file ,class: :module,as: :file %>
+              <h4><%= link_to a.file.original_filename, raw(a.file) %></h4>
+              <label>Type</label><%= b.select :type, [:lessons,:cirriculum] %>
+              <h3><%= link_to_remove_fields "remove",b %></h3>
+            </div>
           <% end %>
         <% end %>
       <% end %>
-    </div>
 
-    <h3><%= link_to_add_fields("Add Attachment",f,:attachments) %></h3>
 
     <%= f.button :submit%>
   </div>
