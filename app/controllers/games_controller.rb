@@ -40,7 +40,6 @@ class GamesController < ApplicationController
 
   def update
     @game =  Game.find(params[:id])
-    puts params
 
     if @game.update_attributes params[:game]
       redirect_to root_url

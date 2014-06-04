@@ -16,24 +16,25 @@
         <% end %>
       <% end %>
 
-      <% if can? :resource, g  %>
-        <% if g.cirriculum.exists? %>
-          <%= link_to g.cirriculum.url, target: "_blank" do %>
-            <li class="view_resources_button">
-                <div class="resources_icon"></div>
-                Cirriculum
-            </li>
-          <% end %>
-        <% end %>
+      <% if g.attachments.exists? %>
 
-        <% if g.lesson_plan.exists? %>
-          <%= link_to g.lesson_plan.url, target: "_blank"  do %>
-          <li class="view_lesson_plan_button">
-              <div class="lesson_plan_icon"></div>
-              Lessons
-          </li>
-          <% end %>
-        <% end %>
+            <li class="view_lesson_plan_button dropdown">
+                <div class="lesson_plan_icon "></div>
+                  Lessons
+
+                  <% g.attachments.lessons.each do |dl| %>
+                    <ul><%= link_to dl.file.original_filename, raw(dl.file),target: "_blank" %></ul>
+                  <% end %>
+            </li>
+
+            <li class="view_resources_button dropdown">
+                <div class="resources_icon "></div>
+                  Cirriculum
+
+                  <% g.attachments.cirriculum.each do |dl| %>
+                    <ul><%= link_to dl.file.original_filename, raw(dl.file),target: "_blank" %></ul>
+                  <% end %>
+            </li>
       <% end %>
     </a>
   </ul>

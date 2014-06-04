@@ -8,7 +8,10 @@ class Game < ActiveRecord::Base
   has_attached_file :cirriculum
 
   has_one :survey
-  has_many :attachments, inverse_of: :game, :dependent => :destroy
+  has_many :attachments, inverse_of: :game, :dependent => :destroy do
+
+
+  end
 
   accepts_nested_attributes_for :survey
   accepts_nested_attributes_for :attachments, :reject_if => lambda { |a| a[:description].blank? }, :allow_destroy => true
@@ -20,6 +23,7 @@ class Game < ActiveRecord::Base
   validates_attachment_presence :image
   validates_attachment :image, content_type: {:content_type => ['image/png','image/jpg','image/jpeg']}
   validates_attachment_content_type :file, content_type: ['application/x-shockwave-flash','application/octet-stream']
+
 
   def has_data(user)
     #return !AdaData.with_game(self.path).where(user_id: user.ada_id).last.nil?
