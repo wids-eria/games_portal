@@ -7,7 +7,7 @@ class Ability
 
     if user.id
       can :read, Game
-      unless user.has_role(:teacher) || user.has_role(:developer) || user.admin?
+      if user.has_role(:teacher) || user.has_role(:researcher) || user.has_role(:developer) || user.admin?
         can :resource, Game
       end
 
