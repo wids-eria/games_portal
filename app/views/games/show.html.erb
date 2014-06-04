@@ -28,13 +28,14 @@
       </div>
     <% end %>
   <% else %>
-    <div id="instructions" class="module two_thirds">
+    <div id="instructions" class="module one_third">
       <h2>Download Instructions</h2>
       <hr/>
-      <p><b><%= @game.name %></b> is not available on the GLS Games Portal. You can access XX by downloading it from iTunes/Google Play/etc. Search for <b><%= @game.name %></b> and download it there!
+      <p>
+        <b><%= @game.name %></b> is not available on the GLS Games Portal. You can access XX by downloading it from iTunes/Google Play/etc. Search for
+        <b><%= @game.name %></b> and download it there!
       </p>
       <hr/>
-
       <div id="external">
         <%= link_to @game.external_download do %>
           <div class="blue_button center">
@@ -46,7 +47,7 @@
   <% end %>
 </div>
 
-<% if @game.external_download.empty? %>
+<% if @game.survey.nil? %>
   <div class="module full">
       <h2>Quiz</h2>
           <hr>

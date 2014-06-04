@@ -1,4 +1,7 @@
-<%= simple_form_for @group do |f| %>
-  <%= f.input :name  , placeholder: 'Class Name'%>
-  <%= f.button :submit%>
-<% end %>
+<div class="module full">
+  <%= simple_form_for @group do |f| %>
+    <h2><%= f.input :name  , placeholder: 'Class Name'%></h2>
+    <hr>
+    <%= f.button :submit%>
+  <% end %>
+</div>

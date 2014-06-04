@@ -2,8 +2,8 @@
 
 <div class="module two_thirds left">
   <%= simple_form_for @group do |f| %>
-    <h2><%= f.input :name  , placeholder: 'Class Name'%></h2>
-
-    <%= f.button :submit,class: :blue_button,value: :Create %>
+    <h2>Name</h2>
+    <%= f.input :name  , placeholder: 'Class Name', label: false %>
+    <span class="blue_button"><%= f.button :submit,value: :Create %></span>
   <% end %>
 </div>
