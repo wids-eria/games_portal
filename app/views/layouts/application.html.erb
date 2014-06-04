@@ -32,11 +32,12 @@
             <%= link_to root_url do%>
               <li>Games</li>
             <% end %>
-              <% if user_signed_in? %>
-                <div class="nav_divider"></div>
-                <%= link_to profile_url(name: current_user.player_name) do %>
-                  <li>Dashboard</li>
-                <% end %>
+
+            <% if user_signed_in? %>
+              <div class="nav_divider"></div>
+              <%= link_to profile_url(name: current_user.player_name) do %>
+                <li>Dashboard</li>
+              <% end %>
             <% end %>
             <div class="nav_divider"></div>
         </ul>

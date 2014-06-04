@@ -20,7 +20,7 @@
 
           <ul class="menu">
               <li class="view_lesson_plan_button">
-                <div class="lesson_plan_icon "></div>
+                <div class="lesson_plan_icon"></div>
                   Lessons
                   <ul>
                       <% g.attachments.lessons.each do |dl| %>
@@ -36,7 +36,7 @@
                   Cirriculum
                   <ul>
                       <% g.attachments.cirriculum.each do |dl| %>
-                      <li><%= link_to dl.file.original_filename, raw(dl.file),target: "#" %></li>
+                      <li><%= link_to dl.file.original_filename, raw(dl.file),target: "_blank" %></li>
                       <% end %>
                   </ul>
               </li>

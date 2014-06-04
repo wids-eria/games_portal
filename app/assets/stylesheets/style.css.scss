@@ -326,6 +326,7 @@ header{
         background: -ms-linear-gradient(top,  #67b3ce 0%,#5690b7 100%); /* IE10+ */
         background: linear-gradient(to bottom,  #67b3ce 0%,#5690b7 100%); /* W3C */
         filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#67b3ce', endColorstr='#5690b7',GradientType=0 ); /* IE6-9 */
+
     }
 
     &:active{
@@ -805,25 +806,39 @@ footer{  }
 /* End Footer */
 
 
-.dropdown{
-    width: 300px;
+.login{
+    line-height: 2.6em;
+}
+
+.menu{
+    float: left;
+
+    li{
+        position: relative;
+    }
+
     ul{
-        position:relative;
-        left:-125px;
-        top:40px;
-        width:125px;
-        visibility: hidden;
-        clear: both;
-        float: none;
-        display: inline-block;
+        padding: 0;
+        position: absolute;
+        top: 40px;
+        left: 0;
+        width: auto;
+        display: none;
+    }
+    a{
+        color:white;
+        font-size: 0.76em;
+        letter-spacing: 0.11em;
+        text-transform:lowercase;
     }
     &:hover{
-        ul{
-            display: inline-block;
 
-            visibility:visible;
+        ul{
+            color:white;
+            padding: 10px;
+            display: inline-block;
+            background:#132433;
+            color:white !important;
         }
     }
 }
-.menu ul { display: none; } /* Hide before plugin loads */
-
