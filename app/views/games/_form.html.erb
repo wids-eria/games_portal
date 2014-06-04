@@ -3,6 +3,7 @@
     <h1>Game</h1>
     <hr/>
     <%= f.input :name  , placeholder: 'Name of Game'%>
+    <label>Featured?</label><%= f.check_box :featured  , placeholder: 'Is the Game featured'%>
     <%= f.input :path  , placeholder: 'The game Url path, ie how its accessed games/{path}'%>
     <%= f.input :token  , placeholder: 'The Adage app token for the game'%>
 
