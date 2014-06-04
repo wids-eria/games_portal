@@ -1,5 +1,5 @@
 class ConsentController < ApplicationController
-  before_filter :present_login
+  before_filter :login_required
 
   def form
   end
