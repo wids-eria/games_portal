@@ -2,6 +2,7 @@
   margin: 0 auto;
   clear: both;
   width: 940px;
+  min-height: 640px;
 
   padding-bottom: 20px;
   padding-top: 20px;
@@ -10,9 +11,18 @@
   #instructions{
     position:absolute; top:0; bottom:0; left:0; right:0;
     margin:auto;
-    height:240px;
-    h2 {text-align: center;}
+    height:300px;
+    h1 {text-align: center;}
     a{ display: inline-block; }
+    p{
+      font-size: 1.1em;
+
+    }
+
+    #download_insctructions{
+
+      min-height: 130px;
+    }
 
     #external{
       margin: 0 auto;
