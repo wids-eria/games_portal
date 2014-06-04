@@ -16,31 +16,32 @@
         <% end %>
       <% end %>
 
-      <% if g.attachments.exists? %>
+      <% if g.attachments.lessons.exists? %>
+        <ul class="menu">
+          <li class="view_lesson_plan_button">
+            <div class="lesson_plan_icon"></div>
+              Lessons
+              <ul>
+                <% g.attachments.lessons.each do |dl| %>
+                  <li><%= link_to dl.file.original_filename, raw(dl.file),target: "#" %></li>
+                <% end %>
+              </ul>
+          </li>
+        </ul>
+      <% end %>
 
-          <ul class="menu">
-              <li class="view_lesson_plan_button">
-                <div class="lesson_plan_icon"></div>
-                  Lessons
-                  <ul>
-                      <% g.attachments.lessons.each do |dl| %>
-                      <li><%= link_to dl.file.original_filename, raw(dl.file),target: "#" %></li>
-                      <% end %>
-                  </ul>
-              </li>
-          </ul>
-
-          <ul class="menu">
-              <li class="view_resources_button">
-                <div class="resources_icon "></div>
-                  Cirriculum
-                  <ul>
-                      <% g.attachments.cirriculum.each do |dl| %>
-                      <li><%= link_to dl.file.original_filename, raw(dl.file),target: "_blank" %></li>
-                      <% end %>
-                  </ul>
-              </li>
-          </ul>
+      <% if g.attachments.cirriculum.exists? %>
+        <ul class="menu">
+          <li class="view_resources_button">
+            <div class="resources_icon "></div>
+              Cirriculum
+              <ul>
+                <% g.attachments.cirriculum.each do |dl| %>
+                  <li><%= link_to dl.file.original_filename, raw(dl.file),target: "_blank" %></li>
+                <% end %>
+              </ul>
+          </li>
+        </ul>
       <% end %>
     </a>
   </ul>
