@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140530165451) do
+ActiveRecord::Schema.define(:version => 20140604181953) do
 
   create_table "attachments", :force => true do |t|
     t.integer  "game_id"
@@ -28,8 +28,8 @@ ActiveRecord::Schema.define(:version => 20140530165451) do
   create_table "games", :force => true do |t|
     t.string   "name"
     t.string   "path"
-    t.datetime "created_at",               :null => false
-    t.datetime "updated_at",               :null => false
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
     t.text     "description"
     t.string   "image_file_name"
     t.string   "image_content_type"
@@ -40,14 +40,6 @@ ActiveRecord::Schema.define(:version => 20140530165451) do
     t.integer  "file_file_size"
     t.datetime "file_updated_at"
     t.string   "localpath"
-    t.string   "lesson_plan_file_name"
-    t.string   "lesson_plan_content_type"
-    t.integer  "lesson_plan_file_size"
-    t.datetime "lesson_plan_updated_at"
-    t.string   "cirriculum_file_name"
-    t.string   "cirriculum_content_type"
-    t.integer  "cirriculum_file_size"
-    t.datetime "cirriculum_updated_at"
     t.string   "microsite"
     t.string   "external_download"
     t.string   "token"

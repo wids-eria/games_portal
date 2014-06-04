@@ -1,11 +1,9 @@
 class Game < ActiveRecord::Base
-  attr_accessible :name,:path,:description,:image,:file,:lesson_plan,:cirriculum,:survey,
+  attr_accessible :name,:path,:description,:image,:file,:survey,
   :survey_attributes,:about,:localpath,:microsite,:external_download,:token,:attachments_attributes,:_destroy
 
   has_attached_file :image, :default_url => "/images/:style/missing.png"
   has_attached_file :file
-  has_attached_file :lesson_plan
-  has_attached_file :cirriculum
 
   has_one :survey
   has_many :attachments, inverse_of: :game, :dependent => :destroy do
