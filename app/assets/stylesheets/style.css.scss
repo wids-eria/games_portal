@@ -62,7 +62,9 @@ STYLESHEET CONTENTS
 
 html{ overflow:scroll; background: #0b1e2c; }
 
-body{ background:url(gp_bg.png) 50% 0% no-repeat; }
+body{ background:url(gp_bg.png) 50% 0% no-repeat;
+    height: 2024px;
+}
 
 a{ text-decoration:none; }
     a:hover{  }
@@ -796,25 +798,25 @@ footer{  }
 /* End Footer */
 
 
-
-
-
 .dropdown{
+    width: 300px;
     ul{
-        display: none;
-        padding-left: 23px;
-        float: left;
-       // display: inline-block;
+        position:relative;
+        left:-125px;
+        top:40px;
+        width:125px;
+        visibility: hidden;
+        clear: both;
+        float: none;
+        display: inline-block;
     }
     &:hover{
         ul{
             display: inline-block;
+
+            visibility:visible;
         }
     }
 }
-
-
-
-
-
+.menu ul { display: none; } /* Hide before plugin loads */
 

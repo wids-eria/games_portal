@@ -11,6 +11,6 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
+//= require dropit
 //= require jquery_ujs
-//= require owl.carousel.min
 //= require_tree .
