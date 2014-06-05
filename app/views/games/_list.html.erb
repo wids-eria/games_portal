@@ -1,50 +1,52 @@
-<%= div_for(games, class: "project_container_first") do |g| %>
-  <img src="<%= g.image.url %>" class="left"/>
+<% games.each do |g| %>
+  <%= div_for(g, class: "project_container_first") do %>
+    <img src="<%= g.image.url %>" class="left"/>
 
-  <div class="project_description">
-    <div class="project_description_header"><p><%= g.name %></p></div>
-    <div class="project_description_paragraph"><p><%= g.description %></p></div>
-  </div>
-  <ul class="project_nav_container">
-    <a class="fancybox" >
-      <% if g.file.exists? or g.external_download %>
-        <%= link_to play_game_url(id: g.path) do %>
-          <li class="view_trailer_button">
-            <div class="play_icon"></div>
-            Play
-          </li>
-        <% end %>
-      <% end %>
-
-      <% if can? :resource, Game %>
-        <% if g.attachments.lessons.exists? %>
-          <ul class="menu">
-            <li class="view_lesson_plan_button">
-              <div class="lesson_plan_icon"></div>
-                Lessons
-                <ul>
-                  <% g.attachments.lessons.each do |dl| %>
-                    <li><%= link_to dl.file.original_filename, raw(dl.file),target: "#" %></li>
-                  <% end %>
-                </ul>
+    <div class="project_description">
+      <div class="project_description_header"><p><%= g.name %></p></div>
+      <div class="project_description_paragraph"><p><%= g.description %></p></div>
+    </div>
+    <ul class="project_nav_container">
+      <a class="fancybox" >
+        <% if g.file.exists? or g.external_download %>
+          <%= link_to play_game_url(id: g.path) do %>
+            <li class="view_trailer_button">
+              <div class="play_icon"></div>
+              Play
             </li>
-          </ul>
+          <% end %>
         <% end %>
 
-        <% if g.attachments.cirriculum.exists? %>
-          <ul class="menu">
-            <li class="view_resources_button">
-              <div class="resources_icon "></div>
-                Cirriculum
-                <ul>
-                  <% g.attachments.cirriculum.each do |dl| %>
-                    <li><%= link_to dl.file.original_filename, raw(dl.file),target: "_blank" %></li>
-                  <% end %>
-                </ul>
-            </li>
-          </ul>
+        <% if can? :resource, Game %>
+          <% if g.attachments.lessons.exists? %>
+            <ul class="menu">
+              <li class="view_lesson_plan_button">
+                <div class="lesson_plan_icon"></div>
+                  Lessons
+                  <ul>
+                    <% g.attachments.lessons.each do |dl| %>
+                      <li><%= link_to dl.file.original_filename, raw(dl.file),target: "#" %></li>
+                    <% end %>
+                  </ul>
+              </li>
+            </ul>
+          <% end %>
+
+          <% if g.attachments.cirriculum.exists? %>
+            <ul class="menu">
+              <li class="view_resources_button">
+                <div class="resources_icon "></div>
+                  Cirriculum
+                  <ul>
+                    <% g.attachments.cirriculum.each do |dl| %>
+                      <li><%= link_to dl.file.original_filename, raw(dl.file),target: "_blank" %></li>
+                    <% end %>
+                  </ul>
+              </li>
+            </ul>
+          <% end %>
         <% end %>
-      <% end %>
-    </a>
-  </ul>
+      </a>
+    </ul>
+  <% end %>
 <% end %>
