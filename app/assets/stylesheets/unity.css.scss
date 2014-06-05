@@ -31,6 +31,17 @@
   }
 }
 
+#Player{
+  background: transparent !important;
+  height: 100%;
+  width: auto;
+
+  embed{
+    height: 100%;
+    width: 100%;
+  }
+}
+
 #unityPlayer{
   margin: 0 auto;
   clear: both;
