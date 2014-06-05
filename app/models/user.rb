@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
   validates_presence_of :player_name
 
   has_many :group_ownerships
-  has_many :owned_groups, through: :group_ownerships, source: :group
+  has_many :owned_groups, through: :group_ownerships, source: :group, :uniq => true
   has_and_belongs_to_many :roles
   has_and_belongs_to_many :groups
 

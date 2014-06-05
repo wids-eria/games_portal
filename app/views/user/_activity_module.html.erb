@@ -1,9 +1,14 @@
 <div class="module full">
     <h2>Activity</h2>
+    <hr/>
+    <% found_data = false %>
     <% @games.each do |game| %>
       <% if game.has_data(@user) %>
-        <hr>
         <p class="left">Last Played: <%= game.name %> on <span class="bold"><%= Time.at(game.last_playtime(@user).to_i).strftime('%m/%d') %></span></p>
+        <% found_data = true %>
       <% end %>
+    <% end %>
+    <% if ! found_data %>
+      <p>No Activity Data Found</p>
     <% end %>
 </div>

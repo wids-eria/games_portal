@@ -11,7 +11,7 @@
     </a>
   </div>
 
-  <% if @user.has_role(:teacher)%>
+  <% if @user.has_role(:teacher) || @user.admin? %>
     <%= render "teacher_dashboard" %>
   <% else %>
     <%= render "student_dashboard" %>
