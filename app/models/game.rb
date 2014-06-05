@@ -32,13 +32,12 @@ class Game < ActiveRecord::Base
   end
 
   def has_data(user)
-    #return !AdaData.with_game(self.path).where(user_id: user.ada_id).last.nil?
-    return !AdaData.with_game(self.get_ada_name).last.nil?
+    return !AdaData.with_game(self.get_ada_name).where(user_id: user.id).last.nil?
   end
 
   def last_playtime(user)
     #return AdaData.with_game(self.path).where(user_id: user.ada_id).last.timestamp
-    return AdaData.with_game(self.get_ada_name).last.timestamp
+    return AdaData.with_game(self.get_ada_name).where(user_id: user.id).last.timestamp
   end
 
   def play_data(user)
@@ -68,8 +67,8 @@ class Game < ActiveRecord::Base
     @average_time = 0
     @session_count = 0
     #Check for the ADAVersion for compatability before all the processing
-    log = AdaData.with_game(self.get_ada_name).only(:_id,:ADAVersion).where(:ADAVersion.exists=>true).first
-
+    log = AdaData.with_game(self.get_ada_name).where(user_id: user.id,:ADAVersion.exists=>true).only(:_id,:ADAVersion).first
+    puts log.to_json
     unless log.nil?
       drunken_dolphin = log.ADAVersion.include?('drunken_dolphin')
       logs = AdaData.with_game(self.get_ada_name).order_by(:timestamp.asc).in(user_id: user.id).only(:ADAVersion,:timestamp,:user_id,:session_token).where(:ADAVersion.exists=>true).map_reduce(map,reduce).out(inline:1)
