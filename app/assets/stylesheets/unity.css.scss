@@ -33,12 +33,12 @@
 
 #Player{
   background: transparent !important;
-  height: 100%;
-  width: auto;
+  height: 640px;
+  width: 940px;
 
   embed{
-    height: 100%;
-    width: 100%;
+    width: 100%    !important;
+    height: 100%  !important;
   }
 }
 

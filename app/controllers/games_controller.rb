@@ -19,7 +19,7 @@ class GamesController < ApplicationController
       #Rails Fix to render a static file correctly
       #flash[:notice] = root_url
       path  = "#{root_url}static_games/"+@game.localpath
-      @file = "<embed id='game_embed' width=950 height=660 src=#{path} allowscriptaccess='sameDomain' />"
+      @file = "<embed id='game_embed' width='100%' height='100%' src=#{path} allowscriptaccess='sameDomain' />"
     end
     if @game.nil?
       flash[:error] = "Game not found for "+params[:id]+"!"
