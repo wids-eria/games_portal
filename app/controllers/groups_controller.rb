@@ -43,7 +43,7 @@ class GroupsController < ApplicationController
 
       if ownership.save
         flash[:notice] = 'Group Added'
-        redirect_to main_app.profile_path
+        redirect_to profile_url(name: current_user.player_name)
       else
         flash[:error] = 'Group Could Not be Created'
       end
