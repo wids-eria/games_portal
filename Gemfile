@@ -23,8 +23,9 @@ gem 'zoo_pass', github: 'wids-eria/zoo_pass', branch: 'abstracting'
 gem 'figaro'
 gem 'simple_form'
 
+
+gem 'sass-rails'
 group :assets do
-  gem 'sass-rails'
   gem 'coffee-rails', '~> 3.2.1'
   gem 'uglifier', '>= 1.0.3'
 end
