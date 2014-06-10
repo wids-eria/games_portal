@@ -16,6 +16,7 @@ class ApplicationController < ActionController::Base
   def login_required
     if !current_user
       respond_to do |format|
+
         format.html  {
           redirect_to '/auth/ada'
         }

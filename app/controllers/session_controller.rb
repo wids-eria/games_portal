@@ -5,6 +5,8 @@ class SessionController < ApplicationController
   def from_oauth
     omniauth = env['omniauth.auth']
 
+    puts "ASasdasdasasdD"
+    puts env['omniauth.auth']
     unless omniauth.nil?
       session[:token] = omniauth['credentials']['token']
       session[:player_name] = omniauth['extra']['raw_info']['info']['player_name']
