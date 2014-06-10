@@ -15,7 +15,7 @@ class Ability
         can [:show,:create], Group
       end
 
-      if user.admin?
+      if user.admin? || user.has_role(:admin)?
         can :manage, :all
       end
     end
