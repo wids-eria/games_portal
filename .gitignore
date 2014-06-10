@@ -6,8 +6,6 @@
 
 # Ignore bundler config
 /.bundle
-config/nouns.txt
-config/adjectives.txt
 
 /config/database.yml
 *.unity3d
