@@ -6,6 +6,8 @@
 
 # Ignore bundler config
 /.bundle
+config/nouns.txt
+config/adjectives.txt
 
 /config/database.yml
 *.unity3d
@@ -39,3 +41,7 @@ db_dump.sql
 
 # ignore paperclip files
 /public/system
+
+config/adjectives.txt
+
+config/nouns.txt
