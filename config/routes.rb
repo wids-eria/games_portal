@@ -22,7 +22,7 @@ GlsPortal::Application.routes.draw do
 
   get "/game/:id" =>"games#landing", as: "game_landing"
 
-  put "consent/consent"
+  put "/consent"
 
   get 'auth/:provider/callback' => 'session#from_oauth'
   get 'auth/failure' => 'session#failure'
