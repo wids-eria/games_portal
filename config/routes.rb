@@ -24,7 +24,7 @@ GlsPortal::Application.routes.draw do
 
   put "consent/consent"
 
-  get 'auth/:provider/callback' => 'session#from_oauth'
+  get '*/auth/:provider/callback' => 'session#from_oauth'
   get 'auth/failure' => 'session#failure'
   get 'users/new_user' => 'session#create'
 
