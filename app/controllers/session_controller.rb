@@ -18,7 +18,7 @@ class SessionController < ApplicationController
   end
 
   def login
-    redirect_to root_url
+    redirect_to root_path
   end
 
   def destroy
