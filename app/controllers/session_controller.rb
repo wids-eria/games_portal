@@ -23,9 +23,8 @@ class SessionController < ApplicationController
   end
 
   def destroy
-    session.clear
     reset_session
-    flash[:notice] = %Q[You have been logged out of the Game Portal but are still logged into your <a href="http://ada.production.eriainteractive.com">GLS account.</a>].html_safe
+    flash[:notice] = %Q[You have been logged out of the Game Portal but are still logged into your <a href="http://adage.gameslearningsociety.org/">GLS account.</a>].html_safe
 
     redirect_to root_url
   end
