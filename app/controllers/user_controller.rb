@@ -1,7 +1,7 @@
 class UserController < ApplicationController
   before_filter :login_required
   before_filter :must_consent
-  skip_authorize_resource
+  skip_authorization_check
 
   def show
     unless params[:name].empty?
