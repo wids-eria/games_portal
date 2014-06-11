@@ -3,8 +3,8 @@ class ApplicationController < ActionController::Base
   check_authorization :unless => :devise_controller?
 
   def current_user
-    if session[:current_user].nil?
-      #session[:current_user] = User.find_by_id(session[:id])
+    if session[:id].nil?
+      return false
     end
     return User.find_by_id(session[:id])
   end

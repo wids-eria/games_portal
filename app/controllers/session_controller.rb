@@ -23,7 +23,8 @@ class SessionController < ApplicationController
   end
 
   def destroy
-    session  = nil
+    session[:id]  = nil
+    session[:player_name]  = nil
     reset_session
     flash[:notice] = %Q[You have been logged out of the Game Portal but are still logged into your <a href="http://ada.production.eriainteractive.com">GLS account.</a>].html_safe
 
