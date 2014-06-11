@@ -1,6 +1,6 @@
 class ConsentController < ApplicationController
   before_filter :login_required
-
+  skip_authorization_check
   def form
   end
 
