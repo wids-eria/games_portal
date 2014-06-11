@@ -1,6 +1,7 @@
 class GamesController < ApplicationController
-  load_and_authorize_resource :game, :find_by => :path, only: [:landing]
-  load_and_authorize_resource :game, :find_by => :id, only: [:landing]
+authorize_resource
+  skip_authorize_resource :game, :find_by => :path, only: [:landing,:player]
+  skip_authorize_resource :game, :find_by => :id, only: [:landing,:player]
   before_filter :login_required, only: [:show]
   before_filter :must_consent, only: [:show]
 

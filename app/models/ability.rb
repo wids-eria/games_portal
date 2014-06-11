@@ -3,10 +3,10 @@ class Ability
 
   def initialize(user)
     user ||= User.new # guest user
-    cannot :read, Game
+    cannot [:new,:create,:update], Game
+    can :read, Game
 
     if user.id
-      can :read, Game
       if user.has_role(:teacher) || user.has_role(:researcher) || user.has_role(:developer) || user.admin?
         can :resource, Game
       end

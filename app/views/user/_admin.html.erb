@@ -1,11 +1,12 @@
 <div id="admin">
-  <% if user_signed_in? && current_user.admin %>
+  <% if user_signed_in? && (current_user.admin || current_user.has_role(:admin) )%>
     <%= link_to "Add Game", new_game_path , method: :get%>
-  <% end %>
 
-  <% unless @game.nil? or @game.id.nil? %>
-    <%= link_to "Edit", edit_game_path(id: @game.path) %>
-    <%= link_to_unless @game.path.nil?, "Delete", game_path(@game.path), :method => :delete, :confirm => "Are You sure?",
-                      :title => "Delete #{@game.name}" %>
+    <% unless @game.nil? or @game.id.nil? %>
+      <%= link_to "Edit", edit_game_path(id: @game.path) %>
+      <%= link_to_unless @game.path.nil?, "Delete", game_path(@game.path), :method => :delete, :confirm => "Are You sure?",
+                        :title => "Delete #{@game.name}" %>
+    <% end %>
+
   <% end %>
 </div>
