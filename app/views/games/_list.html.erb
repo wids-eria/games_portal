@@ -1,20 +1,12 @@
 <% games.each do |g| %>
-  <%= div_for(g, class: "project_container_first") do %>
-    <img src="<%= g.image.url %>" class="left"/>
-
-    <div class="project_description">
-      <div class="project_description_header"><p><%= g.name %></p></div>
-      <div class="project_description_paragraph"><p><%= g.description %></p></div>
-    </div>
-    <ul class="project_nav_container">
-      <a class="fancybox" >
+  <%= link_to play_game_url(id: g.path) do %>
+    <div  class="game_button">
+      <div class="game_thumb" style="background: url(<%= g.image.url %>);">
         <% if g.file.exists? or g.external_download %>
-          <%= link_to play_game_url(id: g.path) do %>
-            <li class="view_trailer_button">
-              <div class="play_icon"></div>
-              Play
-            </li>
-          <% end %>
+            <div class="play_now_button">
+                <p>Play Now</p>
+                <div class="play_button_icon"></div>
+            </div>
         <% end %>
 
         <% if can? :resource, Game %>
@@ -22,10 +14,10 @@
             <ul class="menu">
               <li class="view_lesson_plan_button">
                 <div class="lesson_plan_icon"></div>
-                  Lessons
+
                   <ul>
                     <% g.attachments.lessons.each do |dl| %>
-                      <li><%= link_to dl.file.original_filename, raw(dl.file),target: "#" %></li>
+                      <li><% link_to dl.file.original_filename, raw(dl.file),target: "#" %></li>
                     <% end %>
                   </ul>
               </li>
@@ -39,14 +31,18 @@
                   Cirriculum
                   <ul>
                     <% g.attachments.cirriculum.each do |dl| %>
-                      <li><%= link_to dl.file.original_filename, raw(dl.file),target: "_blank" %></li>
+                      <li><% link_to dl.file.original_filename, raw(dl.file),target: "_blank" %></li>
                     <% end %>
                   </ul>
               </li>
             </ul>
           <% end %>
         <% end %>
-      </a>
-    </ul>
+      </div>
+
+      <div class="game_label">
+          <p><%= g.name %></p>
+      </div>
+    </div>
   <% end %>
 <% end %>

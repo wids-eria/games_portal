@@ -1,8 +1,15 @@
-<div class="logged_in_as">
+
+<% if user_signed_in? %>
+  <%= link_to profile_url(name: current_user.player_name) do %>
+    <li>Dashboard</li>
+  <% end %>
+<% end %>
+
+<div class="logged_in">
   <% if user_signed_in? %>
-    <p><%= current_user.player_name%></p>
+    <p class="username"><%= current_user.player_name%></p>
     <%= link_to main_app.logout_path, :method => :delete do %>
-      Log Out
+      <p class="log_out">Log Out</p>
     <% end %>
   <% else %>
     <% if !logged_in %>

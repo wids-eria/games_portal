@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Playsquad Outreach - Dashboard</title>
+    <title>GLS Games Portal</title>
     <meta name="description"
           content="">
     <%= stylesheet_link_tag    "style", :media => "all" %>
@@ -23,23 +23,19 @@
     <!-- Navigation -->
     <div class="navigation_container">
         <%= link_to root_url do%>
-          <div class="header_logo"></div>
+          <div class="logo_container">
+            <div class="glss_logo"></div>
+            <div class="gamesportal_logotype">
+                <p>Games<span class="redtext">Portal</span></p>
+            </div>
+          </div>
         <% end %>
 
-        <%= render "user/account" %>
         <ul class="nav">
-            <div class="nav_divider"></div>
-            <%= link_to root_url do%>
-              <li>Games</li>
-            <% end %>
-
-            <% if user_signed_in? %>
-              <div class="nav_divider"></div>
-              <%= link_to profile_url(name: current_user.player_name) do %>
-                <li>Dashboard</li>
-              <% end %>
-            <% end %>
-            <div class="nav_divider"></div>
+          <%= link_to root_url do%>
+            <li>Games</li>
+          <% end %>
+          <%= render "user/account" %>
         </ul>
 
     </div> <!-- End Navigation -->
@@ -51,7 +47,10 @@
           <p><%= flash[:notice] || flash[:error]%></p>
       </div>
     <% end %>
+
+    <div class="main_content">
     <%= yield %>
+    </div>
   </div>
 
   <footer><%= render "user/admin" %></footer>

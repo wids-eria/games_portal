@@ -13,14 +13,14 @@
 
     <div class="description">
       <h1><%= g.name %></h1>
-      <p><%= raw g.description %></p>
+      <p><% raw g.description %></p>
     </div>
   <% end %>
 
   <% if @game.about? %>
     <div id="about" >
       <p class="readable">
-        <%= raw @game.about %>
+        <% raw @game.about %>
       </p>
     </div>
   <% end %>

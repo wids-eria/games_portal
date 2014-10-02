@@ -1,22 +1,12 @@
 <% unless Game.find_by_featured(true).nil? %>
-  <div class="featured_game_container">
-    <div class="games_portal_logo">
-        <%= image_tag("gp_logo.png") %>
-    </div>
-    <%= div_for(Game.find_by_featured(true), class: "featured_game") do |g| %>
+    <% g = Game.find_by_featured(true) %>
+    <%= link_to play_game_url(id: g.path) do %>
 
-        <div class="play_now_container">
-            <%= link_to play_game_url(id: g.path) do %>
-                <div class="blue_button">
-                    <p>Play Now</p>
-                </div>
-            <% end %>
-
-            <div class="featured_game_title">
-                <p class="fg_label">Featured Game:</p>
-                <p class="fg_name"><%= g.name %></p>
+        <div class="featured_game_econauts">
+            <div class="featured_label">
+                <p>Featured Game</p>
+                <p class="featured_game_name"><%= g.name %></p>
             </div>
         </div>
     <% end %>
-  </div>
 <% end %>
