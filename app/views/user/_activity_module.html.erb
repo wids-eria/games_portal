@@ -1,6 +1,5 @@
-<div class="module full">
-    <h2>Activity</h2>
-    <hr/>
+<div class="subsection">
+    <p class="subhead">Activity</p>
     <% found_data = false %>
     <% @games.each do |game| %>
       <% if game.has_data(@user) %>
@@ -12,3 +11,5 @@
       <p>No Activity Data Found</p>
     <% end %>
 </div>
+
+

@@ -1,14 +1,21 @@
 <%= render "activity_module" %>
 <%= render "playtime_module" %>
 
-<div class="welcome_back_container">
-    <p class="left">Classes</p>
-    <%= link_to new_group_url, class: :right do %>
-        <div class="blue_button">
-            <p>Add</p>
+<div class="full">
+    <div class="dashboard_content_container">
+        <div class="header">
+            <p>Classes</p>
+
+            <%= link_to new_group_url do %>
+                <p>Add</p>
+            <% end %>
         </div>
-    <% end %>
-    <hr/>
+
+        <div class="subsection">
+            <p class="subhead">Play Time</p>
+            <p>No Play Time Data Found</p>
+        </div>
+    </div>
 </div>
 
 <% if current_user.owned_groups.count == 0 %>

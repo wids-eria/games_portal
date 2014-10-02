@@ -1,19 +1,23 @@
-<% if @user != current_user %>
-  <%= render "friend_dashboard" %>
-<% else %>
-  <div class="welcome_back_container">
-    <p class="left">Welcome back, <span class="name"><%= @user.player_name %></span> </p>
+<div class="full">
+  <div class="dashboard_content_container">
+    <% if @user != current_user %>
+      <%= render "friend_dashboard" %>
+    <% else %>
+      <div class="header">
+      <p>Welcome back, <span class="italic redtext"><%= @user.player_name %></span></p>
 
-    <a href="<%= ENV["ADAGE_URL"] %>/users/edit" class="right">
-      <div class="blue_button">
-          <p>Update Profile</p>
+        <a href="<%= ENV["ADAGE_URL"] %>/users/edit" class="right">
+          <div class="blue_button">
+              <p>Update Profile</p>
+          </div>
+        </a>
       </div>
-    </a>
-  </div>
 
-  <% if @user.has_role(:teacher) || @user.admin? %>
-    <%= render "teacher_dashboard" %>
-  <% else %>
-    <%= render "student_dashboard" %>
-  <% end %>
-<% end %>
+      <% if @user.has_role(:teacher) || @user.admin? %>
+        <%= render "teacher_dashboard" %>
+      <% else %>
+        <%= render "student_dashboard" %>
+      <% end %>
+    <% end %>
+  </div>
+</div>

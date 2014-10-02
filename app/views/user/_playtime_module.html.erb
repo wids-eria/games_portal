@@ -1,5 +1,5 @@
-<div class="module full right">
-  <h2>Play Time</h2>
+<div class="subsection">
+  <p class="subhead">Play Time</p>
   <% found_data = false %>
   <% @games.each do |game| %>
     <% if game.has_data(@user) %>
@@ -8,7 +8,7 @@
       <% if data %>
       <% found_data = true %>
       <hr>
-        <p class="full"><h3><%= game.name %></h3></p>
+        <p><h3><%= game.name %></h3></p>
 
         <p class="one_third left">Average Playtime <b><%= data[:average_time] %> minutes</b></p>
         <p class="one_third left">Total Playtime <b><%= data[:total_time]%> minutes</b></p>
@@ -18,7 +18,6 @@
   <% end %>
 
   <% unless found_data %>
-    <hr>
-    <p class="full">No Play Time Data Found</p>
+    <p>No Play Time Data Found</p>
   <% end %>
 </div>
