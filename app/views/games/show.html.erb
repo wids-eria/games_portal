@@ -1,59 +1,59 @@
 <%= render "unity", game: @game.path %>
 
-<div class="welcome_back_container">
-    <p class="left"><%= @game.name %></p>
+<div class="game_content_container">
 
+  <div class="game_header">
+    <p><%= @game.name %></p>
     <% unless @game.microsite.empty? %>
       <%= link_to @game.microsite, class: "right" do %>
-        <div class="blue_button">
-            <p>More Info</p>
-        </div>
+        <p>More Info</p>
       <% end %>
     <% end %>
-</div>
+  </div>
 
-<div id="play_container">
-  <% if @game.external_download.empty? %>
-    <% if @game.localpath.empty? %>
-      <div id="unityPlayer" class="center">
-        <div class="missing">
-          <a href="http://unity3d.com/webplayer/" title="Unity Web Player. Install now!">
-            <img alt="Unity Web Player. Install now!" src="http://webplayer.unity3d.com/installation/getunity.png" width="193" height="63" />
-          </a>
-        </div>
-      </div>
-    <% else %>
-      <div id="Player">
-        <%= raw(@file)%>
-      </div>
-    <% end %>
-  <% else %>
-    <div id="instructions" class="module one_third">
-      <h1>Download Instructions</h1>
-      <hr/>
-      <p id="download_insctructions" class="full">
-        <b><%= @game.name %></b> is not available for web play on the Games Portal. You can access <b><%= @game.name %></b> by downloading it from iTunes/Google Play/etc.</br></br>
-
-        <span class="text-center full"> Search for
-          <b><%= @game.name %></b> and download it there!
-        </span>
-      </p>
-      <hr/>
-      <div id="external">
-        <%= link_to @game.external_download do %>
-          <div class="blue_button center">
-            <p>Download</p>
+  <div id="play_container">
+    <% if @game.external_download.empty? %>
+      <% if @game.localpath.empty? %>
+        <div id="unityPlayer" class="center">
+          <div class="missing">
+            <a href="http://unity3d.com/webplayer/" title="Unity Web Player. Install now!">
+              <img alt="Unity Web Player. Install now!" src="http://webplayer.unity3d.com/installation/getunity.png" width="193" height="63" />
+            </a>
           </div>
+        </div>
+      <% else %>
+        <div id="Player">
+          <%= raw(@file)%>
+        </div>
       <% end %>
+    <% else %>
+      <div class="dashboard_content_container">
+        <div class="subsection">
+          <p class="subhead">Download Instructions</p>
+          <p id="download_instructions" class="full">
+            <b><%= @game.name %></b> is not available for web play on the Games Portal. You can access <b><%= @game.name %></b> by downloading it from iTunes/Google Play/etc.</br></br>
+
+            <span class="text-center full"> Search for
+              <b><%= @game.name %></b> and download it there!
+            </span>
+            <div id="external" class="game_header">
+              <%= link_to @game.external_download do %>
+                  <p>Download</p>
+              <% end %>
+            </div>
+
+          </p>
+        </div>
       </div>
+    <% end %>
+  </div>
+
+  <% if @game.survey == 0 %>
+    <div class="module full">
+        <h2>Quiz</h2>
+            <hr>
+        <p>Question</p>
     </div>
   <% end %>
-</div>
 
-<% if @game.survey == 0 %>
-  <div class="module full">
-      <h2>Quiz</h2>
-          <hr>
-      <p>Question</p>
-  </div>
-<% end %>
+</div>

@@ -512,6 +512,35 @@ footer{  }
 }
 
 
+#play_container{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    clear: both;
+}
+
+#download_instructions{
+    width: 50%;
+}
+
+#external a{
+    float: left;
+}
+
+#Player{
+  background: transparent !important;
+  height: 640px;
+  width: 940px;
+
+  embed{
+    width: 100%    !important;
+    height: 100%  !important;
+  }
+}
+
+#unityPlayer{
+  margin: 0 auto;
+  clear: both;
+}
 
 
 /* End Modifications */

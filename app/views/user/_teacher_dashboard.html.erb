@@ -5,16 +5,27 @@
     <div class="dashboard_content_container">
         <div class="header">
             <p>Classes</p>
-
             <%= link_to new_group_url do %>
-                <p>Add</p>
+                <p>Add Class</p>
             <% end %>
         </div>
 
-        <div class="subsection">
-            <p class="subhead">Play Time</p>
-            <p>No Play Time Data Found</p>
-        </div>
+        <% if current_user.owned_groups.count == 0 %>
+            <div class="subsection">
+                <p class="subhead">Play Time</p>
+                <p>You currently have no Classes!</p>
+              <span class="welcome_name">
+                <%= link_to "Create one", new_group_url %>
+              </span>
+            </div>
+
+            <p class="module full">
+              You currently have no Classes!
+              <span class="welcome_name">
+                <%= link_to "Create one", new_group_url %>
+              </span>
+            </p>
+        <% end %>
     </div>
 </div>
 
@@ -24,21 +35,24 @@
       <span class="welcome_name">
         <%= link_to "Create one", new_group_url %>
       </span>
+
     </p>
 <% end %>
 
 <% current_user.owned_groups.each do |course| %>
     <div class="module one_third left">
-        <h2><span class="full left"><%= course.name %></span><p class="full right"><%= course.code %></p></h2>
-        <% if course.on_db(:adage).users.count == 0 %>
-            <hr>
-            <p>No Students in class yet!</p>
-        <% else %>
-
-            <% course.on_db(:adage).users.each do |student| %>
-                <hr>
-                <p class=""><%= link_to student.player_name, profile_path(name: student.player_name) %></p>
+        <div class="subsection">
+            <p class="subhead"><%= course.name %></p>
+            <p>Code: <%= course.code %></p>
+            <br/>
+            <span class="bold"><p>Students</p></span>
+            <% if course.on_db(:adage).users.count == 0 %>
+                <p>No Students in class yet!</p>
+            <% else %>
+                <% course.on_db(:adage).users.each do |student| %>
+                    <p class=""><%= link_to student.player_name, profile_path(name: student.player_name) %></p>
+                <% end %>
             <% end %>
-        <% end %>
+        </div>
     </div>
 <% end %>
