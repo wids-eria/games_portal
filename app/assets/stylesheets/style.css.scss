@@ -516,15 +516,9 @@ footer{  }
     padding-top: 20px;
     padding-bottom: 20px;
     clear: both;
+    width: 100%;
 }
 
-#download_instructions{
-    width: 50%;
-}
-
-#external a{
-    float: left;
-}
 
 #Player{
   background: transparent !important;
@@ -542,6 +536,21 @@ footer{  }
   clear: both;
 }
 
+#instruction_container{
+    width: 400px !important;
+    margin-top: 50px;
+
+    #download_instructions{
+        margin: 10px 0 20px 0;
+    }
+
+    .game_header{
+        a{
+            margin-top: 10px;
+            margin-right: 35%;
+        }
+    }
+}
 
 /* End Modifications */
 
