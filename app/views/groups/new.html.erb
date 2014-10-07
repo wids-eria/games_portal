@@ -1,9 +1,18 @@
-<div class="welcome_back_container"><p>Create Class</p></div>
 
-<div id="groupform" class="module two_thirds left">
-  <%= simple_form_for @group do |f| %>
-    <h2>Name</h2>
-    <%= f.input :name  , placeholder: 'Class Name', label: false %>
-    <span class="blue_button"><%= f.button :submit,value: :Create %></span>
-  <% end %>
+
+<div id="class-form" class="dashboard_content_container">
+    <div class="header">
+        <p>Create Class</p>
+    </div>
+
+    <div class="subsection">
+        <p class="subhead">Name</p>
+        <p>
+          <%= simple_form_for @group do |f| %>
+            <%= f.input :name  , placeholder: 'Class Name', label: false %>
+            <a><p><%= f.button :submit,value: :Create %></p></a>
+          <% end %>
+        </p>
+
+    </div>
 </div>

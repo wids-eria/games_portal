@@ -36,7 +36,7 @@ body{ font-family:verdana; font-size:12px; }
 a{ text-decoration:none; }
     a:hover{  }
 
-p{
+p,input{
     font-family: alwyn-new-rounded-web;
     color: #617587;
     font-size: 18px;
@@ -550,6 +550,27 @@ footer{  }
             margin-right: 35%;
         }
     }
+}
+
+#class-form{
+
+    input[type="submit"]{
+        border:0px solid black;
+
+        @include transition;
+        background:#c72626;
+
+        &:hover{ background:#e14949;}
+        padding:10px;
+        margin-top:10px;
+        font-family:futura-pt;
+        font-weight:900;
+        font-size:20px;
+        color:white;
+        letter-spacing:1px;
+        text-transform:uppercase;
+    }
+
 }
 
 /* End Modifications */
