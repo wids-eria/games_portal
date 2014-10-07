@@ -5,17 +5,19 @@
   <% end %>
 <% end %>
 
-<div class="logged_in">
-  <% if user_signed_in? %>
+<% if user_signed_in? %>
+  <div class="logged_in">
     <p class="username"><%= current_user.player_name%></p>
     <%= link_to main_app.logout_path, :method => :delete do %>
       <p class="log_out">Log Out</p>
     <% end %>
-  <% else %>
-    <% if !logged_in %>
-      <%= link_to main_app.login_path, class: :login do %>
-        Sign in
-      <% end %>
+  </div>
+<% else %>
+<ul class="nav">
+  <% if !logged_in %>
+    <%= link_to main_app.login_path, class: :login do %>
+    <li>Sign in</li>
     <% end %>
   <% end %>
-</div>
+</ul>
+<% end %>
