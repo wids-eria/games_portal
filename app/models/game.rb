@@ -32,7 +32,10 @@ class Game < ActiveRecord::Base
   end
 
   def has_data(user)
-    return !AdaData.with_game(self.get_ada_name).where(user_id: user.id).last.nil?
+    unless self.get_ada_name.nil?
+      return !AdaData.with_game(self.get_ada_name).where(user_id: user.id).last.nil?
+    end
+    return false
   end
 
   def last_playtime(user)
@@ -123,7 +126,9 @@ class Game < ActiveRecord::Base
 
   def get_ada_name
     on_db :adage do
-      name =  Client.find_by_app_token(self.token.strip).implementation.game.name
+      unless Client.find_by_app_token(self.token.strip).nil?
+        name = Client.find_by_app_token(self.token.strip).implementation.game.name
+      end
     end
     return name
   end
