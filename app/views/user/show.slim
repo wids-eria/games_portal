@@ -1,0 +1,17 @@
+div.full
+  div.dashboard_content_container
+    - if @user != current_user
+      = render "friend_dashboard"
+    - else
+      div.header
+        p
+          | Welcome back,
+          span.italic.redtext = @user.player_name
+        a.right href="#{ENV['SITE_URL']}/users/edit"
+          div.blue_button
+            p Update Profile
+
+      - if @user.has_role(:teacher) || @user.admin?
+        = render "teacher_dashboard"
+      - else
+        = render "student_dashboard"

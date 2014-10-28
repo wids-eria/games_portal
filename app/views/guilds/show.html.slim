@@ -1,0 +1,12 @@
+div#guild
+  h1=@guild.name
+  h2=@guild.description
+
+  div#admin
+    h2 Administrators
+    -  @guild.owners.each do |admin|
+      =admin.name
+  div#members
+    h2 Members
+    -  @guild.members.each do |member|
+      =member.name

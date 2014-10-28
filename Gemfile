@@ -1,12 +1,16 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.1'
+gem 'rails', '3.2.13'
 gem 'devise'
 gem 'cancan'
 gem 'connection_ninja'
-gem 'db-charmer', :require => 'db_charmer'
+gem 'kaminari', '0.15.1'
 gem 'mongoid'
 gem 'simple_enum', '~> 1.6.9'
+
+gem 'db-charmer', :require => 'db_charmer'
+gem 'forem', :github => "radar/forem", :branch => "rails3"
+gem 'slim-rails', '~> 2.1.5'
 
 gem 'haml'
 gem 'pg'
@@ -22,7 +26,7 @@ gem 'omniauth-ada', git: 'git://github.com/wids-eria/omniauth-ada.git'
 gem 'zoo_pass', github: 'wids-eria/zoo_pass', branch: 'abstracting'
 gem 'figaro'
 gem 'simple_form'
-
+gem 'tilt', '~> 1.3.3'
 
 gem 'sass-rails'
 group :assets do
@@ -43,6 +47,9 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'capybara'
   gem 'factory_girl_rails'
-  gem 'cucumber-rails'
   gem 'database_cleaner'
+end
+
+group :test do
+  gem 'cucumber-rails'
 end

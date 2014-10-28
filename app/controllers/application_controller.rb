@@ -1,6 +1,11 @@
 class ApplicationController < ActionController::Base
+
+  skip_authorization_check
+  def forem_user
+    current_user
+  end
+  helper_method :forem_user
   protect_from_forgery
-  check_authorization :unless => :devise_controller?
 
   def current_user
     if session[:id].nil?
@@ -12,6 +17,7 @@ class ApplicationController < ActionController::Base
   def guest
     return current_user.guest
   end
+
 
 
   def login_required

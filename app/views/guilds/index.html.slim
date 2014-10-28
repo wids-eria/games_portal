@@ -1,0 +1,18 @@
+div#guilds
+  h1 Owned Guilds
+
+  -  @guilds.each do |guild|
+    div#guild
+      h2
+        label Name:
+        = guild.name
+      span
+        label Total Users:
+        = guild.members.count
+      <br>
+      span
+        label Join Pass Code:
+        = guild.code
+    = link_to "Delete", guild_path(guild), method: :delete
+  <br>
+  = link_to "Create Guild", new_guild_path
