@@ -1,0 +1,31 @@
+.module
+  p.subhead Recent Guild Play Time
+  .activity_list_item
+    p
+      a href="#"  Samantha
+      | played
+      span.bold three games
+      | for a total of
+      span.bold one hour and 33 minutes
+
+  - found_data = false
+  - @games.each do |game|
+    - if game.has_data(@user)
+      - data = game.play_data(@user)
+      - if data
+        - found_data = true
+        .activity_list_item
+          p
+            a href="#"   = game.name
+          p.one_third.left
+            | Average Playtime
+            b
+              = data[:average_time]
+              | minutes
+          p.one_third.left
+            | Total Playtime
+            b
+              = data[:total_time]
+              | minutes
+  - unless found_data
+    p No Play Time Data Found

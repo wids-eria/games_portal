@@ -1,0 +1,17 @@
+div.module
+  p.subhead Recent Guild Activity
+  - found_data = false
+  - @games.each do |game|
+    - if game.has_data(@user)
+      .activity_list_item
+        = embedded_svg "svg/gear_svg.svg", class: "swords"
+        p
+          a href="#"  Billy Smith
+          | Played #{game.name}  for
+          span.bold
+            =Time.at(game.last_playtime(@user).to_i).strftime('%m/%d')
+            | minutes
+      - found_data = true
+  - if ! found_data
+    p No Activity Data Found
+

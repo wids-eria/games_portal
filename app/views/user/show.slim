@@ -7,11 +7,22 @@ div.full
         p
           | Welcome back,
           span.italic.redtext = @user.player_name
-        a.right href="#{ENV['SITE_URL']}/users/edit"
-          div.blue_button
-            p Update Profile
+        a.red_button href="#{ENV['SITE_URL']}/users/edit"
+            = embedded_svg "svg/gear_svg.svg", class: "gear_svg"
+      div.full
+        a href=""
+          div.guilds_button
+            = embedded_svg "svg/shield_svg.svg"
+            p Guilds
+        a href=""
+          div.curricula_button
+            = embedded_svg "svg/curricula.svg"
+            p Curricula
 
-      - if @user.has_role(:teacher) || @user.admin?
-        = render "teacher_dashboard"
-      - else
-        = render "student_dashboard"
+        a href=""
+          div.howto_button
+            = embedded_svg "svg/howto.svg"
+            p How To's
+
+      = render "student_dashboard"
+      = render "achievements"

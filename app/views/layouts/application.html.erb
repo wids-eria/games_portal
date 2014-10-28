@@ -41,7 +41,7 @@
   </header>
 
   <div class="page_wrap">
-    <% if flash[:notice] || flash[:error] || true%>
+    <% if flash[:notice] || flash[:error]%>
       <div id="notifications" class="module center">
           <p><%= flash[:notice] || flash[:error]%></p>
       </div>

@@ -44,7 +44,7 @@ p,input{
 }
 
 .subhead{
-    color: #18222B;
+    color: #9aa4ad;
     font-family: futura-pt;
     font-weight: 900;
     font-size: 20px;
@@ -256,7 +256,6 @@ header{
 /* End Navigation */
 
 
-
 /*------------------------------------------------------------------
 
     Elements
@@ -268,7 +267,7 @@ header{
 .subsection{
     @include full;
 
-    margin-bottom:20px;
+    margin:20px 0;
 }
 
 .featured_game_econauts{
@@ -276,9 +275,7 @@ header{
     width:980px;
     margin:0 0px 20px 12px;
     float:left;
-    background:url(featured_game_econauts.png);
-    background-repeat: no-repeat;
-    background-size: 100%;
+    background:url(featured_econauts.png);
 
     .featured_label{
         background: #18222b;
@@ -326,9 +323,7 @@ header{
             text-transform:uppercase;
         }
     }
-
 }
-
 
 .game_content_container{
     @include center;
@@ -372,32 +367,39 @@ header{
 }
 
 .admin_buttons{
-        a{
-            @include transition;
+    a{
+        @include transition;
 
-            float:left;
-            background:#cecece;
-            margin:0 10px 0 0;
+        float:left;
+        background:#cecece;
+        margin:0 10px 0 0;
 
-            &:hover{ background:#bababa;}
+        &:hover{ background:#bababa;}
 
-            p{
-                margin:10px;
-                font-family:futura-pt;
-                font-weight:900;
-                font-size:15px;
-                color:white;
-                letter-spacing:1px;
-                text-transform:uppercase;
-            }
+        p{
+            margin:10px;
+            font-family:futura-pt;
+            font-weight:900;
+            font-size:15px;
+            color:white;
+            letter-spacing:1px;
+            text-transform:uppercase;
         }
     }
+}
 
+@-webkit-keyframes spin {
+    from {
+        -webkit-transform: rotate(0deg);
+    } to {
+        -webkit-transform: rotate(1080deg);
+    }
+}
 
 .dashboard_content_container{
     @include center;
 
-    width:980px;
+    width:100%;
 
     .header{
         @include full;
@@ -418,10 +420,57 @@ header{
             float:right;
             background:#c72626;
 
-            &:hover{ background:#e14949;}
+            &:hover{
+                background:#e14949;
+
+                p{
+                    margin:10px;
+                    font-family:futura-pt;
+                    font-weight:900;
+                    font-size:20px;
+                    color:white;
+                    letter-spacing:1px;
+                    text-transform:uppercase;
+                }
+            }
+
+        }
+    }
+
+}
+
+.module{
+    @include full;
+
+    padding:20px;
+    background:#eaeaea;
+    margin:10px 0;
+
+    .header{
+        @include full;
+
+        p{
+            float:left;
+            color: #18222B;
+            font-family: futura-pt;
+            font-weight: 900;
+            font-size: 30px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        a{
+            @include transition;
+
+            float:right;
+            background:#c72626;
+
+            &:hover{
+                background:#e14949;
+            }
 
             p{
-                margin:10px;
+                margin:8px 15px;
                 font-family:futura-pt;
                 font-weight:900;
                 font-size:20px;
@@ -432,11 +481,715 @@ header{
         }
 
     }
+}
+
+
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    float:left;
+}
+
+.tooltip:before, .tooltip:after {
+    position: absolute;
+    opacity: 0;
+    z-index: 1000000;
+    -webkit-transition: 0.3s ease;
+    -moz-transition: 0.3s ease;
+    pointer-events: none;
+}
+
+
+.tooltip:hover:before, .tooltip:hover:after {
+    opacity: 1;
+}
+
+.tooltip:before {
+    content: '';
+    position: absolute;
+    background: transparent;
+    border: 6px solid transparent;
+    position: absolute;
+}
+
+.tooltip:after {
+    content: attr(data-tooltip);
+    background: #18222b;
+    color: white;
+    padding: 8px 10px;
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+
+/* top */
+
+.tooltip_top:before {
+    bottom: 100%;
+    left: 30%;
+    margin: 0 0 -18px -6px;
+    border-top-color: #18222b;
+}
+
+.tooltip_top:after {
+    bottom: 100%;
+    left: 10%;
+    margin: 0 0 -6px -10px;
+}
+
+.tooltip_top:hover:before {
+    margin-bottom: -10px;
+}
+
+.tooltip_top:hover:after {
+    margin-bottom: 2px;
+}
+
+.gear_svg{
+    fill:white;
+    height:23px;
+    margin-top:3px;
+}
+
+.red_button{
+    padding:5px 10px;
+    background:#c72626;
+
+    font-family: futura-pt;
+    font-weight: 900;
+    font-size: 22px;
+    color: #fff;
+    letter-spacing: 1px;
+    text-align: center;
+    text-transform: uppercase;
+
+    &:hover{
+    background:#e14949;
+
+        .gear_svg{
+            -webkit-animation-name: spin;
+            -webkit-animation-duration: 5000ms;
+            -webkit-animation-iteration-count: infinite;
+            -webkit-animation-timing-function: ease-in-out;
+        }
+    }
+}
+
+.econauts{
+    height:87px;
+    width:87px;
+    background:url(../images/by_title_econauts.png);
+    margin:15px 23px 0 0;
+}
+
+.view_all_achievements{
+    @include transition;
+
+    height:87px;
+    width:87px;
+    margin:15px 0 0 0;
+    background: #c72626;
+    float:left;
+
+    &:hover{
+        background: #e14949;
+    }
+
+    p{
+        padding:18px 0 0 0;
+        color: white;
+        font-family: futura-pt;
+        font-weight: 900;
+        font-size: 20px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        text-align:center;
+    }
+}
+
+.guilds_button{
+    @include transition;
+
+    height:266px;
+    width:32%;
+    float:left;
+    margin:20px 20px 10px 0;
+    background:#9bb2c8;
+    overflow:hidden;
+
+    position:relative;
+
+    p{
+        @include transition;
+
+        z-index:99;
+        position:absolute;
+
+        width:100%;
+        float:left;
+
+        text-align:center;
+        color: white;
+        font-family: futura-pt;
+        font-weight: 900;
+        font-size: 35px;
+        letter-spacing: 1px;
+        line-height: 53px;
+        text-transform: uppercase;
+        line-height:370px;
+    }
+
+    svg{
+        @include transition;
+
+        fill:white;
+        height:113px;
+        float:left;
+        margin:50px 0 0 110px;
+
+        z-index:0;
+         /* align center */
+        position: absolute;
+        top: 0; left: 0; bottom: 0; right: 0;
+
+    }
+
+    &:hover{
+        background:#b1c7da;
+
+        p{
+            line-height:266px;
+            font-size: 45px;
+        }
+
+        svg{
+            @include transition;
+
+            height:320px;
+            opacity:.15;
+             /* align center */
+            margin:-20px 0 0 20px;
+            position: absolute;
+            top: 0; left: 0; bottom: 0; right: 0;
+        }
+    }
+
+}
+
+.curricula_button{
+    @include transition;
+
+    height:266px;
+    width:32%;
+    float:left;
+    margin:20px 20px 10px 0;
+    background:#9bb2c8;
+    overflow:hidden;
+
+    position:relative;
+
+    p{
+        @include transition;
+
+        z-index:99;
+        position:absolute;
+
+        width:100%;
+        float:left;
+
+        text-align:center;
+        color: white;
+        font-family: futura-pt;
+        font-weight: 900;
+        font-size: 35px;
+        letter-spacing: 1px;
+        line-height: 53px;
+        text-transform: uppercase;
+        line-height:370px;
+    }
+
+    svg{
+        @include transition;
+
+        fill:white;
+        height:113px;
+        float:left;
+        margin:50px 0 0 115px;
+
+        z-index:0;
+         /* align center */
+        position: absolute;
+        top: 0; left: 0; bottom: 0; right: 0;
+
+    }
+
+    &:hover{
+        background:#b1c7da;
+
+        p{
+            line-height:266px;
+            font-size: 45px;
+        }
+
+        svg{
+            @include transition;
+
+            height:310px;
+            opacity:.15;
+             /* align center */
+            margin:-20px 0 0 35px;
+            position: absolute;
+            top: 0; left: 0; bottom: 0; right: 0;
+        }
+    }
+
+}
+
+.howto_button{
+    @include transition;
+
+    height:266px;
+    width:32%;
+    float:left;
+    margin:20px 0 10px 0;
+    background:#9bb2c8;
+    overflow:hidden;
+
+    position:relative;
+
+    p{
+        @include transition;
+
+        z-index:99;
+        position:absolute;
+
+        width:100%;
+        float:left;
+
+        text-align:center;
+        color: white;
+        font-family: futura-pt;
+        font-weight: 900;
+        font-size: 35px;
+        letter-spacing: 1px;
+        line-height: 53px;
+        text-transform: uppercase;
+        line-height:370px;
+    }
+
+    svg{
+        @include transition;
+
+        fill:white;
+        height:113px;
+        float:left;
+        margin:50px 0 0 105px;
+
+        z-index:0;
+         /* align center */
+        position: absolute;
+        top: 0; left: 0; bottom: 0; right: 0;
+
+    }
+
+    &:hover{
+        background:#b1c7da;
+
+        p{
+            line-height:266px;
+            font-size: 45px;
+        }
+
+        svg{
+            @include transition;
+
+            height:320px;
+            opacity:.15;
+             /* align center */
+            margin:-30px 0 0 2px;
+            position: absolute;
+            top: 0; left: 0; bottom: 0; right: 0;
+        }
+    }
 
 }
 
 
+.activity_list_item{
+    @include full;
+
+    background:#f7f7f7;
+    padding:5px 10px;
+    margin:10px 0 0 0;
+
+    p{
+        float:left;
+        line-height:37px;
+    }
+
+    a{
+        font-weight:bold;
+        color:#c72626;
+
+        &:hover{
+        text-decoration:underline;
+        }
+    }
+}
+
+
+.swords{
+    float:left;
+    fill:white;
+    height:25px;
+    padding:3px;
+    margin:5px 10px 5px 0px;
+    background:#aadb89;
+}
+
+.assignment{
+    float:left;
+    fill:white;
+    height:25px;
+    padding:3px;
+    margin:5px 10px 5px 0px;
+    background:#e58bb3;
+}
+
+.swirl{
+    float:left;
+    fill:white;
+    height:25px;
+    padding:3px;
+    margin:5px 10px 5px 0px;
+    background:#eac275;
+}
+
+
+.guild_banner{
+    @include full;
+    margin:20px 0 0 0;
+
+    .swords_guild{
+        @include transition;
+
+        width:100%;
+        height:120px;
+        background:#aadb89;
+        overflow:hidden;
+
+        position:relative;
+
+        .guild_title{
+            color: #fff;
+            font-family: futura-pt;
+            font-weight: 900;
+            font-size: 35px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            line-height:120px;
+            margin:0 0 0 50px;
+
+            position:absolute;
+            z-index:99;
+        }
+
+        &:hover{
+            background:#bcea9d;
+        }
+
+        .sword{
+            fill:white;
+            height:150px;
+            margin:-15px 0 0 0;
+            opacity:.25;
+
+            position:absolute;
+            z-index:0;
+        }
+
+    }
+
+    .swirl_guild{
+        @include transition;
+
+        width:100%;
+        height:120px;
+        background:#E58BB3;
+        overflow:hidden;
+
+        position:relative;
+
+        .guild_title{
+            color: white;
+            font-family: futura-pt;
+            font-weight: 900;
+            font-size: 35px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            line-height:120px;
+            margin:0 0 0 50px;
+
+            position:absolute;
+            z-index:99;
+        }
+
+        &:hover{
+            background:#f7a5c9;
+        }
+
+        .swirls{
+            fill:white;
+            height:150px;
+            margin:-15px 0 0 0;
+            opacity:.25;
+
+            position:absolute;
+            z-index:0;
+        }
+
+    }
+
+    .assignment_guild{
+        @include transition;
+
+        width:100%;
+        height:120px;
+        background:#EAC275;
+        overflow:hidden;
+
+        position:relative;
+
+        .guild_title{
+            color: white;
+            font-family: futura-pt;
+            font-weight: 900;
+            font-size: 35px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            line-height:120px;
+            margin:0 0 0 50px;
+
+            position:absolute;
+            z-index:99;
+        }
+
+        &:hover{
+            background:#f9d99a;
+        }
+
+        .assign{
+            fill:white;
+            height:150px;
+            margin:-15px 0 0 0;
+            opacity:.25;
+
+            position:absolute;
+            z-index:0;
+        }
+
+    }
+
+}
+
+.guild_form{
+    margin-bottom:20px;
+
+    .field_item{
+        @include full;
+
+        margin:0 0 20px 0;
+    }
+
+    .last_field_item{
+        @include full;
+
+        margin: 0 0 0 0;
+    }
+
+    .field_item,
+    .last_field_item{
+        label{
+            color: #9aa4ad;
+            font-family: futura-pt;
+            font-weight: 900;
+            font-size: 20px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            line-height:35px;
+        }
+    }
+
+    input[type="text"]{
+        float:right;
+        width:83%;
+        padding:5px 10px;
+        background:#f7f7f7;
+        border:1px solid #d7dbdf;
+
+        font-family:open sans;
+        font-size:16px;
+        color:#617587;
+    }
+
+    .guild_swatches{
+        float:right;
+        width:83%;
+
+        .swatch_pink{
+            [type="checkbox"]:not(:checked) + label:before,
+            [type="checkbox"]:checked + label:before{
+                height:30px;
+                width:30px;
+                background:#E58BB3;
+                border:1px solid #d7dbdf;
+                margin:0 0 0 40px;
+            }
+        }
+
+        .swatch_green{
+            [type="checkbox"]:not(:checked) + label:before,
+            [type="checkbox"]:checked + label:before{
+                height:30px;
+                width:30px;
+                background:#AADB89;
+                border:1px solid #d7dbdf;
+                margin:0 0 0 120px;
+            }
+        }
+
+        .swatch_orange{
+            [type="checkbox"]:not(:checked) + label:before,
+            [type="checkbox"]:checked + label:before{
+                height:30px;
+                width:30px;
+                background:#EAC275;
+                border:1px solid #d7dbdf;
+                margin:0 0 0 80px;
+            }
+        }
+
+        .swatch_blue{
+            [type="checkbox"]:not(:checked) + label:before,
+            [type="checkbox"]:checked + label:before{
+                height:30px;
+                width:30px;
+                background:#9BB2C8;
+                border:1px solid #d7dbdf;
+            }
+        }
+    }
+}
+
+
+/* Base for label styling */
+[type="checkbox"]:not(:checked),
+[type="checkbox"]:checked {
+  position: absolute;
+  left: -9999px;
+}
+[type="checkbox"]:not(:checked) + label,
+[type="checkbox"]:checked + label {
+  position: relative;
+  padding-left: 25px;
+  cursor: pointer;
+  float:left;
+}
+
+/* checkbox aspect */
+[type="checkbox"]:not(:checked) + label:before,
+[type="checkbox"]:checked + label:before {
+  content: '';
+  position: absolute;
+  left:0; top: 2px;
+  width: 17px; height: 17px;
+  border: 1px solid #aaa;
+  background: #f8f8f8;
+}
+/* checked mark aspect */
+[type="checkbox"]:not(:checked) + label:after,
+[type="checkbox"]:checked + label:after {
+  content: 'X';
+  position: absolute;
+  top: 0; left: 4px;
+    height:30px;
+    width:30px;
+    font-size: 25px;
+    color: rgba(255,255,255,.5);
+    margin:1px 0 0 2px;
+    font-family: hwt-gothic-round;
+    font-weight: 900;
+  transition: all .2s;
+}
+/* checked mark aspect changes */
+[type="checkbox"]:not(:checked) + label:after {
+  opacity: 0;
+  transform: scale(0);
+}
+[type="checkbox"]:checked + label:after {
+  opacity: 1;
+  transform: scale(1);
+}
+/* disabled checkbox */
+[type="checkbox"]:disabled:not(:checked) + label:before,
+[type="checkbox"]:disabled:checked + label:before {
+  box-shadow: none;
+  border-color: #bbb;
+  background-color: #ddd;
+}
+[type="checkbox"]:disabled:checked + label:after {
+  color: #999;
+}
+[type="checkbox"]:disabled + label {
+  color: #aaa;
+}
+/* accessibility */
+[type="checkbox"]:checked:focus + label:before,
+[type="checkbox"]:not(:checked):focus + label:before {
+  border: 1px dotted blue;
+}
+
+/* hover style just for information */
+label:hover:before {
+  border: 1px solid white !important;
+}
+
+.sublabel{
+    float:left;
+    color: #9aa4ad;
+    font-family: futura-pt;
+    font-weight: 900;
+    font-size: 20px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    line-height: 35px;
+}
+
+.guild_icon_container{
+    float:right;
+    width:83%;
+
+    svg{
+        height:31px;
+        width:31px;
+        padding:3px;
+        fill:white;
+        background:#999;
+        float:left;
+        margin-right:10px;
+        border:1px solid #999;
+
+        &:hover{
+            cursor:pointer;
+            border:1px solid white;
+        }
+    }
+}
+
 /* End Elements */
+
+
 
 
 
@@ -577,7 +1330,13 @@ footer{  }
     width: 740px;
     padding: 20px;
     margin: 0 auto;
+
+    &:empty{
+        display: none;
+    }
 }
+
+
 
 /* End Modifications */
 
