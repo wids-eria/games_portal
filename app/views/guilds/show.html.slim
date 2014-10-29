@@ -1,12 +1,33 @@
-div#guild
-  h1=@guild.name
-  h2=@guild.description
+.dashboard_content_container
+  .header
+    p
+      | Welcome back,
+      span.italic.redtext = current_user.name
+    a.red_button href="#{guilds_path}"  BACK TO GUILDS
 
-  div#admin
-    h2 Administrators
-    -  @guild.owners.each do |admin|
-      =admin.name
-  div#members
-    h2 Members
+.guild_banner
+        div.swords_guild
+          p.guild_title = @guild.name
+          = embedded_svg "svg/swords.svg", class: :sword
+
+= render "activity"
+
+div.full
+  .dashboard_content_container
+    .header
+      p Guild Memebers
+  .module
     -  @guild.members.each do |member|
-      =member.name
+      .activity_list_item
+        p.redtext.bold
+          a href="" =member.name
+
+div.full
+  .dashboard_content_container
+    .header
+      p Guild Administrators
+  .module
+    -  @guild.owners.each do |admin|
+      .activity_list_item
+        p.redtext.bold
+          a href="" =admin.name

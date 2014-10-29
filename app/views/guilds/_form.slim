@@ -1,0 +1,32 @@
+=simple_form_for @guild do |f|
+  div.module.guild_form
+    div.field_item
+      = f.input :name, label: 'GUILD NAME'
+    div.field_item
+      = f.input :name, label: 'CLASS NAME'
+    div.field_item
+      label.guild_name Guild Color
+      div.guild_swatches
+        div.swatch_pink
+          input type="checkbox" id="pink_swatch"
+          label
+        div.swatch_green
+          input type="checkbox" id="swatch_green"
+          label
+        div.swatch_orange
+          input type="checkbox" id="swatch_orange"
+          label
+        div.swatch_blue
+          input type="checkbox" id="swatch_blue"
+          label
+    div.field_item
+      p.sublabel Guild Icon
+      div.guild_icon_container
+        = embedded_svg "svg/swords.svg"
+        = embedded_svg "svg/swirl.svg"
+        = embedded_svg "svg/assignment.svg"
+
+  div.full
+    = f.button :submit, class: [:red_button, :right]
+    = link_to "Back", @guild, class: [:red_button,:left]
+    a.red_button.left href="" Reset
