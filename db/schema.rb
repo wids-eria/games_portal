@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141028192332) do
+ActiveRecord::Schema.define(:version => 20141031162855) do
 
 # Could not dump table "achievements" because of following StandardError
 #   Unknown type 'json' for column 'last_result'
@@ -143,6 +143,13 @@ ActiveRecord::Schema.define(:version => 20141028192332) do
     t.string   "token"
     t.boolean  "featured",           :default => false
   end
+
+  create_table "guild_forums", :force => true do |t|
+    t.integer "forem_forums_id"
+    t.integer "guild_id"
+  end
+
+  add_index "guild_forums", ["guild_id", "forem_forums_id"], :name => "index_guild_forums_on_guild_id_and_forem_forums_id", :unique => true
 
   create_table "guild_ownerships", :force => true do |t|
     t.integer "user_id"

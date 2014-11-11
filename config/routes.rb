@@ -1,14 +1,11 @@
 GlsPortal::Application.routes.draw do
 
-  # This line mounts Forem's routes at /forums by default.
-  # This means, any requests to the /forums URL of your application will go to Forem::ForumsController#index.
-  # If you would like to change where this extension is mounted, simply change the :at option to something different.
-  #
-  # We ask that you don't use the :as option here, as Forem relies on it being the default of "forem"
-  mount Forem::Engine, :at => '/forums'
-
-  get 'forum' => 'forem/forums#index'
   resources :guilds do
+    member do
+      mount Forem::Engine, :at => '/forum'
+      get 'forum', to: 'guilds#forum', as: "forum"
+     # get 'forum/:id', to: 'guilds#forum', as: "forum"
+    end
   end
 
   resources :groups do

@@ -18,8 +18,6 @@ class ApplicationController < ActionController::Base
     return current_user.guest
   end
 
-
-
   def login_required
     if !current_user
       respond_to do |format|
@@ -40,6 +38,10 @@ class ApplicationController < ActionController::Base
 
   def set_return(path)
     session[:return_path] = path
+  end
+
+  def filter_categories
+    puts "ASD"
   end
   private
 

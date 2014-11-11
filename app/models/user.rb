@@ -114,4 +114,9 @@ class User < ActiveRecord::Base
     end
     false
   end
+
+  #This is an override for Forem to check if a user is allowed to view a forum
+  def can_read_forem_forum?(forum)
+    GuildForum.where({forem_forums_id:  forum.id, guild_id: self.guilds}).any?
+  end
 end
