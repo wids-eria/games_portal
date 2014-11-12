@@ -1,0 +1,63 @@
+.forum{
+  @include full;
+  margin:10px 0 0 0;
+  padding:10px;
+
+  color: white;
+  font-size: 15px;
+
+  .title{
+    font-size: 35px;
+    a{
+      color: white;
+    }
+  }
+
+  .description{
+    float:right;
+
+  }
+
+  .last_post{
+    float:right;
+    font-size: 15px;
+
+  }
+
+  background-color: red;
+  font-family: futura-pt;
+  font-weight: 900;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+
+  &:hover{
+    @include transition;
+    background-color: pink;
+  }
+}
+
+.forum_content_container{
+  table{
+    margin-top:10px;
+    @include full;
+  }
+
+  font-family: futura-pt;
+  font-weight: 900;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+
+  thead{
+    background-color: #18222b;
+    color: white;
+    font-size: 20px;
+  }
+
+
+
+}
+
+.forum_admin_container{
+
+  @include full;
+}

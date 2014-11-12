@@ -1,9 +1,8 @@
 .dashboard_content_container
   .header
-    p
-      | Welcome back,
-      span.italic.redtext = current_user.name
     a.red_button href="#{new_guild_path}"  Add New Guild
+  .header
+    a.red_button href="#{new_guild_path}"  Join Guild
 
 div#guilds
   -  @guilds.each do |guild|

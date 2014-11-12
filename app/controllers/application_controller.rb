@@ -40,9 +40,6 @@ class ApplicationController < ActionController::Base
     session[:return_path] = path
   end
 
-  def filter_categories
-    puts "ASD"
-  end
   private
 
   def must_consent

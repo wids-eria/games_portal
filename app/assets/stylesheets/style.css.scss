@@ -14,6 +14,9 @@ STYLESHEET CONTENTS
 
 -------------------------------------------------------------------*/
 
+@import 'mixins';
+@import 'forum';
+
 
 /*------------------------------------------------------------------
 
@@ -67,31 +70,6 @@ h5{  }
 /* End Global Styles */
 
 
-/*------------------------------------------------------------------
-
-    Mixins
-
--------------------------------------------------------------------*/
-
-@mixin center{ margin:0 auto; }
-
-@mixin full { width:100%; float:left; }
-
-@mixin transition{
-    -webkit-transition: all 0.25s ease;
-       -moz-transition: all 0.25s ease;
-        -ms-transition: all 0.25s ease;
-         -o-transition: all 0.25s ease;
-}
-
-@mixin rounded_corners{
-    -webkit-border-radius: 8px;
-       -moz-border-radius: 8px;
-            border-radius: 8px;
-}
-
-
-/* End Mixins */
 
 
 /*------------------------------------------------------------------
@@ -1039,9 +1017,16 @@ header{
 
     .guild_swatches{
         float:right;
-        width:83%;
+        height:30px;
 
+        .swatch{
+            height:30px;
+            width:30px;
+
+        }
+        width:100%;
         .swatch_pink{
+
             [type="checkbox"]:not(:checked) + label:before,
             [type="checkbox"]:checked + label:before{
                 height:30px;
@@ -1083,6 +1068,7 @@ header{
                 border:1px solid #d7dbdf;
             }
         }
+
     }
 }
 

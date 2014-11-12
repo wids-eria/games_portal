@@ -1,5 +1,0 @@
-<% if can?(:read, category) %>
-  <div id='category_<%= category.id %>' class='category'>
-    <%= render "/forem/forums/listing", category: category %>
-  </div>
-<% end %>

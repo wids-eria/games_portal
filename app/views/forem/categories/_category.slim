@@ -1,0 +1,4 @@
+- if can?(:read, category)
+  - if category.name == @guild.name
+    div.category id="category_#{category.id}"
+      = render "/forem/forums/listing", category: category

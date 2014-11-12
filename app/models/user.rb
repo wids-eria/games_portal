@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many :groups
 
   attr_accessor :login
-  # Setup accessible (or protected) attributes for your model
+
   attr_accessible :email, :player_name, :token, :guest, :auth_token
   validates_presence_of :player_name
 
@@ -24,6 +24,10 @@ class User < ActiveRecord::Base
 
   def name
     player_name
+  end
+
+  def email
+    ""
   end
 
   def forem_email
@@ -68,7 +72,6 @@ class User < ActiveRecord::Base
   end
 
   def can_view_user(other)
-    Rails.logger.debug("[ [ [ " + other.id.to_s + "::" + self.id.to_s + "  ] ] ]")
     if other.id == self.id
       return true
     end
@@ -118,5 +121,13 @@ class User < ActiveRecord::Base
   #This is an override for Forem to check if a user is allowed to view a forum
   def can_read_forem_forum?(forum)
     GuildForum.where({forem_forums_id:  forum.id, guild_id: self.guilds}).any?
+  end
+
+  def can_read_forem_category?(category)
+    guild =  Guild.find_by_name(category.name)
+    unless guild.nil?
+      return GuildForum.where({forem_forums_id: category.forums, guild_id: guild.id}).any?
+    end
+    false
   end
 end

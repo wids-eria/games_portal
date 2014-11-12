@@ -5,26 +5,34 @@
     div.field_item
       = f.input :name, label: 'CLASS NAME'
     div.field_item
-      label.guild_name Guild Color
-      div.guild_swatches
-        div.swatch_pink
-          input type="checkbox" id="pink_swatch"
-          label
-        div.swatch_green
-          input type="checkbox" id="swatch_green"
-          label
-        div.swatch_orange
-          input type="checkbox" id="swatch_orange"
-          label
-        div.swatch_blue
-          input type="checkbox" id="swatch_blue"
-          label
+      div.guild_name
+        | Guild Color
+        div.guild_swatches
+          span.swatch_pink.swatch
+            label
+              = f.input_field :color, as: :boolean, id: :pink_swatch, boolean_style: :inline
+
+          span.swatch_green.swatch
+            = f.input_field :color, as: :boolean, id: :swatch_green, boolean_style: :inline
+            label
+          span.swatch_orange.swatch
+            = f.input_field :color, as: :boolean, id: :swatch_orange, boolean_style: :inline
+            label
+          span.swatch_blue.swatch
+            = f.input_field :color, as: :boolean, id: :swatch_blue, boolean_style: :inline
+            label
     div.field_item
       p.sublabel Guild Icon
       div.guild_icon_container
         = embedded_svg "svg/swords.svg"
         = embedded_svg "svg/swirl.svg"
         = embedded_svg "svg/assignment.svg"
+    .last_field_item
+      .sublabel Guild Banner Preview
+      .guild_banner
+        .swords_guild
+          .guild_title Super Guild Name Here
+
 
   div.full
     = f.button :submit, class: [:red_button, :right]

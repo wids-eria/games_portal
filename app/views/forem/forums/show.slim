@@ -1,0 +1,19 @@
+.forum_admin_container
+  = render :partial => 'forem/forums/head', :locals => { :forum => @forum }
+
+.forum_content_container
+  = forem_pages_widget(@topics)
+  table.topics.table-striped.table cellspacing='0'
+    thead
+      tr
+        th.icon
+        th.byline = t('forem.topic.headings.topic')
+        th.latest-post.text-center = t('forem.topic.headings.latest')
+        th.posts-count.text-center = t('forem.topic.headings.posts')
+        th.views-count.text-center = t('forem.topic.headings.views')
+    tbody
+      - if @topics.empty?
+        tr
+          td colspan='5' align='center' = t('forem.topic.none')
+      = render @topics
+  = forem_pages_widget(@topics)

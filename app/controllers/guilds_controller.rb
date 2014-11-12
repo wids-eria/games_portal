@@ -5,11 +5,10 @@ class GuildsController < ApplicationController
 
   def create
     @guild = Guild.new(params[:guild])
+
     if @guild.save
       GuildOwnership.create(user: current_user,guild: @guild)
       GuildUser.create(user: current_user,guild: @guild)
-      category = Forem::Category.create(name:guild.name)
-
 
       flash[:notice] = 'Guild Created'
       redirect_to guilds_path
@@ -53,7 +52,8 @@ class GuildsController < ApplicationController
 
   def forum
     @guild =  Guild.find(params[:id])
+
     #Get Category for guild
-    @category = Forem::Category.last
+    @category = Forem::Category.find_by_name(@guild.id)
   end
 end
