@@ -1017,86 +1017,79 @@ header{
 
     .guild_swatches{
         float:right;
-        height:30px;
-
+        width: 83%;
         .swatch{
-            height:30px;
-            width:30px;
 
+            display: inline;
         }
-        width:100%;
-        .swatch_pink{
 
-            [type="checkbox"]:not(:checked) + label:before,
-            [type="checkbox"]:checked + label:before{
-                height:30px;
-                width:30px;
+        .checkbox{
+            content: 'X';
+            font-size: 25px;
+            color: rgba(255,255,255,.5);
+            font-family: hwt-gothic-round;
+            font-weight: 900;
+            transition: all .2s;
+        }
+
+        input[type="checkbox"]{
+            -moz-appearance:none;
+            -webkit-appearance:none;
+            -o-appearance:none;
+            height:31px;
+            width:31px;
+            outline: 0px;
+            border:1px solid #d7dbdf;
+            background:none;
+
+            float: left;
+            margin-right: 10px;
+
+            &:checked{
+                &:after{
+                    content: 'X';
+                    font-size: 28px;
+                    color: rgba(255,255,255,.5);
+                    font-family: hwt-gothic-round;
+                    font-weight: 900;
+                    transition: all .2s;
+                    padding-left: 4px;
+                }
+            }
+
+            &:hover{
+                border: 1px solid white;
+                padding: 1px;
+                cursor: pointer;
+            }
+        }
+
+        .swatch_pink{
+            input[type="checkbox"]{
                 background:#E58BB3;
-                border:1px solid #d7dbdf;
-                margin:0 0 0 40px;
             }
         }
 
         .swatch_green{
-            [type="checkbox"]:not(:checked) + label:before,
-            [type="checkbox"]:checked + label:before{
-                height:30px;
-                width:30px;
+            input[type="checkbox"]{
                 background:#AADB89;
-                border:1px solid #d7dbdf;
-                margin:0 0 0 120px;
             }
         }
 
         .swatch_orange{
-            [type="checkbox"]:not(:checked) + label:before,
-            [type="checkbox"]:checked + label:before{
-                height:30px;
-                width:30px;
+            input[type="checkbox"]{
                 background:#EAC275;
-                border:1px solid #d7dbdf;
-                margin:0 0 0 80px;
             }
         }
 
         .swatch_blue{
-            [type="checkbox"]:not(:checked) + label:before,
-            [type="checkbox"]:checked + label:before{
-                height:30px;
-                width:30px;
+            input[type="checkbox"]{
                 background:#9BB2C8;
-                border:1px solid #d7dbdf;
             }
         }
-
     }
 }
 
-
-/* Base for label styling */
-[type="checkbox"]:not(:checked),
-[type="checkbox"]:checked {
-  position: absolute;
-  left: -9999px;
-}
-[type="checkbox"]:not(:checked) + label,
-[type="checkbox"]:checked + label {
-  position: relative;
-  padding-left: 25px;
-  cursor: pointer;
-  float:left;
-}
-
-/* checkbox aspect */
-[type="checkbox"]:not(:checked) + label:before,
-[type="checkbox"]:checked + label:before {
-  content: '';
-  position: absolute;
-  left:0; top: 2px;
-  width: 17px; height: 17px;
-  border: 1px solid #aaa;
-  background: #f8f8f8;
-}
 /* checked mark aspect */
 [type="checkbox"]:not(:checked) + label:after,
 [type="checkbox"]:checked + label:after {

@@ -5,22 +5,16 @@
     div.field_item
       = f.input :name, label: 'CLASS NAME'
     div.field_item
-      div.guild_name
-        | Guild Color
-        div.guild_swatches
-          span.swatch_pink.swatch
-            label
-              = f.input_field :color, as: :boolean, id: :pink_swatch, boolean_style: :inline
-
-          span.swatch_green.swatch
-            = f.input_field :color, as: :boolean, id: :swatch_green, boolean_style: :inline
-            label
-          span.swatch_orange.swatch
-            = f.input_field :color, as: :boolean, id: :swatch_orange, boolean_style: :inline
-            label
-          span.swatch_blue.swatch
-            = f.input_field :color, as: :boolean, id: :swatch_blue, boolean_style: :inline
-            label
+      label.guild_name Guild Color
+      div.guild_swatches
+        span.swatch_pink.swatch
+          = f.input_field :color, as: :boolean, id: :pink_swatch
+        span.swatch_green.swatch
+          = f.input_field :color, as: :boolean, id: :swatch_green
+        span.swatch_orange.swatch
+          = f.input_field :color, as: :boolean, id: :swatch_orange
+        div.swatch_blue.swatch
+          = f.input_field :color, as: :boolean, id: :swatch_blue
     div.field_item
       p.sublabel Guild Icon
       div.guild_icon_container
@@ -32,8 +26,6 @@
       .guild_banner
         .swords_guild
           .guild_title Super Guild Name Here
-
-
   div.full
     = f.button :submit, class: [:red_button, :right]
     = link_to "Back", @guild, class: [:red_button,:left]
