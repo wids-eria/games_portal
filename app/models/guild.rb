@@ -9,13 +9,12 @@ class Guild < ActiveRecord::Base
   attr_accessible :name,:code,:color,:icon
 
   validates :name, uniqueness: true, presence: true
+  validates :name, uniqueness: true, presence: true
 
-  def color
+  as_enum :color, [:pink,:green,:orange,:blue]
+  as_enum :icon, [:swords,:swirl,:assignment]
 
-  end
-  def icon
 
-  end
   def generatecode
     #Generate zoopass until there is no collision
     pass = ZooPass.generate(4)

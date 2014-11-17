@@ -4,7 +4,6 @@ $(document).ready(function(){
   });
 
   $(".icon > input").click(function(){
-    console.log($(this).parent().find("svg").val());
     $(".guild_icon #svg").html($(this).parent().find("#svg").html());
   });
 

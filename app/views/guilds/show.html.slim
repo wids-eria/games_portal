@@ -3,9 +3,10 @@
     a.red_button href="#{guilds_path}"  BACK TO GUILDS
 
 .guild_banner
-        div.swords_guild
-          p.guild_title = @guild.name
-          = embedded_svg "svg/swords.svg", class: :sword
+  .guild_icon
+    .guild_title = @guild.name
+    #svg = embedded_svg("svg/#{@guild.icon}.svg")
+    .guild_title.right = @guild.code
 
 = render "activity"
 

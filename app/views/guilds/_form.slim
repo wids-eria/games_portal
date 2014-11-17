@@ -7,12 +7,11 @@
     div.field_item
       label.guild_name Guild Color
       div.guild_swatches
-        = f.input :color, as: :radio_buttons, item_wrapper_class: 'color', :collection => [:swatch_pink,:swatch_green,:swatch_orange,:swatch_blue],label: "", :checked => [:swatch_green, true]
+        = f.input :color, as: :radio_buttons, item_wrapper_class: 'color', :collection => Guild.colors.keys,label: "", :checked => [:swatch_green, true]
     div.field_item
       p.sublabel Guild Icon
       div.guild_icon_container
-        = f.input_field :icon, as: :radio, item_wrapper_class: 'icon',  :collection => [:swords,:swirl,:assignment],label: "asdas", :checked => [:swirl, true],label_method: lambda {|t| "<span id='svg'> #{embedded_svg("svg/#{t}.svg")}</span>".html_safe }
-
+        = f.input_field :icon, as: :radio, item_wrapper_class: 'icon',  :collection => Guild.icons.keys,label: "asdas", :checked => [:swirl, true],label_method: lambda {|t| "<span id='svg'> #{embedded_svg("svg/#{t}.svg")}</span>".html_safe }
     .last_field_item
       .sublabel Guild Banner Preview
       .guild_banner
