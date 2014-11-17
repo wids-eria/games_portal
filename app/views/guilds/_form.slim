@@ -1,31 +1,24 @@
 =simple_form_for @guild do |f|
   div.module.guild_form
     div.field_item
-      = f.input :name, label: 'GUILD NAME'
+      = f.input :name, label: 'GUILD NAME',placeholder: "Guild Name Here"
     div.field_item
       = f.input :name, label: 'CLASS NAME'
     div.field_item
       label.guild_name Guild Color
       div.guild_swatches
-        span.swatch_pink.swatch
-          = f.input_field :color, as: :boolean, id: :pink_swatch
-        span.swatch_green.swatch
-          = f.input_field :color, as: :boolean, id: :swatch_green
-        span.swatch_orange.swatch
-          = f.input_field :color, as: :boolean, id: :swatch_orange
-        div.swatch_blue.swatch
-          = f.input_field :color, as: :boolean, id: :swatch_blue
+        = f.input :color, as: :radio_buttons, item_wrapper_class: 'color', :collection => [:swatch_pink,:swatch_green,:swatch_orange,:swatch_blue],label: "", :checked => [:swatch_green, true]
     div.field_item
       p.sublabel Guild Icon
       div.guild_icon_container
-        = embedded_svg "svg/swords.svg"
-        = embedded_svg "svg/swirl.svg"
-        = embedded_svg "svg/assignment.svg"
+        = f.input_field :icon, as: :radio, item_wrapper_class: 'icon',  :collection => [:swords,:swirl,:assignment],label: "asdas", :checked => [:swirl, true],label_method: lambda {|t| "<span id='svg'> #{embedded_svg("svg/#{t}.svg")}</span>".html_safe }
+
     .last_field_item
       .sublabel Guild Banner Preview
       .guild_banner
-        .swords_guild
-          .guild_title Super Guild Name Here
+        .guild_icon
+          .guild_title Guild Name Here
+          #svg = embedded_svg("svg/swirl.svg")
   div.full
     = f.button :submit, class: [:red_button, :right]
     = link_to "Back", @guild, class: [:red_button,:left]

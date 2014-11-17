@@ -13,7 +13,9 @@ class Guild < ActiveRecord::Base
   def color
 
   end
+  def icon
 
+  end
   def generatecode
     #Generate zoopass until there is no collision
     pass = ZooPass.generate(4)

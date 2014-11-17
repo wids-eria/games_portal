@@ -817,15 +817,6 @@ header{
 }
 
 
-.swords{
-    float:left;
-    fill:white;
-    height:25px;
-    padding:3px;
-    margin:5px 10px 5px 0px;
-    background:#aadb89;
-}
-
 .assignment{
     float:left;
     fill:white;
@@ -849,7 +840,7 @@ header{
     @include full;
     margin:20px 0 0 0;
 
-    .swords_guild{
+    .guild_icon{
         @include transition;
 
         width:100%;
@@ -877,102 +868,22 @@ header{
             position:relative;
         }
 
-        &:hover{
-            background:#bcea9d;
-        }
 
-        .sword{
-            fill:white;
+        #svg{
             height:150px;
+            width:150px;
+        }
+        svg{
+            fill:white;
+            height:100%;
+            width:100%;
             margin:-15px 0 0 0;
             opacity:.25;
 
-            position:absolute;
             z-index:0;
         }
 
     }
-
-    .swirl_guild{
-        @include transition;
-
-        width:100%;
-        height:120px;
-        background:#E58BB3;
-        overflow:hidden;
-
-        position:relative;
-
-        .guild_title{
-            color: white;
-            font-family: futura-pt;
-            font-weight: 900;
-            font-size: 35px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            line-height:120px;
-            margin:0 0 0 50px;
-
-            position:absolute;
-            z-index:99;
-        }
-
-        &:hover{
-            background:#f7a5c9;
-        }
-
-        .swirls{
-            fill:white;
-            height:150px;
-            margin:-15px 0 0 0;
-            opacity:.25;
-
-            position:absolute;
-            z-index:0;
-        }
-
-    }
-
-    .assignment_guild{
-        @include transition;
-
-        width:100%;
-        height:120px;
-        background:#EAC275;
-        overflow:hidden;
-
-        position:relative;
-
-        .guild_title{
-            color: white;
-            font-family: futura-pt;
-            font-weight: 900;
-            font-size: 35px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            line-height:120px;
-            margin:0 0 0 50px;
-
-            position:absolute;
-            z-index:99;
-        }
-
-        &:hover{
-            background:#f9d99a;
-        }
-
-        .assign{
-            fill:white;
-            height:150px;
-            margin:-15px 0 0 0;
-            opacity:.25;
-
-            position:absolute;
-            z-index:0;
-        }
-
-    }
-
 }
 
 .guild_form{
@@ -1018,8 +929,12 @@ header{
     .guild_swatches{
         float:right;
         width: 83%;
-        .swatch{
 
+        .radio{
+            font-size:0px;
+        }
+
+        .swatch{
             display: inline;
         }
 
@@ -1032,7 +947,7 @@ header{
             transition: all .2s;
         }
 
-        input[type="checkbox"]{
+        input[type="checkbox"],input[type="radio"]{
             -moz-appearance:none;
             -webkit-appearance:none;
             -o-appearance:none;
@@ -1064,79 +979,60 @@ header{
             }
         }
 
-        .swatch_pink{
-            input[type="checkbox"]{
-                background:#E58BB3;
-            }
+        #guild_color_swatch_blue{
+            background:#9BB2C8;
+        }
+        #guild_color_swatch_pink{
+            background:#E58BB3;
         }
 
-        .swatch_green{
-            input[type="checkbox"]{
-                background:#AADB89;
-            }
+        #guild_color_swatch_green{
+            background:#AADB89;
         }
 
-        .swatch_orange{
-            input[type="checkbox"]{
-                background:#EAC275;
+        #guild_color_swatch_orange{
+            background:#EAC275;
+        }
+    }
+
+    .guild_icon_container{
+
+        input[type="checkbox"],input[type="radio"]{
+            -moz-appearance:none;
+            -webkit-appearance:none;
+            -o-appearance:none;
+            height:32px;
+            width:32px;
+            outline: 0px;
+            border:1px solid #d7dbdf;
+            background: none;
+
+            float: left;
+            margin-right: -100%;
+
+            &:checked{
+                border: 1px solid white;
             }
+
+            &:hover{
+                border: 1px solid white;
+                padding: 1px;
+                cursor: pointer;
+            }
+            margin-left: -1px;
+            margin-top: -1px;
         }
 
-        .swatch_blue{
-            input[type="checkbox"]{
-                background:#9BB2C8;
-            }
+        svg{
+            z-index: 90;
+            padding-top:1px;
+            padding-left:1px;
+            height:30px;
+            width:30px;
         }
     }
 }
 
-/* checked mark aspect */
-[type="checkbox"]:not(:checked) + label:after,
-[type="checkbox"]:checked + label:after {
-  content: 'X';
-  position: absolute;
-  top: 0; left: 4px;
-    height:30px;
-    width:30px;
-    font-size: 25px;
-    color: rgba(255,255,255,.5);
-    margin:1px 0 0 2px;
-    font-family: hwt-gothic-round;
-    font-weight: 900;
-  transition: all .2s;
-}
-/* checked mark aspect changes */
-[type="checkbox"]:not(:checked) + label:after {
-  opacity: 0;
-  transform: scale(0);
-}
-[type="checkbox"]:checked + label:after {
-  opacity: 1;
-  transform: scale(1);
-}
-/* disabled checkbox */
-[type="checkbox"]:disabled:not(:checked) + label:before,
-[type="checkbox"]:disabled:checked + label:before {
-  box-shadow: none;
-  border-color: #bbb;
-  background-color: #ddd;
-}
-[type="checkbox"]:disabled:checked + label:after {
-  color: #999;
-}
-[type="checkbox"]:disabled + label {
-  color: #aaa;
-}
-/* accessibility */
-[type="checkbox"]:checked:focus + label:before,
-[type="checkbox"]:not(:checked):focus + label:before {
-  border: 1px dotted blue;
-}
-
-/* hover style just for information */
-label:hover:before {
-  border: 1px solid white !important;
-}
 
 .sublabel{
     float:left;

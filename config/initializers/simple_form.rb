@@ -45,6 +45,15 @@ SimpleForm.setup do |config|
     b.use :error, :wrap_with => { :tag => :span, :class => :error }
   end
 
+  config.wrappers :inline_svg, :tag => 'asdasd', :class => 'asd-group', :error_class => 'error' do |b|
+    b.wrapper :tag => 'asd', :class => 'asd' do |ba|
+      ba.use :label_input, :wrap_with => { :class => 'asd inline' }
+      ba.use :error, :wrap_with => { :tag => 'asd', :class => 'help-asd' }
+      ba.use :hint,  :wrap_with => { :tag => 'pasd', :class => 'help-asd' }
+    end
+  end
+
+
   # The default wrapper to be used by the FormBuilder.
   config.default_wrapper = :default
 
