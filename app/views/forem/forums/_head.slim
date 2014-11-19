@@ -1,10 +1,20 @@
-forum_head
-  span#description = forem_format(forum.description)
+- guild = Guild.find(params[:guild_id])
+div#banner_container
+  a href="#{main_app.guild_path(guild)}"
+    .guild_banner
+      div class="guild_icon #{guild.color}"
+        .guild_title = guild.name
+        #svg = embedded_svg("svg/#{guild.icon}.svg")
+        .guild_title.right = guild.code
+
+  - unless @topic.try(:new_record?)
+    - if can? :create_topic, @forum
+      div#new_topic_button
+        a.red_button#new-topic href="#{forem.new_forum_topic_path(forum)}" New Topic
+
+.forum_head
+  h2#description = forem_format(forum.title)
   div#forum_topic_links.admin_buttons
-    - unless @topic.try(:new_record?)
-      - if can? :create_topic, @forum
-        a.admin_button#new-topic href="#{forem.new_forum_topic_path(forum)}"
-          p New Topic
     - if @topic
       = link_to t('forem.topic.links.back_to_topics'), forem.forum_path(forum), :class => "btn"
     - if can? :moderate, @forum

@@ -1,20 +1,16 @@
-- @guild = Guild.find(params[:id])
+- @guild = Guild.find(params[:guild_id])
 
 .dashboard_content_container
   .header
-    p
-      | GUILD FORUMS
+    p GUILD FORUMS
 
-a.guild_banner href="#{main_app.guild_path(@guild.id)}"
-  div.swords_guild
-    p.guild_title = @guild.name
-    = embedded_svg "svg/swords.svg", class: :sword
+= render "guilds/banner", guild: @guild
 
 #forums_container
   = render @categories
 
 footer#admin_link
-  - if forem_admin?
+  - if current_user.forem_admin?
     .admin_buttons
       = link_to t("area", :scope => "forem.admin"), class: :admin_button do
         p Forum Admin

@@ -6,9 +6,4 @@
 
 div#guilds
   -  @guilds.each do |guild|
-    a href="#{guild_path(guild)}"
-      .guild_banner
-        .guild_icon
-          .guild_title = guild.name
-          #svg = embedded_svg("svg/#{guild.icon}.svg")
-          .guild_title.right = guild.code
+    = render "guilds/banner", guild: guild

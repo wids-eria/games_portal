@@ -1,8 +1,10 @@
 .forum_admin_container
   = render :partial => 'forem/forums/head', :locals => { :forum => @forum }
 
+.paginate
+  = paginate @topics
+
 .forum_content_container
-  = forem_pages_widget(@topics)
   table.topics.table-striped.table cellspacing='0'
     thead
       tr
@@ -16,4 +18,6 @@
         tr
           td colspan='5' align='center' = t('forem.topic.none')
       = render @topics
-  = forem_pages_widget(@topics)
+
+.paginate
+  = paginate @topics

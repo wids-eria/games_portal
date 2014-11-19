@@ -1,0 +1,6 @@
+a href="#{main_app.guild_path(guild)}"
+  .guild_banner
+    div class="guild_icon #{guild.color}"
+      .guild_title = guild.name
+      #svg = embedded_svg("svg/#{guild.icon}.svg")
+      .guild_title.right = guild.code

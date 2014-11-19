@@ -1,5 +1,6 @@
 - if can?(:read, forum)
   a.forum href="#{forum_path(forum.id)}"
     span.title = forum.title
-    .description = forem_format(forum.description)
-    .last_post= t('forem.forums.index.last_post')
+    .last_post
+      | Last Post &nbsp;
+      = forum.topics.last

@@ -17,6 +17,7 @@ class User < ActiveRecord::Base
 
   attr_accessible :email, :player_name, :token, :guest, :auth_token
   validates_presence_of :player_name
+  validates_uniqueness_of :player_name
 
   def forem_name
     player_name
@@ -72,12 +73,14 @@ class User < ActiveRecord::Base
   end
 
   def can_view_user(other)
+    puts other.to_json
+    puts self.to_json
     if other.id == self.id
       return true
     end
 
-    self.owned_groups.each do |group|
-      group.on_db(:adage).users.each do |temp|
+    self.owned_guilds.each do |guild|
+      guild.members.each do |temp|
         if other == temp
           return true
         end

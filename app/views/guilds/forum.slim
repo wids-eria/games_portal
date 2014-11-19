@@ -1,6 +1,2 @@
-.guild_banner
-  div.swords_guild
-    p.guild_title = @guild.name
-    = embedded_svg "svg/swords.svg", class: :sword
-
+= render "guilds/banner", guild: @guild
 = render "forem/categories/category", category: @category

@@ -51,7 +51,7 @@ class GuildsController < ApplicationController
   end
 
   def forum
-    @guild =  Guild.find(params[:id])
+    @guild =  Guild.find(params[:guild_id])
 
     #Get Category for guild
     @category = Forem::Category.find_by_name(@guild.id)

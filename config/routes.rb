@@ -1,10 +1,9 @@
 GlsPortal::Application.routes.draw do
 
   resources :guilds do
+    mount Forem::Engine, :at => '/forum'
     member do
-      mount Forem::Engine, :at => '/forum'
       get 'forum', to: 'guilds#forum', as: "forum"
-     # get 'forum/:id', to: 'guilds#forum', as: "forum"
     end
   end
 

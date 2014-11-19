@@ -21,7 +21,7 @@
   <header>
     <!-- Navigation -->
     <div class="navigation_container">
-        <%= link_to root_url do%>
+        <%= link_to main_app.root_url do%>
           <div class="logo_container">
             <div class="glss_logo"></div>
             <div class="gamesportal_logotype">
@@ -49,7 +49,6 @@
 
     <div class="main_content">
     <%= yield %>
-    <%= render "user/admin" %>
     </div>
   </div>
 

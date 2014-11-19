@@ -1,3 +1,10 @@
+/*------------------------------------------------------------------
+
+    Elements
+
+-------------------------------------------------------------------*/
+
+
 .forum{
   @include full;
   margin:10px 0 0 0;
@@ -58,6 +65,35 @@
 }
 
 .forum_admin_container{
-
   @include full;
+
+  #banner_container{
+    clear:none;
+  }
+
+  #new_topic_button{
+    position: relative;
+    float: right;
+    margin-left: -100%;
+    margin-right: 22px;
+    line-height: 13em;
+    z-index:100;
+  }
+}
+
+
+
+/*------------------------------------------------------------------
+
+  Classes
+
+-------------------------------------------------------------------*/
+
+.paginate{
+  color: #6F6969;
+  margin-top: 60px;
+  a{
+
+    color: #6F6969;
+  }
 }

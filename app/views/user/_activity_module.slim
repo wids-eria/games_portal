@@ -4,7 +4,6 @@ div.module
   - @games.each do |game|
     - if game.has_data(@user)
       .activity_list_item
-        = embedded_svg "svg/gear_svg.svg", class: "swords"
         p
           a href="#"  Billy Smith
           | Played #{game.name}  for
