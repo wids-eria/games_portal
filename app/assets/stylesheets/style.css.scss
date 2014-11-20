@@ -80,7 +80,7 @@ h5{  }
 
 .clear{ clear: both; }
 
-.left{ float:left; }
+.left{ float:left !important; }
 .right{ float:right !important; }
 
 .bold{ font-weight:bold;}
