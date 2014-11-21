@@ -837,9 +837,9 @@ header{
 
 
 .guild_banner{
-    @include full;
+    width:100%;
     margin:20px 0 0 0;
-
+    display: block;
     .guild_icon{
         @include transition;
 

@@ -1,9 +1,9 @@
 - @guild = Guild.find(params[:guild_id])
 = render "guilds/banner", guild: @guild
 
-h2
+.breadcrumb
   | GUILD FORUM
-  | &raquo;
+  |  > &nbsp;
   = link_to forem_emojify(topic.forum.title), [forem, topic.forum]
-  | &raquo;
-  = forem_emojify(topic.subject)
+  |  > &nbsp;
+  span.dark = forem_emojify(topic.subject)

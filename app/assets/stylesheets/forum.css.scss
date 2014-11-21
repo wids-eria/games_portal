@@ -56,10 +56,23 @@
     color: white;
     font-size: 20px;
   }
+
+  .even{
+    background-color: #F0F0F0;
+  }
+
+  .odd{
+    background-color: #E0E0E0;
+  }
+
+  tbody .topic{
+    margin:5px;
+  }
 }
 
 .forum_admin_container{
   @include full;
+  float: none;
 
   #banner_container{
     clear:none;
@@ -68,10 +81,10 @@
   #new_topic_button{
     position: relative;
     float: right;
-    margin-left: -100%;
-    margin-right: 22px;
-    line-height: 13em;
-    z-index:100;
+    margin-top: -56px;
+    margin-right: 20px;
+    line-height: 0em;
+    z-index: 100;
   }
 }
 
@@ -168,7 +181,22 @@
 
 }
 
+.breadcrumb{
+  margin: 10px 0px;
+  padding: 10px 0px;
+  color: #8E8E8E;
+  font-weight:500;
+  font-size: 14px;
+  float:none;
+  *{
+    color: #8E8E8E;
+  }
 
+  .dark{
+
+    color: #565656;
+  }
+}
 /*------------------------------------------------------------------
 
   Classes

@@ -12,11 +12,11 @@ a name='post-#{post.id}'
 
           .time = post_time_tag(post)
       .post_content
-        = forem_format(post.text)
+        - if post.reply_to
+          .in-reply-to
+            = link_to "#{t("forem.post.in_reply_to")} #{post.reply_to.user.name}", "#post-#{post.reply_to.id}"
 
-      - if post.reply_to
-        .in-reply-to
-          = link_to "#{t("forem.post.in_reply_to")} #{post.reply_to.user.name}", "#post-#{post.reply_to.id}"
+        = forem_format(post.text)
 
       - if forem_user
         .admin_buttons

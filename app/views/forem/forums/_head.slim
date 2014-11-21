@@ -1,11 +1,10 @@
 - guild = Guild.find(params[:guild_id])
 div#banner_container
-  a href="#{main_app.guild_path(guild)}"
-    .guild_banner
-      div class="guild_icon #{guild.color}"
-        .guild_title = guild.name
-        #svg = embedded_svg("svg/#{guild.icon}.svg")
-        .guild_title.right = guild.code
+  a.guild_banner href="#{main_app.guild_path(guild)}"
+    div class="guild_icon #{guild.color}"
+      .guild_title = guild.name
+      #svg = embedded_svg("svg/#{guild.icon}.svg")
+      .guild_title.right = guild.code
 
   - unless @topic.try(:new_record?)
     - if can? :create_topic, @forum
