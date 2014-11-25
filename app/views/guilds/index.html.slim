@@ -4,7 +4,7 @@
     a.red_button.left href="#{joinguild_path}"  Join Guild
 
 div#guilds
-  - if @guilds.count < 0
+  - if @guilds.count > 0
     -  @guilds.each do |guild|
       = render "guilds/banner", guild: guild
   - else

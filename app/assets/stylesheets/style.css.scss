@@ -394,9 +394,9 @@ header{
             letter-spacing: 1px;
             text-transform: uppercase;
         }
-        
+
         .red_button{
-           
+
         }
 
         a{
@@ -892,6 +892,10 @@ header{
             z-index:0;
         }
 
+        .red_button{
+            margin-top: 40px;
+            margin-right: 20px;
+        }
     }
 }
 
@@ -1245,7 +1249,7 @@ footer{  }
     width: 100%;
     padding: 20px;
     margin: 0 auto;
-    
+
     text-align:center;
 
     &:empty{

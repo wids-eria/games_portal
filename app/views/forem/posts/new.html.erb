@@ -1,8 +1,8 @@
 <%= render :partial => 'forem/forums/head', :locals => { :forum => @topic.forum } %>
 
 <div class="reply_to_post_container">
-  <%= t("forem.post.new") %>
   <% if @reply_to_post %>
+    <div class="clear"></div>
     <%= render 'reply_to_post', :post => @reply_to_post %>
   <% else %>
     <em><%= @topic.subject %></em>
