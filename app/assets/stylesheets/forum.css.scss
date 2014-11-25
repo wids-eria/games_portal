@@ -4,9 +4,15 @@
 
 -------------------------------------------------------------------*/
 
+.category{
+  .forum{
+    margin:1px 0 0 0;
+  }
+}
 
 .forum{
   @include full;
+  
   margin:10px 0 0 0;
   padding:10px;
   font-size: 15px;
@@ -16,10 +22,11 @@
   text-transform: uppercase;
 
   color: white;
-  background-color: red;
+  background-color: #c72626;
 
   .title{
-    font-size: 35px;
+    font-size: 30px;
+    
     a{
       color: white;
     }
@@ -36,7 +43,7 @@
 
   &:hover{
     @include transition;
-    background-color: pink;
+    background-color:#e14949;
   }
 }
 
@@ -55,6 +62,13 @@
     background-color: #18222b;
     color: white;
     font-size: 20px;
+    tr{
+      th{
+        padding:10px;
+        border-right:1px solid white;
+        text-align:left;
+      }
+    }
   }
 
   .even{
@@ -81,7 +95,7 @@
   #new_topic_button{
     position: relative;
     float: right;
-    margin-top: -56px;
+    margin-top: -70px;
     margin-right: 20px;
     line-height: 0em;
     z-index: 100;
@@ -102,19 +116,24 @@
     float:none;
 
     #title{
+      margin:6px 0 0 5px;
+      
       color: #fff;
+      text-transform:uppercase;
       font-family: futura-pt;
       font-weight: 900;
       font-size: 18px;
       letter-spacing: 1px;
-      text-transform: uppercase;
       line-height: 16px;
       float: left;
 
       #started{
-        font-weight: 200;
-        font-size: 12px;
-        color: rgba(247, 247, 247, 0.6);
+        letter-spacing:0px;
+        font-weight:200;
+        text-transform: none;
+        font-family:open sans;
+        font-size: 14px;
+        color: #66768f;
       }
     }
   }
@@ -148,12 +167,10 @@
 
       .username{
         color: #c72626;
-        font-family: futura-pt;
+        font-family: open sans;
         font-weight: 900;
-        font-size: 13px;
-        letter-spacing: 1px;
-        text-transform: uppercase;
-        line-height: 16px;
+        font-size: 16px;
+        line-height: 18px;
         .time{
           font-size: 11px;
           color: #918F8F;
@@ -164,15 +181,20 @@
 
     .post_content{
       background-color: #F0F0F0;
-      padding: 5px;
+      padding: 20px;
+      margin:5px 0 15px 0;
+      
+      font-family:open sans;
+      font-size:14px;
+      color:#66768f;
     }
     .admin_buttons{
       padding:5px 0px;
-      height:25px;
+      height:30px;
       .admin_button{
         p{
-          font-size: 9pt;
-          margin: 3px 5px;
+          font-size: 15px;
+          margin: 6px 8px;
 
         }
       }
@@ -182,21 +204,366 @@
 }
 
 .breadcrumb{
+  font-family:open sans;
   margin: 10px 0px;
   padding: 10px 0px;
   color: #8E8E8E;
   font-weight:500;
-  font-size: 14px;
+  font-size: 13px;
   float:none;
   *{
     color: #8E8E8E;
   }
 
   .dark{
-
     color: #565656;
+    font-weight:700;
+    font-style:italic;
   }
 }
+
+.forum_head{
+  @include full;
+  
+  margin:20px 0 15px 0;
+  
+  h2{
+    float:left;
+    color: #18222B;
+    font-family: futura-pt;
+    font-weight: 900;
+    font-size: 30px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  
+  .admin_buttons{
+    float:right;
+    
+    .btn{
+      @include transition;
+      
+      padding: 5px 10px;
+      background: #c72626;
+      font-family: futura-pt;
+      font-weight: 900;
+      font-size: 22px;
+      color: #fff;
+      letter-spacing: 1px;
+      text-align: center;
+      text-transform: uppercase;
+      
+      &:hover{
+        @include transition;
+        
+        background:#e14949;
+      }
+    }
+  } 
+}
+
+.form_header{
+  width: 100%;
+  float: left;
+  padding: 20px 0 0 20px;
+  background: #eaeaea;
+  
+  color: #9aa4ad;
+  font-family: futura-pt;
+  font-weight: 900;
+  font-size: 20px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+
+.new_topic,.new_post{
+  width: 100%;
+  float: left;
+  padding: 0 20px 20px 20px;
+  background: #eaeaea;
+  
+  .btn{
+      @include transition;
+      
+      float:right;
+      border:none;
+      padding: 5px 10px;
+      background: #c72626;
+      margin:5px 0 0 0;
+      
+      font-family: futura-pt;
+      font-weight: 900;
+      font-size: 22px;
+      color: #fff;
+      letter-spacing: 1px;
+      text-align: center;
+      text-transform: uppercase;
+      
+      &:hover{
+        @include transition;
+        
+        cursor:pointer;
+        background:#e14949;
+      }
+    }
+
+  div{
+    @include full;
+    
+    margin:10px 0;
+    
+    abbr{
+      color:#C72626;
+    }
+    
+    label.string,
+    label.text{
+      color: #9aa4ad;
+      font-family: futura-pt;
+      font-weight: 900;
+      font-size: 20px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      line-height: 35px;    
+    }
+    
+    input[type=text],
+    textarea{
+      float: right;
+      width: 83%;
+      padding: 5px 10px;
+      background: #f7f7f7;
+      border: 1px solid #d7dbdf;
+      font-family: open sans;
+      font-size: 16px;
+      color: #617587;
+    }
+  }
+}
+
+.reply_to_post_container{
+
+  .reply_to_post{
+    padding: 20px;
+    background-color: #EAEAEA;
+    
+    .user{
+      width: 100%;
+      clear: both;
+      
+      .username{
+        width:915px;
+        float:right;
+        
+        color: #c72626;
+        font-family: open sans;
+        font-weight: 900;
+        font-size: 16px;
+        line-height: 18px;
+      }
+
+      .icon{
+        
+        margin-right: 20px;
+        
+        img{
+          height:40px;
+          width:40px;
+        }
+      }
+    }
+    
+    .contents{
+      background-color: #F0F0F0;
+      padding: 20px;
+      margin: 10px 0 0 0;
+      font-family: open sans;
+      font-size: 14px;
+      color: #66768f;
+    }
+  }
+}
+
+.topics{
+  tbody{
+    tr{
+      
+      td{
+        border-bottom:1px solid #c3c9ce;
+        padding:20px 0 20px 0;
+        
+        padding-left: 10px;
+        font-size: 15px;
+        color: #788896;
+        font-family: open sans;
+        font-weight: 900;
+        text-transform: none;
+        letter-spacing: 0px;
+        
+      }
+      td.byline{
+        padding:10px 0 10px 0;
+    
+        .subject{
+          a{
+            color: #c72626;
+            font-family: open sans;
+            font-weight: 900;
+            font-size: 16px;
+            line-height: 16px;
+            text-transform:none;
+            letter-spacing:0px;
+            
+            &:hover{
+              text-decoration:underline;
+            }
+          }
+        }
+        
+        .started-by{
+          font-size: 12px;
+          color: #918F8F;
+          font-family: open sans;
+          font-weight: 300;
+          line-height: 16px;
+          text-transform:none;
+          letter-spacing:0px;
+        }
+        
+      }
+      
+      td.latest-post{
+        a{
+          padding-left:10px;
+          font-size: 13px;
+          color: #788896;
+          font-family: open sans;
+          font-weight: 500;
+          text-transform: none;
+          letter-spacing: 0px;
+          
+          &:hover{
+            text-decoration:underline;
+          }
+        }
+      }
+      
+      td.posts-count,
+      td.views-count{
+        padding-left:10px;
+        font-size: 15px;
+        color: #788896;
+        font-family: open sans;
+        font-weight: 900;
+        text-transform: none;
+        letter-spacing: 0px;
+      }
+    }
+  }
+}
+
+form.edit_post{
+  width: 100%;
+  float: left;
+  padding: 20px;
+  background: #eaeaea;
+  margin: 10px 0;
+  
+  abbr{color: #C72626;}
+  
+  label{
+    color: #9aa4ad;
+    font-family: futura-pt;
+    font-weight: 900;
+    font-size: 20px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    line-height: 35px;
+  }
+  
+  textarea{
+    float: right;
+    width: 83%;
+    padding: 5px 10px;
+    background: #f7f7f7;
+    border: 1px solid #d7dbdf;
+    font-family: open sans;
+    font-size: 16px;
+    color: #617587;
+  }
+  
+  .btn{
+      @include transition;
+      
+      float:left;
+      border:none;
+      padding: 5px 10px;
+      background: #c72626;
+      margin:5px 0 0 0;
+      
+      font-family: futura-pt;
+      font-weight: 900;
+      font-size: 22px;
+      color: #fff;
+      letter-spacing: 1px;
+      text-align: center;
+      text-transform: uppercase;
+      
+      &:hover{
+        @include transition;
+        
+        cursor:pointer;
+        background:#e14949;
+      }
+    }
+}
+
+.in-reply-to{
+  a{
+    color: #c72626;
+    font-family: open sans;
+    font-weight: 900;
+    line-height: 18px;
+    
+    &:hover{
+      text-decoration:underline;
+    }
+  }
+}
+
+nav.pagination{
+  text-align:right;
+  padding:0 0 20px 0;
+  
+  span{
+    a{
+      color: #c72626;
+      font-family: open sans;
+      font-weight: 900;
+      line-height: 18px;
+      
+      &:hover{
+        text-decoration:underline;
+      }
+    }
+  }
+}
+
+.error{
+  color: #C72626;
+}
+
+.in_reply_to{
+  a{
+    color: #C72626;
+    
+    &:hover{
+      text-decoration:underline;
+    }
+  }
+}
+
 /*------------------------------------------------------------------
 
   Classes
