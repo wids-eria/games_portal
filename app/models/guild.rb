@@ -4,7 +4,8 @@ class Guild < ActiveRecord::Base
   has_many :owners, through: :guild_ownerships, source: :user
   has_many :members, through: :guild_users, source: :user, as: :members
 
-  after_create :generatecode,:createforums
+  before_create :generatecode
+  after_create :createforums
 
   attr_accessible :name,:code,:color,:icon
 
@@ -22,6 +23,7 @@ class Guild < ActiveRecord::Base
       pass = ZooPass.generate(4)
     end
     self.code = pass
+    code = pass
   end
 
   def createforums

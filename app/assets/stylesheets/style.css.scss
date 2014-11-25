@@ -91,6 +91,8 @@ h5{  }
 .center_text{ text-align:center; }
 .all_caps{ text-transform:uppercase; }
 .lower_case{ text-transform:lowercase; }
+.center {text-align:center;};
+.relative{position:relative !important;}
 
 /* End Misc Classes */
 
@@ -1082,6 +1084,10 @@ header{
     background:#E58BB3 !important;
 }
 
+.gray{
+    background:rgb(200, 200, 205) !important;
+}
+
 .green{
     background:#AADB89 !important;
 }
@@ -1090,7 +1096,9 @@ header{
     background:#EAC275 !important;
 }
 
-
+.center{
+    text-align: center;
+}
 
 
 /*------------------------------------------------------------------

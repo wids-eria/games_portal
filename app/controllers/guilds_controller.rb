@@ -43,7 +43,6 @@ class GuildsController < ApplicationController
 
   def index
     @guilds =  User.find(session[:id]).owned_guilds
-
   end
 
   def show
@@ -55,5 +54,22 @@ class GuildsController < ApplicationController
 
     #Get Category for guild
     @category = Forem::Category.find_by_name(@guild.id)
+  end
+
+  def join
+    if params[:join]
+      @code = params[:join][:code]
+
+      @guild = Guild.find_by_code(@code)
+      if @guild
+        flash[:notice] = "Joined Guild #{@guild.name}!"
+        redirect_to guilds_path
+      else
+        params[:join].errors.add(:name, "wasn't filled in")
+        render :join
+      end
+    else
+      render :join
+    end
   end
 end
