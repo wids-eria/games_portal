@@ -40,9 +40,9 @@ a{ text-decoration:none; }
     a:hover{  }
 
 p,input{
-    font-family: alwyn-new-rounded-web;
+    font-family: open sans;
     color: #617587;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 500;
 }
 
@@ -162,7 +162,7 @@ header{
                 float:left;
                 padding:0 20px 0 20px;
 
-                font-family:alwyn-new-rounded-web;
+                font-family:open sans;
                 color:#e1e8ee;
                 line-height:67px;
                 font-size:20px;
@@ -178,7 +178,7 @@ header{
                 text-align:right;
                 margin:12px 0 0 20px;
 
-                font-family:alwyn-new-rounded-web;
+                font-family:open sans;
                 font-weight:200;
 
                 .username{
@@ -383,6 +383,7 @@ header{
         @include full;
 
         p{
+            margin:20px 0 0 0;
             float:left;
             color: #18222B;
             font-family: futura-pt;
@@ -391,12 +392,17 @@ header{
             letter-spacing: 1px;
             text-transform: uppercase;
         }
+        
+        .red_button{
+           
+        }
 
         a{
             @include transition;
 
             float:right;
             background:#c72626;
+            margin:0 0 20px 0;
 
             &:hover{
                 background:#e14949;
@@ -799,7 +805,7 @@ header{
 
     background:#f7f7f7;
     padding:5px 10px;
-    margin:10px 0 0 0;
+    margin:10px 0 10px 0;
 
     p{
         float:left;
@@ -845,6 +851,7 @@ header{
 
         width:100%;
         height:120px;
+        margin:0 0 10px 0;
         background:#aadb89;
         overflow:hidden;
 
@@ -1227,9 +1234,11 @@ footer{  }
 }
 
 #notifications{
-    width: 740px;
+    width: 100%;
     padding: 20px;
     margin: 0 auto;
+    
+    text-align:center;
 
     &:empty{
         display: none;

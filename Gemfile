@@ -15,7 +15,7 @@ gem 'slim-rails', '~> 2.1.5'
 gem 'haml'
 gem 'pg'
 
-gem "therubyracer", :require => "v8"
+#gem "therubyracer", :require => "v8"
 gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
 
 gem 'httparty'
