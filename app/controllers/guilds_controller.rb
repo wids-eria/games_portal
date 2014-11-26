@@ -13,6 +13,7 @@ class GuildsController < ApplicationController
       flash[:notice] = 'Guild Created'
       redirect_to guilds_path
     else
+      flash[:notice] = error_format(@guild.errors)
       render :new
     end
   end

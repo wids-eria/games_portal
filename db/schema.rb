@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141117231229) do
+ActiveRecord::Schema.define(:version => 20141126182135) do
 
 # Could not dump table "achievements" because of following StandardError
 #   Unknown type 'json' for column 'last_result'
@@ -173,6 +173,7 @@ ActiveRecord::Schema.define(:version => 20141117231229) do
     t.string   "code"
     t.integer  "icon_cd"
     t.integer  "color_cd"
+    t.string   "class_name"
   end
 
   create_table "surveys", :force => true do |t|

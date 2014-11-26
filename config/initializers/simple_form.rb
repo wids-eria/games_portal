@@ -42,7 +42,6 @@ SimpleForm.setup do |config|
     ## Inputs
     b.use :label_input
     b.use :hint,  :wrap_with => { :tag => :span, :class => :hint }
-    b.use :error, :wrap_with => { :tag => :span, :class => :error }
   end
 
   config.wrappers :inline_svg, :tag => 'asdasd', :class => 'asd-group', :error_class => 'error' do |b|

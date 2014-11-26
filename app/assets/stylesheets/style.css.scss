@@ -1252,6 +1252,15 @@ footer{  }
 
     text-align:center;
 
+    .error_container{
+        width: 30%;
+        margin: 0 auto;
+        font-size: 11pt;
+        li{
+            text-align:left;
+        }
+    }
+
     &:empty{
         display: none;
     }
@@ -1263,6 +1272,12 @@ footer{  }
     border: 0px;
 }
 
+
+.field_with_errors{
+    input{
+        border: 1px solid #C72626 !important;
+    }
+}
 /* End Modifications */
 
 
