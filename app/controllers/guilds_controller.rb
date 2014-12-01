@@ -58,15 +58,17 @@ class GuildsController < ApplicationController
   end
 
   def join
-    if params[:join]
-      @code = params[:join][:code]
+    @code = Code.new(params[:code])
 
-      @guild = Guild.find_by_code(@code)
+    if @code.valid?
+
+      @guild = Guild.find_by_code(@code.name)
       if @guild
         flash[:notice] = "Joined Guild #{@guild.name}!"
         redirect_to guilds_path
       else
-        params[:join].errors.add(:name, "wasn't filled in")
+        @code.errors[" "] = "No guild found for code #{@code.name}"
+        flash[:notice] = error_format(@code.errors)
         render :join
       end
     else

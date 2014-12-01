@@ -56,6 +56,7 @@
   table{
     margin-top:10px;
     @include full;
+
   }
 
   thead{
@@ -79,8 +80,14 @@
     background-color: #E0E0E0;
   }
 
-  tbody .topic{
-    margin:5px;
+  tbody{
+    .topic{
+      margin:5px;
+    }
+
+    td:first-child{
+      padding-left:10px !important;
+    }
   }
 }
 

@@ -1,7 +1,8 @@
 GlsPortal::Application.routes.draw do
-
   get :joinguild, to: 'guilds#join'
   post :joinguild, to: 'guilds#join'
+  get :joinguild, to: 'guilds#join', as: :codes
+
   resources :guilds do
     mount Forem::Engine, :at => '/forum'
     member do
