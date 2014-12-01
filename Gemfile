@@ -5,7 +5,7 @@ gem 'devise'
 gem 'cancan'
 gem 'connection_ninja'
 gem 'kaminari', '0.15.1'
-#gem 'mongoid'
+gem 'mongoid'
 gem 'simple_enum', '~> 1.6.9'
 
 gem 'db-charmer', :require => 'db_charmer'
