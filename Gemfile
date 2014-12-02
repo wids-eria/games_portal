@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.13'
-gem 'devise'
+gem 'devise', '2.2.8'
 gem 'cancan'
 gem 'connection_ninja'
 gem 'kaminari', '0.15.1'
