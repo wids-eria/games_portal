@@ -13,6 +13,7 @@ class GuildsController < ApplicationController
       flash[:notice] = 'Guild Created'
       redirect_to guilds_path
     else
+      flash[:notice] = error_format(@guild.errors)
       render :new
     end
   end
@@ -43,7 +44,6 @@ class GuildsController < ApplicationController
 
   def index
     @guilds =  User.find(session[:id]).owned_guilds
-
   end
 
   def show
@@ -55,5 +55,24 @@ class GuildsController < ApplicationController
 
     #Get Category for guild
     @category = Forem::Category.find_by_name(@guild.id)
+  end
+
+  def join
+    @code = Code.new(params[:code])
+
+    if @code.valid?
+
+      @guild = Guild.find_by_code(@code.name)
+      if @guild
+        flash[:notice] = "Joined Guild #{@guild.name}!"
+        redirect_to guilds_path
+      else
+        @code.errors[" "] = "No guild found for code #{@code.name}"
+        flash[:notice] = error_format(@code.errors)
+        render :join
+      end
+    else
+      render :join
+    end
   end
 end

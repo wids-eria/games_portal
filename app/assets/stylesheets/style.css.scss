@@ -91,6 +91,8 @@ h5{  }
 .center_text{ text-align:center; }
 .all_caps{ text-transform:uppercase; }
 .lower_case{ text-transform:lowercase; }
+.center {text-align:center;};
+.relative{position:relative !important;}
 
 /* End Misc Classes */
 
@@ -392,9 +394,9 @@ header{
             letter-spacing: 1px;
             text-transform: uppercase;
         }
-        
+
         .red_button{
-           
+
         }
 
         a{
@@ -890,6 +892,10 @@ header{
             z-index:0;
         }
 
+        .red_button{
+            margin-top: 40px;
+            margin-right: 20px;
+        }
     }
 }
 
@@ -1089,6 +1095,10 @@ header{
     background:#E58BB3 !important;
 }
 
+.gray{
+    background:rgb(200, 200, 205) !important;
+}
+
 .green{
     background:#AADB89 !important;
 }
@@ -1097,7 +1107,9 @@ header{
     background:#EAC275 !important;
 }
 
-
+.center{
+    text-align: center;
+}
 
 
 /*------------------------------------------------------------------
@@ -1237,8 +1249,17 @@ footer{  }
     width: 100%;
     padding: 20px;
     margin: 0 auto;
-    
+
     text-align:center;
+
+    .error_container{
+        width: 30%;
+        margin: 0 auto;
+        font-size: 11pt;
+        li{
+            text-align:left;
+        }
+    }
 
     &:empty{
         display: none;
@@ -1251,6 +1272,12 @@ footer{  }
     border: 0px;
 }
 
+
+.field_with_errors{
+    input{
+        border: 1px solid #C72626 !important;
+    }
+}
 /* End Modifications */
 
 

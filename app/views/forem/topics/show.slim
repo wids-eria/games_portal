@@ -5,7 +5,7 @@
     .admin_buttons
       - if @topic.user == forem_user || forem_admin?
         a.admin_button href="#{forem.forum_topic_path(@forum, @topic)}" data-confirm="Are you sure?" data-method="delete" rel="nofollow"
-          p = t(".delete")
+          p = t(".delete Topic")
       - if forem_admin?
         a.admin_button href="#{forem.edit_admin_forum_topic_path(@forum, @topic)}"
           p = t("forem.topic.links.edit")
@@ -16,8 +16,8 @@
         a.admin_button href="#{forem.toggle_pin_admin_forum_topic_path(@forum, @topic)}" data-method="put"
           p = t(".pin.#{@topic.pinned}")
 
+    .paginate = paginate @posts
 
-  .paginate = paginate @posts
   #title_bar
     #title
       = @topic

@@ -12,7 +12,7 @@
 
 .forum{
   @include full;
-  
+
   margin:10px 0 0 0;
   padding:10px;
   font-size: 15px;
@@ -26,7 +26,7 @@
 
   .title{
     font-size: 30px;
-    
+
     a{
       color: white;
     }
@@ -56,6 +56,7 @@
   table{
     margin-top:10px;
     @include full;
+
   }
 
   thead{
@@ -79,8 +80,14 @@
     background-color: #E0E0E0;
   }
 
-  tbody .topic{
-    margin:5px;
+  tbody{
+    .topic{
+      margin:5px;
+    }
+
+    td:first-child{
+      padding-left:10px !important;
+    }
   }
 }
 
@@ -107,17 +114,14 @@
 
 
   #title_bar{
-    @include full;
-
     width: 100%;
     height: 60px;
     padding: 10px;
     background-color: #18222b;
-    float:none;
 
     #title{
       margin:6px 0 0 5px;
-      
+
       color: #fff;
       text-transform:uppercase;
       font-family: futura-pt;
@@ -137,9 +141,19 @@
       }
     }
   }
+
+  #menu{
+    width: 100%;
+    height: 60px;
+
+    .admin_buttons{
+      float: right;
+    }
+  }
 }
 
 #posts{
+  float:none;
   .even{
     background-color: #F0F0F0;
   }
@@ -183,7 +197,7 @@
       background-color: #F0F0F0;
       padding: 20px;
       margin:5px 0 15px 0;
-      
+
       font-family:open sans;
       font-size:14px;
       color:#66768f;
@@ -224,9 +238,9 @@
 
 .forum_head{
   @include full;
-  
+
   margin:20px 0 15px 0;
-  
+
   h2{
     float:left;
     color: #18222B;
@@ -236,13 +250,13 @@
     letter-spacing: 1px;
     text-transform: uppercase;
   }
-  
+
   .admin_buttons{
     float:right;
-    
+
     .btn{
       @include transition;
-      
+
       padding: 5px 10px;
       background: #c72626;
       font-family: futura-pt;
@@ -252,14 +266,14 @@
       letter-spacing: 1px;
       text-align: center;
       text-transform: uppercase;
-      
+
       &:hover{
         @include transition;
-        
+
         background:#e14949;
       }
     }
-  } 
+  }
 }
 
 .form_header{
@@ -267,7 +281,7 @@
   float: left;
   padding: 20px 0 0 20px;
   background: #eaeaea;
-  
+
   color: #9aa4ad;
   font-family: futura-pt;
   font-weight: 900;
@@ -282,16 +296,16 @@
   float: left;
   padding: 0 20px 20px 20px;
   background: #eaeaea;
-  
+
   .btn{
       @include transition;
-      
+
       float:right;
       border:none;
       padding: 5px 10px;
       background: #c72626;
       margin:5px 0 0 0;
-      
+
       font-family: futura-pt;
       font-weight: 900;
       font-size: 22px;
@@ -299,10 +313,10 @@
       letter-spacing: 1px;
       text-align: center;
       text-transform: uppercase;
-      
+
       &:hover{
         @include transition;
-        
+
         cursor:pointer;
         background:#e14949;
       }
@@ -310,13 +324,13 @@
 
   div{
     @include full;
-    
+
     margin:10px 0;
-    
+
     abbr{
       color:#C72626;
     }
-    
+
     label.string,
     label.text{
       color: #9aa4ad;
@@ -325,9 +339,9 @@
       font-size: 20px;
       letter-spacing: 1px;
       text-transform: uppercase;
-      line-height: 35px;    
+      line-height: 35px;
     }
-    
+
     input[type=text],
     textarea{
       float: right;
@@ -347,15 +361,15 @@
   .reply_to_post{
     padding: 20px;
     background-color: #EAEAEA;
-    
+
     .user{
       width: 100%;
       clear: both;
-      
+
       .username{
         width:915px;
         float:right;
-        
+
         color: #c72626;
         font-family: open sans;
         font-weight: 900;
@@ -364,16 +378,16 @@
       }
 
       .icon{
-        
+
         margin-right: 20px;
-        
+
         img{
           height:40px;
           width:40px;
         }
       }
     }
-    
+
     .contents{
       background-color: #F0F0F0;
       padding: 20px;
@@ -388,11 +402,11 @@
 .topics{
   tbody{
     tr{
-      
+
       td{
         border-bottom:1px solid #c3c9ce;
         padding:20px 0 20px 0;
-        
+
         padding-left: 10px;
         font-size: 15px;
         color: #788896;
@@ -400,11 +414,11 @@
         font-weight: 900;
         text-transform: none;
         letter-spacing: 0px;
-        
+
       }
       td.byline{
         padding:10px 0 10px 0;
-    
+
         .subject{
           a{
             color: #c72626;
@@ -414,13 +428,13 @@
             line-height: 16px;
             text-transform:none;
             letter-spacing:0px;
-            
+
             &:hover{
               text-decoration:underline;
             }
           }
         }
-        
+
         .started-by{
           font-size: 12px;
           color: #918F8F;
@@ -430,9 +444,9 @@
           text-transform:none;
           letter-spacing:0px;
         }
-        
+
       }
-      
+
       td.latest-post{
         a{
           padding-left:10px;
@@ -442,13 +456,13 @@
           font-weight: 500;
           text-transform: none;
           letter-spacing: 0px;
-          
+
           &:hover{
             text-decoration:underline;
           }
         }
       }
-      
+
       td.posts-count,
       td.views-count{
         padding-left:10px;
@@ -469,9 +483,9 @@ form.edit_post{
   padding: 20px;
   background: #eaeaea;
   margin: 10px 0;
-  
+
   abbr{color: #C72626;}
-  
+
   label{
     color: #9aa4ad;
     font-family: futura-pt;
@@ -481,7 +495,7 @@ form.edit_post{
     text-transform: uppercase;
     line-height: 35px;
   }
-  
+
   textarea{
     float: right;
     width: 83%;
@@ -492,16 +506,16 @@ form.edit_post{
     font-size: 16px;
     color: #617587;
   }
-  
+
   .btn{
       @include transition;
-      
+
       float:left;
       border:none;
       padding: 5px 10px;
       background: #c72626;
       margin:5px 0 0 0;
-      
+
       font-family: futura-pt;
       font-weight: 900;
       font-size: 22px;
@@ -509,10 +523,10 @@ form.edit_post{
       letter-spacing: 1px;
       text-align: center;
       text-transform: uppercase;
-      
+
       &:hover{
         @include transition;
-        
+
         cursor:pointer;
         background:#e14949;
       }
@@ -525,7 +539,7 @@ form.edit_post{
     font-family: open sans;
     font-weight: 900;
     line-height: 18px;
-    
+
     &:hover{
       text-decoration:underline;
     }
@@ -535,14 +549,14 @@ form.edit_post{
 nav.pagination{
   text-align:right;
   padding:0 0 20px 0;
-  
+
   span{
     a{
       color: #c72626;
       font-family: open sans;
       font-weight: 900;
       line-height: 18px;
-      
+
       &:hover{
         text-decoration:underline;
       }
@@ -557,7 +571,7 @@ nav.pagination{
 .in_reply_to{
   a{
     color: #C72626;
-    
+
     &:hover{
       text-decoration:underline;
     }
@@ -571,7 +585,8 @@ nav.pagination{
 -------------------------------------------------------------------*/
 
 .paginate{
-  margin-top: 60px;
+  line-height: 4.2em;
+  float:left;
   *{
     color: #6F6969;
   }

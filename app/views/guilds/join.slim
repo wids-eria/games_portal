@@ -1,0 +1,8 @@
+h2 JOIN GUILD
+=simple_form_for @code do |f|
+  div.module.guild_form
+    div.field_item
+      = f.input :name, label: 'GUILD CODE',placeholder: "Guild Join Code"
+    div.full
+      = f.button :submit, "JOIN GUILD", class: [:red_button, :right]
+      = link_to "Back", @guild, class: [:red_button,:left]

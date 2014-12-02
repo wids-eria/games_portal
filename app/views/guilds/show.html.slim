@@ -2,12 +2,14 @@
   .header
     a.red_button href="#{guilds_path}"  BACK TO GUILDS
 
-= render partial: "banner", locals:{guild: @guild}
+.guild_banner
+  div class="guild_icon #{@guild.color}"
+    .guild_title = @guild.name
+    a.red_button.right href="#{forum_guild_path()}" Forum
+    #svg = embedded_svg("svg/#{@guild.icon}.svg")
+
 = render "activity"
 
-div.full
-  .dashboard_content_container
-    a.red_button href="#{forum_guild_path()}" Forum
 
 div.full
   .dashboard_content_container

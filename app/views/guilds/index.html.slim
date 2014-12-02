@@ -1,9 +1,13 @@
 .dashboard_content_container
   .header
     a.red_button href="#{new_guild_path}"  Add New Guild
-  .header
-    a.red_button href="#{new_guild_path}"  Join Guild
+    a.red_button.left href="#{joinguild_path}"  Join Guild
 
 div#guilds
-  -  @guilds.each do |guild|
-    = render "guilds/banner", guild: guild
+  - if @guilds.count > 0
+    -  @guilds.each do |guild|
+      = render "guilds/banner", guild: guild
+  - else
+    a.guild_banner
+      div class="guild_icon gray"
+        .guild_title.center.relative You are currently in no guilds
