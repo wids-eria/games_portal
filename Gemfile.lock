@@ -26,7 +26,7 @@ GIT
 
 GIT
   remote: git://github.com/wids-eria/omniauth-ada.git
-  revision: df6cf4d26c4e414a03f0b01da612d99d20bff5a4
+  revision: 2b2c8e2fba33a30b71034f9b59abcc47c23ceee1
   specs:
     omniauth-ada (0.0.1)
       omniauth
