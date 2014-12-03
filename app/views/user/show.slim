@@ -7,7 +7,7 @@ div.full
         p
           | Welcome back,
           span.italic.redtext = @user.player_name
-        a.red_button href="#{ENV['SITE_URL']}/users/edit"
+        a.red_button href="#{ENV['ADA_URL']}/users/edit"
             = embedded_svg "svg/gear_svg.svg", class: "gear_svg"
       div.full
         a href="#{guilds_path}"

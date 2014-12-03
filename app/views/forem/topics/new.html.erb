@@ -2,4 +2,5 @@
 
 <h2 class="form_header"><%= t("forem.topic.new") %></h2>
 
+<% flash[:notice] = error_format(@topic.errors)%>
 <%= render "form" %>

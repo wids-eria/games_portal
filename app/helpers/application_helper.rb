@@ -39,4 +39,16 @@ module ApplicationHelper
     end
     doc.to_html.html_safe
   end
+
+  def error_format(errors)
+    if errors.count > 0
+      output = "<div class='error_container'>"
+      errors.each do |error|
+        puts errors[error]
+        output+= "<li class='error'>#{error.to_s.split('.')[-1]} #{errors[error][0].html_safe}</li>"
+      end
+      output += "</div>"
+      return output.html_safe
+    end
+  end
 end

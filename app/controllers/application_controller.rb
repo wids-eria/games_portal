@@ -60,11 +60,13 @@ class ApplicationController < ActionController::Base
   end
 
   def error_format(errors)
-    output = "<div class='error_container'>"
-    errors.full_messages.each do |error|
-      output+= "<li class='error'>#{error}</li>"
+    if errors.count > 0
+      output = "<div class='error_container'>"
+      errors.full_messages.each do |error|
+        output+= "<li class='error'>#{error}</li>"
+      end
+      output += "</div>"
+      return output.html_safe
     end
-    output += "</div>"
-    return output.html_safe
   end
 end
