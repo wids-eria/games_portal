@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.13'
-gem 'devise'
+gem 'devise', '2.2.8'
 gem 'cancan'
 gem 'connection_ninja'
 gem 'kaminari', '0.15.1'
@@ -16,7 +16,7 @@ gem 'haml'
 gem 'pg'
 
 #gem "therubyracer", :require => "v8"
-gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
+gem "paperclip",'4.1.1'
 
 gem 'httparty'
 gem "devise-guests", "~> 0.3.2"
