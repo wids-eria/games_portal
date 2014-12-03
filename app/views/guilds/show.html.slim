@@ -5,11 +5,16 @@
 .guild_banner
   div class="guild_icon #{@guild.color}"
     .guild_title = @guild.name
+    .guild_classname = @guild.class_name
     a.red_button.right href="#{forum_guild_path()}" Forum
     #svg = embedded_svg("svg/#{@guild.icon}.svg")
 
-= render "activity"
+div.module
+  p.subhead
+    | Guild join code: &nbsp;&nbsp;
+    = @guild.code
 
+= render "activity"
 
 div.full
   .dashboard_content_container
