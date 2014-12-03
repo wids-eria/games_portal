@@ -1,16 +1,21 @@
 div.module
   p.subhead Recent Guild Activity
   - found_data = false
+  - count = 0
   - @games.each do |game|
-    - if game.has_data(@user)
+    - if game.has_data(@user) and count <5
+      - count +=1
       .activity_list_item
         p
-          a href="#"  Billy Smith
-          | Played #{game.name}  for
+          a href="#"
+            = @user.player_name
+          | Played #{game.name}  for&nbsp;
           span.bold
-            =Time.at(game.last_playtime(@user).to_i).strftime('%m/%d')
+            = Time.at(game.last_playtime(@user).to_i).strftime('%m/%d')
             | minutes
       - found_data = true
+
   - if ! found_data
-    p No Activity Data Found
+    .activity_list_item
+      p No Activity Data Found
 
