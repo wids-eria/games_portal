@@ -23,8 +23,6 @@ class UserController < ApplicationController
     end
 
     @games = Game.all
-    @recent_topics = @user.guilds.last.forum
-    puts @recent_topics.to_json
   end
 
 end
