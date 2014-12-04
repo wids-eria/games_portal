@@ -1092,6 +1092,77 @@ header{
     }
 }
 
+.instructions{
+    @include full;
+    margin-bottom:50px;
+
+    .section{
+        float:left;
+        margin-top:30px;
+
+        .header{
+            width:980px;
+            margin:0 auto;
+
+            p{
+                margin:0 0 10px 0;
+
+                color: #18222B;
+                font-family: futura-pt;
+                font-weight: 900;
+                font-size: 30px;
+                letter-spacing: 1px;
+                text-transform: uppercase;
+                text-align:center;
+            }
+        }
+
+        .module{
+
+            ol{
+                @include full;
+
+                margin:0 30px;
+
+                li{
+                    font-family: open-sans;
+                    color: #617587;
+                    font-size: 16px;
+                    font-weight: 500;
+                    line-height:40px;
+
+                    a{
+                        font-weight:900;
+                        color:#c72626;
+
+                        &:hover{
+                            text-decoration:underline;
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+
+    .view_as_pdf{
+        @include full;
+
+        margin:30px 0 0 0;
+
+        font-weight:900;
+        color:#c72626;
+        font-size:18px;
+        text-align:center;
+
+        &:hover{
+            text-decoration:underline;
+        }
+
+    }
+}
+
+
 /* End Elements */
 
 

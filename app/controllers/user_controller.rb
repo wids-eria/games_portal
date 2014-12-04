@@ -1,6 +1,6 @@
 class UserController < ApplicationController
-  before_filter :login_required
-  before_filter :must_consent
+  before_filter :login_required, except: [:howto]
+  before_filter :must_consent, except: [:howto]
   skip_authorization_check
 
   def show
@@ -25,4 +25,7 @@ class UserController < ApplicationController
     @games = Game.all
   end
 
+  def howto
+
+  end
 end

@@ -20,6 +20,7 @@ GlsPortal::Application.routes.draw do
   end
 
   devise_for :users
+
   resources :games do
     member do
       get "survey" => "survey#show"
@@ -39,7 +40,7 @@ GlsPortal::Application.routes.draw do
   get 'auth/failure' => 'session#failure'
   get 'users/new_user' => 'session#create'
 
-
+  get :howto, to:'user#howto'
   get 'profile/:name', to:'user#show', as: "profile", :constraints => { :name => /[\w+\.+\ +\%]+/ }
 
   get 'login' => 'session#login'
