@@ -9,7 +9,7 @@ div.module
         p
           a href="#"
             = @user.player_name
-          | Played #{game.name}  for&nbsp;
+          | Played #{game.name}  on&nbsp;
           span.bold
             = Time.at(game.last_playtime(@user).to_i).strftime('%m/%d')
             | minutes
