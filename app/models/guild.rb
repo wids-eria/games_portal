@@ -28,7 +28,7 @@ class Guild < ActiveRecord::Base
   def createforums
     category = Forem::Category.create(name:self.name)
 
-    games = ["Econauts","Virulent","Citizen Science"]
+    games = ["Econauts","Virulent","Citizen Science","Fair Play","Anatomy Browser","Progenitor X"]
     games.each do |game|
       forum  = Forem::Forum.create(name: game, category_id: category.id,description: game)
       GuildForum.create(forem_forums_id:  forum.id, guild_id: self.id)
