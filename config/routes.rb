@@ -41,6 +41,7 @@ GlsPortal::Application.routes.draw do
   get 'users/new_user' => 'session#create'
 
   get :howto, to:'user#howto'
+  get :curricula, to:'user#curricula'
   get 'profile/:name', to:'user#show', as: "profile", :constraints => { :name => /[\w+\.+\ +\%]+/ }
 
   get 'login' => 'session#login'

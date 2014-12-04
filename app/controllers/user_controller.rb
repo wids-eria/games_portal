@@ -26,6 +26,8 @@ class UserController < ApplicationController
   end
 
   def howto
+  end
 
+  def curricula
   end
 end
