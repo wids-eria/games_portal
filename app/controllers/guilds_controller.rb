@@ -43,7 +43,7 @@ class GuildsController < ApplicationController
   end
 
   def index
-    @guilds =  User.find(session[:id]).owned_guilds
+    @guilds =  User.find(session[:id]).guilds
   end
 
   def show
