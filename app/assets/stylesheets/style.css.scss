@@ -831,11 +831,10 @@ header{
         background:#999;
         float:left;
         margin-right:10px;
-        border:1px solid #999;
 
         &:hover{
             cursor:pointer;
-            border:1px solid white;
+            border:1px solid #999;
         }
     }
 }
@@ -1190,21 +1189,36 @@ header{
 ----*/
 .blue{
     background:#9BB2C8 !important;
+    svg{
+        background:#9BB2C8 !important;
+    }
 }
 .pink{
     background:#E58BB3 !important;
+    svg{
+        background:#E58BB3 !important;
+    }
 }
 
 .gray{
     background:rgb(200, 200, 205) !important;
+    svg{
+        background:rgb(200, 200, 205) !important;
+    }
 }
 
 .green{
     background:#AADB89 !important;
+    svg{
+        background:#AADB89 !important;
+    }
 }
 
 .orange{
     background:#EAC275 !important;
+    svg{
+        background:#EAC275 !important;
+    }
 }
 
 .center{

@@ -7,7 +7,9 @@ div.module
     - if count <5
       - count +=1
       .activity_list_item
-        #svg class="guild_icon #{activity.guild.color}" = embedded_svg("svg/#{activity.guild.icon}.svg")
+
+        a href="#{guild_path(activity.guild)}"
+          #svg class="guild_icon #{activity.guild.color}" = embedded_svg("svg/#{activity.guild.icon}.svg")
         p
           a href="#"
             = activity.player_name

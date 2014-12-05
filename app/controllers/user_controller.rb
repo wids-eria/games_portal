@@ -25,7 +25,7 @@ class UserController < ApplicationController
     @games = Game.all
     @recent = []
 
-    GuildForum.where({guild_id: @user.guilds.last.id}).each do |forum|
+    GuildForum.where({guild_id: @user.guilds}).each do |forum|
       unless forum.recent_post.nil?
         data = forum.recent_post
         data[:player_name] = User.find(data.user_id).player_name
@@ -36,7 +36,6 @@ class UserController < ApplicationController
         @recent << data
       end
     end
-
   end
 
   def howto
