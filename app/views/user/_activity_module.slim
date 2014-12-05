@@ -8,7 +8,7 @@ div.module
       - count +=1
       .activity_list_item
 
-        a href="#{guild_path(activity.guild)}"
+        a.icon href="#{guild_path(activity.guild)}"
           #svg class="guild_icon #{activity.guild.color}" = embedded_svg("svg/#{activity.guild.icon}.svg")
         p
           a href="#"
