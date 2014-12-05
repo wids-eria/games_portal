@@ -64,9 +64,7 @@ class GuildsController < ApplicationController
       if @code.valid?
         @guild = Guild.find_by_code(@code.name.downcase)
         if @guild
-          if GuildUser.where(user: current_user,guild: @guild).nil?
-            GuildUser.create(user: current_user,guild: @guild)
-          end
+          GuildUser.create(user: current_user,guild: @guild)
           flash[:notice] = "Joined Guild #{@guild.name}!"
           redirect_to guilds_path
         else
