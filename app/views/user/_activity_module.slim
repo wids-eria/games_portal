@@ -2,20 +2,22 @@ div.module
   p.subhead Recent Guild Activity
   - found_data = false
   - count = 0
-  - @games.each do |game|
-    - if game.has_data(@user) and count <5
+
+  - @recent.each do |activity|
+    - if count <5
       - count +=1
       .activity_list_item
+        #svg class="guild_icon #{activity.guild.color}" = embedded_svg("svg/#{activity.guild.icon}.svg")
         p
           a href="#"
-            = @user.player_name
-          | Played #{game.name}  on&nbsp;
-          span.bold
-            = Time.at(game.last_playtime(@user).to_i).strftime('%m/%d')
-            | minutes
-      - found_data = true
+            = activity.player_name
+          | Posted in Topic&nbsp;
+          = activity.topic.slug
 
+          span.bold
+            | &nbsp;at
+            = Time.at(activity.topic.last_post_at.to_i).strftime('%l:%M%p %A %B %e')
+      - found_data = true
   - if ! found_data
     .activity_list_item
       p No Activity Data Found
-

@@ -23,6 +23,20 @@ class UserController < ApplicationController
     end
 
     @games = Game.all
+    @recent = []
+
+    GuildForum.where({guild_id: @user.guilds.last.id}).each do |forum|
+      unless forum.recent_post.nil?
+        data = forum.recent_post
+        data[:player_name] = User.find(data.user_id).player_name
+        data[:topic] = Forem::Topic.find(data.topic_id)
+        data[:forum] = forum.forum
+        data[:guild] = forum.guild
+
+        @recent << data
+      end
+    end
+
   end
 
   def howto

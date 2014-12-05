@@ -822,6 +822,22 @@ header{
         text-decoration:underline;
         }
     }
+
+    svg{
+        height:31px;
+        width:31px;
+        padding:3px;
+        fill:white;
+        background:#999;
+        float:left;
+        margin-right:10px;
+        border:1px solid #999;
+
+        &:hover{
+            cursor:pointer;
+            border:1px solid white;
+        }
+    }
 }
 
 
