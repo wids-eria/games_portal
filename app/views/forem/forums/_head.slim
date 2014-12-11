@@ -9,13 +9,13 @@ div#banner_container
   - unless @topic.try(:new_record?)
     - if can? :create_topic, @forum
       div#new_topic_button
-        a.red_button#new-topic href="#{forem.new_forum_topic_path(forum)}" New Topic
+        a.red_button#new-topic href="#{forem.new_forum_topic_path(forum.id)}" New Topic
 
 .forum_head
   h2#description = forem_format(forum.title)
   div#forum_topic_links.admin_buttons
     - if @topic
-      = link_to t('forem.topic.links.back_to_topics'), forem.forum_path(forum), :class => "btn"
+      = link_to t('forem.topic.links.back_to_topics'), forem.forum_path(forum.id), :class => "btn"
     - if can? :moderate, @forum
-      a.admin_button#new-topic href="#{forem.forum_moderator_tools_path(forum)}"
+      a.admin_button#new-topic href="#{forem.forum_moderator_tools_path(forum.id)}"
         p Moderation Tools

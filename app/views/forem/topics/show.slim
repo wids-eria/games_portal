@@ -4,16 +4,16 @@
   #menu
     .admin_buttons
       - if @topic.user == forem_user || forem_admin?
-        a.admin_button href="#{forem.forum_topic_path(@forum, @topic)}" data-confirm="Are you sure?" data-method="delete" rel="nofollow"
+        a.admin_button href="#{forem.forum_topic_path(@forum.id, @topic.id)}" data-confirm="Are you sure?" data-method="delete" rel="nofollow"
           p = t(".delete Topic")
       - if forem_admin?
-        a.admin_button href="#{forem.edit_admin_forum_topic_path(@forum, @topic)}"
+        a.admin_button href="#{forem.edit_admin_forum_topic_path(@forum.id, @topic.id)}"
           p = t("forem.topic.links.edit")
-        a.admin_button href="#{forem.toggle_hide_admin_forum_topic_path(@forum, @topic)}" data-method="put"
+        a.admin_button href="#{forem.toggle_hide_admin_forum_topic_path(@forum.id, @topic.id)}" data-method="put"
           p = t(".hide.#{@topic.hidden}")
-        a.admin_button href="#{forem.toggle_lock_admin_forum_topic_path(@forum, @topic)}" data-method="put"
+        a.admin_button href="#{forem.toggle_lock_admin_forum_topic_path(@forum.id, @topic.id)}" data-method="put"
           p = t(".lock.#{@topic.locked}")
-        a.admin_button href="#{forem.toggle_pin_admin_forum_topic_path(@forum, @topic)}" data-method="put"
+        a.admin_button href="#{forem.toggle_pin_admin_forum_topic_path(@forum.id, @topic.id)}" data-method="put"
           p = t(".pin.#{@topic.pinned}")
 
     .paginate = paginate @posts
@@ -23,7 +23,7 @@
       = @topic
       #started = "Started by #{@topic.user.name}"
     - if @topic.can_be_replied_to? && can?(:reply, @topic)
-      a.red_button.right href="#{forem.new_forum_topic_post_path(@forum, @topic)}"
+      a.red_button.right href="#{forem.new_forum_topic_post_path(@forum.id, @topic.id)}"
          = t(".reply")
   #posts
     = render :partial => "forem/posts/post", :collection => @posts

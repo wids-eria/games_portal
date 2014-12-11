@@ -22,15 +22,15 @@ a name='post-#{post.id}'
         .admin_buttons
           - if can?(:reply, post.topic)
             - if post.topic.can_be_replied_to?
-              a.admin_button href="#{forem.new_forum_topic_post_path(post.forum, post.topic, :reply_to_id => post.id)}"
+              a.admin_button href="#{forem.new_forum_topic_post_path(post.forum.id, post.topic, :reply_to_id => post.id)}"
                 p = t('reply', :scope => 'forem.topic')
-              a.admin_button href="#{forem.new_forum_topic_post_path(post.forum, post.topic, :reply_to_id => post.id, :quote => true)}"
+              a.admin_button href="#{forem.new_forum_topic_post_path(post.forum.id, post.topic, :reply_to_id => post.id, :quote => true)}"
                 p = t('quote', :scope => 'forem.topic')
           - if post.owner_or_admin?(forem_user)
             - if can?(:edit_post, post.topic.forum)
-              a.admin_button href="#{forem.edit_forum_topic_post_path(post.forum, post.topic, post)}"
+              a.admin_button href="#{forem.edit_forum_topic_post_path(post.forum.id, post.topic, post)}"
                 p = "Edit"
             - if can?(:destroy_post, post.topic.forum)
-              a.admin_button href="#{forem.forum_topic_post_path(post.forum, post.topic, post)}" data-confirm="Are you sure?" data-method="delete" rel="nofollow"
+              a.admin_button href="#{forem.forum_topic_post_path(post.forum.id, post.topic, post)}" data-confirm="Are you sure?" data-method="delete" rel="nofollow"
                 p = t('delete', :scope => 'forem.topic')
 
