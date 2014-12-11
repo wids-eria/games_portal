@@ -36,7 +36,11 @@ html{ overflow:scroll; background:url(bg.png) #f5f5f5 no-repeat;  }
 
 body{ font-family:verdana; font-size:12px; }
 
-a{ text-decoration:none; }
+a{
+    text-decoration:none;
+    color: #c72626;
+    font-family: open sans;
+}
     a:hover{  }
 
 p,input{
@@ -1396,6 +1400,204 @@ footer{  }
     }
 }
 /* End Modifications */
+
+
+
+
+
+/*------------------------------------------------------------------
+
+    Responsive Styles
+    
+-------------------------------------------------------------------*/
+
+@import 'mixins';
+
+@media (max-width:1000px){
+    
+    .page_wrap{
+        width:100%;
+        float:left;
+        padding:0 20px;
+    }
+    
+    header{
+        width:100%;
+        float:left;
+        padding:0 20px;
+        
+        .navigation_container{
+            width:100%;
+            float:left;
+        }
+    }
+    
+    .instructions{
+        width:100%;
+            float:left;
+            
+        .section{
+            width:100%;
+            float:left;
+            
+            .header{
+                width:100%;
+                float:left;
+            }
+        }
+    }
+    
+    .main_content,
+    .full{
+        width:100%;
+        float:left;
+    }
+    
+    .guilds_button,
+    .curricula_button,
+    .howto_button{
+        width:31.75%;
+    }
+    
+    .guilds_button{ 
+        svg{
+            margin: 50px 0 0 95px;
+        }
+    }
+    
+    .curricula_button{
+        svg{
+            margin: 50px 0 0 100px;
+        }
+    }
+    
+    .howto_button{
+        svg{
+            margin: 50px 0 0 85px;
+        }
+    }
+    
+    .featured_game_econauts{
+        width:100%;
+        float:left;
+        margin-left:0px;
+    }
+    
+    .game_button{
+        width:31.05%;
+        margin:10px 10px 10px 10px;
+        
+        .game_label{
+            width:100%;
+        }
+        
+        .econauts_thumb,
+        .crystals_of_kaydor_thumb,
+        .progenitor_x_thumb,
+        .fair_play_thumb,
+        .anatomy_browser_thumb,
+        .virulent_thumb,
+        .citizen_science_thumb{
+            width:100%;
+        }
+    }
+    
+}
+
+
+@media (min-device-width: 519px) and (max-devide-width:1000px){
+    
+    .page_wrap{
+        width:100%;
+        float:left;
+        padding:0 20px;
+    }
+    
+    header{
+        width:100%;
+        float:left;
+        padding:0 20px;
+        
+        .navigation_container{
+            width:100%;
+            float:left;
+        }
+    }
+    
+    .instructions{
+        width:100%;
+            float:left;
+            
+        .section{
+            width:100%;
+            float:left;
+            
+            .header{
+                width:100%;
+                float:left;
+            }
+        }
+    }
+    
+    .main_content,
+    .full{
+        width:100%;
+        float:left;
+    }
+    
+    .guilds_button,
+    .curricula_button,
+    .howto_button{
+        width:31.75%;
+    }
+    
+    .guilds_button{ 
+        svg{
+            margin: 50px 0 0 95px;
+        }
+    }
+    
+    .curricula_button{
+        svg{
+            margin: 50px 0 0 100px;
+        }
+    }
+    
+    .howto_button{
+        svg{
+            margin: 50px 0 0 85px;
+        }
+    }
+    
+    .featured_game_econauts{
+        width:100%;
+        float:left;
+        margin-left:0px;
+    }
+    
+    .game_button{
+        width:31.05%;
+        margin:10px 10px 10px 10px;
+        
+        .game_label{
+            width:100%;
+        }
+        
+        .econauts_thumb,
+        .crystals_of_kaydor_thumb,
+        .progenitor_x_thumb,
+        .fair_play_thumb,
+        .anatomy_browser_thumb,
+        .virulent_thumb,
+        .citizen_science_thumb{
+            width:100%;
+        }
+    }
+    
+}
+
+
+
 
 
 
