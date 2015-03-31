@@ -41,6 +41,10 @@ class SessionController < ApplicationController
       session[:id] = auth_response['uid']
 
       User.create_from_session(session)
+      flash[:notice] = %Q[QR Login Successful!].html_safe
+    else
+
+      flash[:notice] = %Q[Invalid QR Login!].html_safe
     end
 
     redirect_to return_path
@@ -53,7 +57,9 @@ class SessionController < ApplicationController
 
   def destroy
     reset_session
-    flash[:notice] = %Q[You have been logged out of the Game Portal but are still logged into your <a href="#{ENV['ADA_URL']}">GLS account.</a>].html_safe
+    HTTParty.delete(ENV['ADA_URL']+"/users/sign_out",redirect_uri: ENV['SITE_URL'])
+
+    flash[:notice] = %Q[You have been logged out of the Games Portal!].html_safe
 
     redirect_to root_url
   end
