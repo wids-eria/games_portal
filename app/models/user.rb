@@ -73,8 +73,6 @@ class User < ActiveRecord::Base
   end
 
   def can_view_user(other)
-    puts other.to_json
-    puts self.to_json
     if other.id == self.id
       return true
     end

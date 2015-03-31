@@ -45,6 +45,7 @@ GlsPortal::Application.routes.draw do
   get 'profile/:name', to:'user#show', as: "profile", :constraints => { :name => /[\w+\.+\ +\%]+/ }
 
   get 'login' => 'session#login'
+  get 'qr_login' => 'session#qr_login'
   get 'guest' => 'session#create_guest'
   delete 'logout' => 'session#destroy'
 
